@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   color: black;
+
   margin-left: 13rem;
   margin-right: 13rem;
   margin-bottom: 20rem;

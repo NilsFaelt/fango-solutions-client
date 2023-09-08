@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
   margin-left: 3rem;
   margin-right: 3rem;
@@ -12,5 +13,6 @@ export const Container = styled.div`
   @media (max-width: ${mediaQueries.tablet}) {
     margin-left: 0rem;
     margin-right: 0rem;
+    flex-wrap: wrap;
   }
 `;

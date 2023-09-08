@@ -1,4 +1,4 @@
 export const mediaQueries = {
-  tablet: "768px",
+  tablet: "1068px",
   mobile: " 576px",
 };

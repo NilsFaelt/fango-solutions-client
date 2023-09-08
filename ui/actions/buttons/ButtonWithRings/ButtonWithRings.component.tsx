@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
   Container,
   StyledImage,
@@ -6,14 +6,18 @@ import {
 } from "./ButtonWithRings.style";
 import { StyledLink } from "@/styles";
 
-export function ButtonWithRings() {
+interface Props {
+  svgSrc: string;
+}
+
+export const ButtonWithRings: FC<Props> = ({ svgSrc }) => {
   return (
     <StyledLink href={"/"}>
       <OuterContainer>
         <Container>
           <StyledImage
             alt='Logo of house'
-            src={"/svg/house.svg"}
+            src={svgSrc}
             height={25}
             width={25}
           />
@@ -21,4 +25,4 @@ export function ButtonWithRings() {
       </OuterContainer>
     </StyledLink>
   );
-}
+};

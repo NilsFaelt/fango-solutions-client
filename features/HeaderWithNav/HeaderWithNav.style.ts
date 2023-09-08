@@ -35,6 +35,7 @@ from{ height: 0vh;
 `;
 
 export const Container = styled.header`
+  z-index: 2;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -47,13 +48,13 @@ export const Container = styled.header`
   height: 7rem;
   background-color: transparent;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 2rem;
 
   @media (max-width: 768px) {
   }
   @media (max-width: 576px) {
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
   }
 `;
 

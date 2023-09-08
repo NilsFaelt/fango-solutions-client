@@ -52,6 +52,7 @@ export const HeaderWithNav: FC<Props> = () => {
         })}
       </LinksContainer>
       <BurgerMenu setToogleMenu={setToogleMenu} toogleMenu={toogleMenu} /> */}
+      <ButtonWithRings svgSrc='/svg/console.svg' />
     </Container>
   );
 };
