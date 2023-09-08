@@ -1,4 +1,3 @@
-footer 
 loggin 
 create api
 loggin with jwt and refresh api
