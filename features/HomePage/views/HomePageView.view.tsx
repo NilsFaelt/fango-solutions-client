@@ -28,14 +28,14 @@ export const HomePageView: FC = () => {
           categoryText='Your wish our law'
           title='You are the creator'
           text='We dont just  wnat to create what we think is usefull, we want to get your feedback, and build your dream Saas. '
-          imageSrc='https://images.unsplash.com/photo-1499711860525-c485eb341d5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80'
+          imageSrc='https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2938&q=80'
         />
         <TeaserInfo
           categoryColor='allaround'
           categoryText='Get started'
           title='Try for free 3 months'
           text='We will not charge a dime without your consent, After the trail you can just stop using our service and no money will be asked.'
-          imageSrc='https://images.unsplash.com/photo-1499711860525-c485eb341d5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2787&q=80'
+          imageSrc='https://images.unsplash.com/photo-1610305648144-6ed31abe4b04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3033&q=80'
         />
       </MainSection>
     </Container>

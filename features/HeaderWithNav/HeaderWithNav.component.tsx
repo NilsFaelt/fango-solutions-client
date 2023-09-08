@@ -9,6 +9,7 @@ import {
 } from "./HeaderWithNav.style";
 import { BarOne, BarThree, BarTwo, BarWrapper } from "./BurgerMenu.style";
 import { ButtonWithRings } from "@/ui";
+import { LogginAndLoggedIn } from "@/components";
 
 interface Props {}
 interface BurgerMenuProps {
@@ -52,7 +53,7 @@ export const HeaderWithNav: FC<Props> = () => {
         })}
       </LinksContainer>
       <BurgerMenu setToogleMenu={setToogleMenu} toogleMenu={toogleMenu} /> */}
-      <ButtonWithRings svgSrc='/svg/console.svg' />
+      <LogginAndLoggedIn />
     </Container>
   );
 };
