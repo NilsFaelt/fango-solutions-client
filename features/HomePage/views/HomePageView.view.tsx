@@ -8,7 +8,7 @@ export const HomePageView: FC = () => {
   return (
     <Container>
       <MainTitle
-        text='A new saas service '
+        text='FANGO SOLUTIONS '
         underText='Simplfied to suit evryone'
       />
 

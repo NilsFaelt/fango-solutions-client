@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+  color: white;
 `;
 export const PrimaryText = styled.p`
   font-size: 1rem;
