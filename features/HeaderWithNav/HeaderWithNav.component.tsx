@@ -8,6 +8,7 @@ import {
   StyledLinkLogo,
 } from "./HeaderWithNav.style";
 import { BarOne, BarThree, BarTwo, BarWrapper } from "./BurgerMenu.style";
+import { ButtonWithRings } from "@/ui";
 
 interface Props {}
 interface BurgerMenuProps {
@@ -21,20 +22,19 @@ export const HeaderWithNav: FC<Props> = () => {
     { text: "Home", href: "/" },
     { text: "About", href: "/about" },
     { text: "Contact", href: "/" },
-    { text: "Whitepaper", href: "/" },
   ];
   return (
     <Container>
       <StyledLinkLogo style={{ width: "auto" }} href={"/"}>
-        <LogoImage
+        {/* <LogoImage
           priority
           src={"/heart.svg"}
           alt={"next logo"}
           width={15}
           height={15}
-        />
+        /> */}
       </StyledLinkLogo>
-      <LinksContainer
+      {/* <LinksContainer
         $menuanimationstate={
           toogleMenu === null ? "stale" : toogleMenu === true ? "open" : "close"
         }
@@ -51,7 +51,7 @@ export const HeaderWithNav: FC<Props> = () => {
           );
         })}
       </LinksContainer>
-      <BurgerMenu setToogleMenu={setToogleMenu} toogleMenu={toogleMenu} />
+      <BurgerMenu setToogleMenu={setToogleMenu} toogleMenu={toogleMenu} /> */}
     </Container>
   );
 };

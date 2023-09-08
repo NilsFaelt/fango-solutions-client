@@ -1,9 +1,9 @@
 import StyledComponentsRegistry from "@/lib/registry";
 import { ProviderWrapper } from "@/provider";
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 
-const inter = Roboto_Mono({ subsets: ["latin"] });
+const kanit = Kanit({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>
+      <body className={kanit.className}>
         <StyledComponentsRegistry>
           <ProviderWrapper>{children}</ProviderWrapper>
         </StyledComponentsRegistry>

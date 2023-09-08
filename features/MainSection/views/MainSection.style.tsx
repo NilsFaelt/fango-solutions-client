@@ -3,14 +3,14 @@ import { styled } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  color: black;
-  margin-left: 13rem;
-  margin-right: 13rem;
-  margin-bottom: 20rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 3rem;
+  margin-right: 3rem;
   margin-top: 3rem;
   @media (max-width: ${mediaQueries.tablet}) {
-    margin-left: 3rem;
-    margin-right: 3rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
   }
 `;

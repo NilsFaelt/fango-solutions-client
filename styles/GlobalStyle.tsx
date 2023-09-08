@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components";
-import { roboto_mono } from ".";
 
 export const GlobalStyle = createGlobalStyle`
   body {
+    font-family:serif;
     padding:0;
     margin:0;
-    background-color:white;
+    background-color:black;
     color:white;  
   }
 `;

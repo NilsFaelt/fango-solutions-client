@@ -44,8 +44,8 @@ export const Container = styled.header`
   left: 0;
   width: 100vw;
   box-sizing: border-box;
-  height: 5rem;
-  background-color: white;
+  height: 7rem;
+  background-color: transparent;
   padding-left: 1rem;
   padding-right: 1rem;
 
@@ -63,7 +63,7 @@ export const LinksContainer = styled.nav<LinksContainerProps>`
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  background-color: white;
+  background-color: black;
 
   @media (max-width: 768px) {
     width: 100vw;
