@@ -21,9 +21,9 @@ export const HomePageView: FC = () => {
         <TeaserInfo
           categoryColor='main'
           categoryText='Saas'
-          title='A new saas in town'
+          title='A new sheriff in town'
           text='Created by the user, for the user, to make your workday a smile.'
-          imageSrc='/images/star-wars.webp'
+          imageSrc='/images/sherif.webp'
         />
         <TeaserInfo
           categoryColor='tech'
@@ -37,14 +37,14 @@ export const HomePageView: FC = () => {
           categoryText='Your wish our law'
           title='You are the creator'
           text='With your feedback we will do all we can to update the product to fit your needs. This product is for the user, not the developer.'
-          imageSrc='/images/star-wars.webp'
+          imageSrc='/images/painter.webp'
         />
         <TeaserInfo
           categoryColor='allaround'
           categoryText='Get started'
           title='Try for free 3 months'
           text='We will not charge a dime without your consent, After the trail you can just stop using our service and no money will be asked.'
-          imageSrc='/images/star-wars.webp'
+          imageSrc='/images/journey.webp'
         />
       </MainSection>
     </Container>
