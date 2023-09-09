@@ -3,6 +3,7 @@ import { Container } from "./HomePageView.style";
 import { MainTextContainer, TeaserInfo } from "@/components";
 import MainSection from "@/features/MainSection/views/MainSection.view";
 import { MainTitle } from "@/ui";
+import { Loggin } from "@/features";
 
 export const HomePageView: FC = () => {
   return (
@@ -47,6 +48,7 @@ export const HomePageView: FC = () => {
           imageSrc='/images/journey.webp'
         />
       </MainSection>
+      <Loggin />
     </Container>
   );
 };
