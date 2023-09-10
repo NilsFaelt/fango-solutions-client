@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   position: fixed;
+  gap: 1rem;
   padding: 2rem;
   top: 50%;
   left: 50%;
@@ -12,6 +13,7 @@ export const Container = styled.div`
   width: 20rem;
   height: 30rem;
   border-radius: 1rem;
+  border: 0.05rem solid white;
   box-shadow: 0.5rem 0.5rem 0.5rem black;
   background-color: white;
   background-image: url("/images/pattern.png");

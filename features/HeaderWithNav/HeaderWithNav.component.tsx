@@ -1,14 +1,6 @@
 "use client";
 import { Dispatch, FC, SetStateAction, useState } from "react";
-import {
-  Container,
-  LinksContainer,
-  LogoImage,
-  StyledLink,
-  StyledLinkLogo,
-} from "./HeaderWithNav.style";
-import { BarOne, BarThree, BarTwo, BarWrapper } from "./BurgerMenu.style";
-import { ButtonWithRings } from "@/ui";
+import { Container, StyledLinkLogo } from "./HeaderWithNav.style";
 import { LogginAndLoggedIn } from "@/components";
 
 interface Props {}
@@ -26,48 +18,10 @@ export const HeaderWithNav: FC<Props> = () => {
   ];
   return (
     <Container>
-      <StyledLinkLogo style={{ width: "auto" }} href={"/"}>
-        {/* <LogoImage
-          priority
-          src={"/heart.svg"}
-          alt={"next logo"}
-          width={15}
-          height={15}
-        /> */}
-      </StyledLinkLogo>
-      {/* <LinksContainer
-        $menuanimationstate={
-          toogleMenu === null ? "stale" : toogleMenu === true ? "open" : "close"
-        }
-      >
-        {Links.map((link, i) => {
-          return (
-            <StyledLink
-              onClick={() => setToogleMenu(false)}
-              key={i}
-              href={link.href}
-            >
-              {link.text}
-            </StyledLink>
-          );
-        })}
-      </LinksContainer>
-      <BurgerMenu setToogleMenu={setToogleMenu} toogleMenu={toogleMenu} /> */}
+      <StyledLinkLogo style={{ width: "auto" }} href={"/"}></StyledLinkLogo>
+
       <LogginAndLoggedIn />
     </Container>
-  );
-};
-
-export const BurgerMenu: FC<BurgerMenuProps> = ({
-  setToogleMenu,
-  toogleMenu,
-}) => {
-  return (
-    <BarWrapper onClick={() => setToogleMenu(!toogleMenu)}>
-      <BarOne />
-      <BarTwo />
-      <BarThree />
-    </BarWrapper>
   );
 };
 
