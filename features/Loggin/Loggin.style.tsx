@@ -21,4 +21,5 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   box-sizing: border-box;
+  z-index: 4;
 `;

@@ -2,7 +2,6 @@ import { FC } from "react";
 import { Container } from "./HomePageView.style";
 import { MainTextContainer, TeaserInfo } from "@/components";
 import { MainTitle } from "@/ui";
-import { Loggin } from "@/features";
 import teaserInfo from "../../../data/json/InfoData.json";
 import MainSection from "@/features/MainSection/views/MainSection.view";
 import { CategoryColorMapType } from "@/styles/colorMaps";
@@ -35,7 +34,6 @@ export const HomePageView: FC = () => {
           );
         })}
       </MainSection>
-      <Loggin />
     </Container>
   );
 };

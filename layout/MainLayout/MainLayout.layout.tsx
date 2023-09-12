@@ -1,6 +1,6 @@
 import React, { FC, ReactNode } from "react";
 import { Container } from "./MainLayout.style";
-import { HeaderWithNav } from "@/features";
+import { HeaderWithNav, Loggin } from "@/features";
 import { Footer } from "@/components";
 
 interface Props {
@@ -11,6 +11,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
   return (
     <Container>
       <HeaderWithNav />
+      <Loggin />
       {children}
       <Footer />
     </Container>

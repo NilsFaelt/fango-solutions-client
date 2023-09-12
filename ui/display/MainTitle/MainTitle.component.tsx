@@ -12,11 +12,11 @@ interface Props {
 
 export const MainTitle: FC<Props> = ({ text, underText, linkUrl }) => {
   return (
-    <StyledLink href={linkUrl ? linkUrl : ""}>
-      <Container>
+    <Container>
+      <StyledLink href={linkUrl ? linkUrl : ""}>
         <Title className={bebasNeue.className}>{text}</Title>
         <UnderText className={dancingScript.className}>{underText}</UnderText>
-      </Container>
-    </StyledLink>
+      </StyledLink>
+    </Container>
   );
 };
