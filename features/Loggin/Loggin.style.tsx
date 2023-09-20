@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -22,4 +23,11 @@ export const Container = styled.div`
   background-position: center;
   box-sizing: border-box;
   z-index: 4;
+`;
+
+export const StyledLink = styled(Link)`
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  margin-top: 1rem;
 `;

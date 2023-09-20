@@ -7,9 +7,11 @@ export const Footer: FC = () => {
   return (
     <Container>
       <LinksContainer>
-        <StyledLink href={"/"}>LOGIN</StyledLink>
-        <StyledLink href={"/"}>CONTACT</StyledLink>
-        <StyledLink href={"/"}>ABOUT</StyledLink>
+        <StyledLink href={"/"}>HOME</StyledLink>
+        <StyledLink href={"/contact"}>CONTACT</StyledLink>
+        <StyledLink href={"/display-info/3d0c0ce2-5145-11ee-be56-0242ac120002"}>
+          ABOUT
+        </StyledLink>
       </LinksContainer>
       <ShareButton />
     </Container>
