@@ -1,8 +1,8 @@
 "use client";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import { Container, StyledLinkLogo } from "./HeaderWithNav.style";
-import { LogginAndLoggedIn } from "@/components";
-import { PrimaryButton } from "@/ui";
+
+import { LogginButton } from "@/ui";
 
 interface Props {}
 interface BurgerMenuProps {
@@ -21,7 +21,7 @@ export const HeaderWithNav: FC<Props> = () => {
     <Container>
       <StyledLinkLogo style={{ width: "auto" }} href={"/"}></StyledLinkLogo>
 
-      <PrimaryButton text='LOGGIN' />
+      <LogginButton />
     </Container>
   );
 };
