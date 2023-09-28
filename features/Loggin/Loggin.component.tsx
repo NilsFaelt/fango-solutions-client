@@ -10,14 +10,14 @@ export const Loggin = () => {
 
   const { toogleLoggin, setToogleLoggin } = useContext(MenuContext);
   const [credentials, setCredentials] = useState({
-    username: "",
+    email: "",
     password: "",
   });
   const handleUsernameChange = (e: any) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
-  const handleClick = () => {
-    console.log(credentials);
+  const handleClick = async () => {
+    console.log(credentials, " in handle click");
   };
   useClickOustsideToClose(logginRef, setToogleLoggin);
   if (!toogleLoggin) return null;
@@ -26,10 +26,10 @@ export const Loggin = () => {
     <Container ref={logginRef}>
       <MainTitle text='LOGGIN' underText='To console' />
       <PrimaryInput
-        placeholder='Username'
+        placeholder='email'
         type='text'
-        name='username'
-        value={credentials.username}
+        name='email'
+        value={credentials.email}
         onChange={handleUsernameChange}
       />
       <PrimaryInput

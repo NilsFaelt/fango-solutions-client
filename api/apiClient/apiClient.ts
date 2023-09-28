@@ -1,7 +1,7 @@
 const BASE_URL =
   process.env.NODE_ENV === "production"
     ? "https://api.myproductiondomain.com"
-    : "https://pokeapi.co/api/v2/pokemon/";
+    : "http://localhost:3000";
 
 export const apiClient = async <T = any>(
   endpoint: string,
