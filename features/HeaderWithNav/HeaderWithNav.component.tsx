@@ -21,7 +21,7 @@ export const HeaderWithNav: FC<Props> = () => {
     <Container>
       <StyledLinkLogo style={{ width: "auto" }} href={"/"}></StyledLinkLogo>
 
-      <PrimaryButton text='LOGGIN and' />
+      <PrimaryButton text='LOGGIN' />
     </Container>
   );
 };
