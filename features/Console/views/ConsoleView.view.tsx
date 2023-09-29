@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Container, TitleWrapper } from "./ConsoleView.style";
-import { MainTitle } from "@/ui";
+import { AddButton, MainTitle } from "@/ui";
+import { ProfileCard } from "@/components";
 
 export const ConsoleView: FC = () => {
   return (
@@ -12,6 +13,7 @@ export const ConsoleView: FC = () => {
           underText='Simplfied to suit evryone'
         />
       </TitleWrapper>
+      <AddButton />
     </Container>
   );
 };

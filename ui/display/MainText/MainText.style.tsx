@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 interface Props {
-  fontsize: "12" | "16" | "24";
+  fontSize: "12" | "16" | "24";
   color: "black" | "white";
 }
 
 export const Text = styled.p<Props>`
-  font-size: ${(props) => props.fontsize};
+  font-size: ${(props) => props.fontSize};
   color: ${(props) => props.color};
 `;
