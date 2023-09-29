@@ -8,11 +8,12 @@ import { StyledLink } from "@/styles";
 
 interface Props {
   svgSrc: string;
+  href: string;
 }
 
-export const ButtonWithRings: FC<Props> = ({ svgSrc }) => {
+export const ButtonWithRings: FC<Props> = ({ svgSrc, href }) => {
   return (
-    <StyledLink href={"/"}>
+    <StyledLink href={href}>
       <OuterContainer>
         <Container>
           <StyledImage

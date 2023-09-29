@@ -1,10 +1,14 @@
 "use client";
-import { ContactView } from "@/features/Contact";
-import { MainLayout } from "@/layout";
+import { ConsoleView } from "@/features";
+import { ConsoleLayout } from "@/layout/ConsoleLayout";
 import React from "react";
 
 const page = () => {
-  return <MainLayout>console</MainLayout>;
+  return (
+    <ConsoleLayout>
+      <ConsoleView />
+    </ConsoleLayout>
+  );
 };
 
 export default page;
