@@ -17,22 +17,22 @@ export const LogginButton: FC = () => {
       signInWithPopup(auth, googleProvider)
         .then(({ user }) => {
           console.log(user, " lalaalallal");
-          auth.currentUser?.getIdToken().then((token) =>
-            fetch(`http://localhost:3000/user`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`, // Use the retrieved token here
-              },
-              body: JSON.stringify({
-                user: {
-                  id: user?.uid,
-                  email: user?.email,
-                  userName: user.displayName,
-                },
-              }),
-            })
-          );
+          // auth.currentUser?.getIdToken().then((token) =>
+          //   fetch(`http://localhost:3000/user`, {
+          //     method: "POST",
+          //     headers: {
+          //       "Content-Type": "application/json",
+          //       Authorization: `Bearer ${token}`, // Use the retrieved token here
+          //     },
+          //     body: JSON.stringify({
+          //       user: {
+          //         id: user?.uid,
+          //         email: user?.email,
+          //         userName: user.displayName,
+          //       },
+          //     }),
+          //   })
+          // );
         })
         .then(() => {
           router.push(`/console`);
