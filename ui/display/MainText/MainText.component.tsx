@@ -3,17 +3,17 @@ import { Text } from "./MainText.style";
 
 interface Props {
   children: string;
-  fontsize?: "12" | "16" | "24";
+  fontSize?: "12" | "16" | "24";
   color?: "black" | "white";
 }
 
 export const MainText: FC<Props> = ({
   children,
-  fontsize = "12",
+  fontSize = "12",
   color = "white",
 }) => {
   return (
-    <Text fontsize={fontsize} color={color}>
+    <Text fontSize={fontSize} color={color}>
       {children}
     </Text>
   );
