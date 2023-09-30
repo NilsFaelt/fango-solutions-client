@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Container, TitleWrapper } from "./ConsoleView.style";
 import { AddButton, MainTitle } from "@/ui";
-import { ProfileCard } from "@/components";
+import { DisplayBookmark, ProfileCard } from "@/components";
 
 export const ConsoleView: FC = () => {
   return (
@@ -14,6 +14,9 @@ export const ConsoleView: FC = () => {
         />
       </TitleWrapper>
       <AddButton />
+      <DisplayBookmark />
+      <DisplayBookmark />
+      <DisplayBookmark />
     </Container>
   );
 };
