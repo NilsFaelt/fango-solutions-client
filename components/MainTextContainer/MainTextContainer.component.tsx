@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import { Container } from "./MainTextContainer.style";
 import { MainTitle } from "@/ui";
-import { PrimaryText } from "@/styles";
+
+import { MainText } from "@/ui/display/MainText/MainText.component";
 
 interface Props {
   title?: string;
@@ -13,7 +14,7 @@ export const MainTextContainer: FC<Props> = ({ title, text, underTitle }) => {
   return (
     <Container>
       <MainTitle text={title ? title : ""} underText={underTitle} />
-      <PrimaryText>{text}</PrimaryText>
+      <MainText>{text}</MainText>
     </Container>
   );
 };
