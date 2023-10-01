@@ -25,7 +25,3 @@ export const HeaderWithNav: FC<Props> = () => {
     </Container>
   );
 };
-
-//to skip animation when changing page: onClick={() => setToogleMenu(null)}
-//Pnpm/npm: styled-components
-//If needed update to server-component by removeing "use client"
