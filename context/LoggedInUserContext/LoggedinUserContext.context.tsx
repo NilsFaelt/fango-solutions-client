@@ -1,6 +1,10 @@
+interface LoggedInUser {
+  displayName: string;
+  photoURL: string;
+}
 interface MenuContextInterface {
-  loggedInUserId: null | string;
-  setLoggedInUserId: Dispatch<SetStateAction<null | string>>;
+  loggedInUser: null | LoggedInUser;
+  setLoggedInUser: Dispatch<SetStateAction<null | LoggedInUser>>;
 }
 
 import { auth } from "@/firebase";
@@ -16,22 +20,26 @@ import {
 } from "react";
 
 export const LoggedinUserContext = createContext<MenuContextInterface>({
-  loggedInUserId: null,
-  setLoggedInUserId: () => {},
+  loggedInUser: null,
+  setLoggedInUser: () => {},
 });
 
 export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [loggedInUserId, setLoggedInUserId] = useState<null | string>(null);
+  const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setLoggedInUserId(user?.uid ? user.uid : null);
+      console.log(user, " in contex");
+      setLoggedInUser({
+        displayName: user?.displayName ? user.displayName : "",
+        photoURL: user?.photoURL ? user.photoURL : "",
+      });
     });
     return () => unsubscribe();
   }, []);
   return (
-    <LoggedinUserContext.Provider value={{ loggedInUserId, setLoggedInUserId }}>
+    <LoggedinUserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
       {children}
     </LoggedinUserContext.Provider>
   );
