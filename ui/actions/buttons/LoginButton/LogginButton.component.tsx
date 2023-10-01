@@ -75,7 +75,6 @@ export const LogginButton: FC = () => {
       ) : (
         <>
           {" "}
-          <button onClick={handleLogout}>loggou</button>{" "}
           <ButtonWithRings
             href='/console'
             svgSrc='/svg/console.svg'

@@ -4,11 +4,9 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
   color: black;
+  background-color: white;
   @media (max-width: ${mediaQueries.tablet}) {
   }
-`;
-export const TitleWrapper = styled.div`
-  margin-top: 1rem;
-  margin-left: 2vw;
 `;
