@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { Button, Container, SvgImage } from "./SIgnOutButton.style";
+import { Button, Container, SvgImage } from "./SignoutButton.style";
 import { signOut } from "firebase/auth";
 import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 
-export const SIgnOutButton = () => {
+export const SignoutButton = () => {
   const router = useRouter();
   const handleLogout = () => {
     try {

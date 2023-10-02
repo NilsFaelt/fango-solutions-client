@@ -1,1 +1,1 @@
-export { SIgnOutButton } from "./SIgnOutButton.component";
+export { SignoutButton } from "./SignoutButton.component";

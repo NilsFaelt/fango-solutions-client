@@ -1,4 +1,3 @@
-import { theme } from "@/styles";
 import { styled } from "styled-components";
 
 export const Container = styled.button`
@@ -7,8 +6,8 @@ export const Container = styled.button`
   justify-content: center;
   background-color: black;
   border-radius: 50%;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
   border: 0.1rem solid white;
   font-size: 1rem;
   color: white;
@@ -17,8 +16,8 @@ export const Container = styled.button`
   transition: background-color 1s, color 1s, box-shadow 1s; /* Add transitions here */
 
   &:hover {
-    background-color: ${theme.colors.primary};
-    color: white;
+    background-color: white;
+    color: black;
     box-shadow: 0.1rem 0.1rem 0.1rem grey;
     transition: background-color 0.5s, color 1s, box-shadow 1s; /* Add transitions here */
   }
