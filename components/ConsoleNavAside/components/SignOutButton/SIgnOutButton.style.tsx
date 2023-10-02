@@ -12,7 +12,7 @@ export const Button = styled.button`
   color: white;
   border: none;
   background-color: transparent;
-
+  font-size: 16px;
   cursor: pointer;
 `;
 export const SvgImage = styled(Image)`

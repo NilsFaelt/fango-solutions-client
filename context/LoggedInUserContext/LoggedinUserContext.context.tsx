@@ -30,7 +30,6 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user, " in contex");
       setLoggedInUser({
         displayName: user?.displayName ? user.displayName : "",
         photoURL: user?.photoURL ? user.photoURL : "",
