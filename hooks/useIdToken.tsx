@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 const getToken = async () => {
   try {
     const user = auth.currentUser;
+
     if (user) {
       const idToken = await user.getIdToken();
       return idToken;
