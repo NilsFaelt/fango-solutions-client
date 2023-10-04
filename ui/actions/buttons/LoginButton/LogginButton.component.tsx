@@ -5,6 +5,7 @@ import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { ButtonWithRings } from "..";
+import { Spinner } from "@/ui";
 
 export const LogginButton: FC = () => {
   const router = useRouter();
@@ -65,7 +66,7 @@ export const LogginButton: FC = () => {
     });
     return () => unsubscribe();
   }, []);
-
+  if (isLoading) return <Spinner />;
   return (
     <>
       {!user ? (
