@@ -1,12 +1,13 @@
-import { mediaQueries } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  flex-wrap: wrap;
+  margin-top: 7rem;
+  margin-left: calc(8rem + 6vw);
+  width: auto;
+
+  padding: 3rem;
   color: black;
-  background-color: none;
-  @media (max-width: ${mediaQueries.tablet}) {
-  }
 `;

@@ -1,3 +1,4 @@
+import { theme } from "@/styles";
 import Image from "next/image";
 import { styled } from "styled-components";
 
@@ -13,6 +14,8 @@ export const Container = styled.div`
   height: Authorization;
   border-radius: 1rem;
   border: 0.1rem solid black;
+  background-color: ${theme.colors.primary};
+  border: 0.1rem solid black;
 `;
 
 export const StyledImage = styled.img`
@@ -26,7 +29,7 @@ export const StyledImage = styled.img`
 export const Name = styled.h4`
   text-align: center;
   font-size: 1.2rem;
-  color: black;
+  color: white;
   margin: 0;
   margin-left: -0.7rem;
 `;
