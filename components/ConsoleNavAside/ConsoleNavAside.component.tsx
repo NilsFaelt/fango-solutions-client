@@ -7,7 +7,7 @@ import { NavLink } from "./components";
 export const ConsoleNavAside = () => {
   return (
     <Container>
-      <MainTitle linkUrl='/' text='FANGO SOLUTIONS' />
+      <MainTitle linkUrl='/' text='FANGO SOLUTIONS' underText='Console' />
       <NavLink text='OVERVIEW' linkPath='/console' svgPath='/svg/eye.svg' />
       <InnerLinkContainer>
         <NavLink

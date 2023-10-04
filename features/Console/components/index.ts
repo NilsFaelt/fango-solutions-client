@@ -1,1 +1,1 @@
-export * from "./DisplayBookmark";
+export * from "../../../components/DisplayBookmark";

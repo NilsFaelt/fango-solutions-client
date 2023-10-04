@@ -13,6 +13,7 @@ export const Container = styled.nav`
   height: 100%;
   width: calc(8rem + 6vw);
   background-color: black;
+  border-right: 0.05rem solid white;
 `;
 export const InnerLinkContainer = styled.nav`
   display: flex;
