@@ -5,6 +5,10 @@ import { DisplayBookmark } from "@/components";
 export const DisplayBookmarks: FC = () => {
   return (
     <Container>
+      <DisplayBookmark /> <DisplayBookmark /> <DisplayBookmark />{" "}
+      <DisplayBookmark /> <DisplayBookmark /> <DisplayBookmark />{" "}
+      <DisplayBookmark /> <DisplayBookmark /> <DisplayBookmark />{" "}
+      <DisplayBookmark /> <DisplayBookmark /> <DisplayBookmark />{" "}
       <DisplayBookmark />
     </Container>
   );
