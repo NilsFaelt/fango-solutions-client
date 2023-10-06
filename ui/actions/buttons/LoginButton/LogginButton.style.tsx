@@ -1,7 +1,12 @@
 import { theme } from "@/styles";
 import styled, { keyframes } from "styled-components";
+import Image from "next/image";
 
 export const Container = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
   min-width: 7rem;
   height: 3rem;
   cursor: pointer;
@@ -20,3 +25,5 @@ export const Container = styled.button`
     box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
   }
 `;
+
+export const StyledImage = styled(Image)``;
