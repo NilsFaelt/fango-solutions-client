@@ -9,16 +9,13 @@ import { CategoryColorMapType } from "@/styles/colorMaps";
 export const HomePageView: FC = () => {
   return (
     <Container>
-      <MainTitle
-        text='FANGO SOLUTIONS '
-        underText='Simplfied to suit evryone'
-      />
+      <MainTitle text='FANGO SOLUTIONS ' underText='Created for you' />
 
       <MainSection>
         <MainTextContainer
           title='What are we'
           underTitle='And why?'
-          text='We are a SaaS (Software as a Service) platform dedicated to simplifying everyday operations for businesses. Our mission is to streamline your workflow by consolidating a wide range of SaaS tools into a single, user-friendly product. Our goal is to enhance your efficiency and productivity without the need for extensive hours of learning and training. With our platform, you can seamlessly manage various aspects of your business without the hassle of navigating multiple complex systems. Your time is valuable, and we are here to make sure you spend it wisely.'
+          text='We are a SaaS (Software as a Service) platform dedicated to simplifying everyday operations for personal use of the browser. Our mission is to streamline your workflow by consolidating a wide range of tools into a single, user-friendly product. Our goal is to enhance your efficiency and productivity without the need for extensive hours of learning and training. With our platform, you can seamlessly manage various aspects of your business without the hassle of navigating multiple complex systems. Your time is valuable, and we are here to make sure you spend it wisely.'
         />
         {teaserInfo?.map((item, i: number) => {
           return (
