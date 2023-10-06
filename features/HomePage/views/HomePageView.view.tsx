@@ -9,10 +9,7 @@ import { CategoryColorMapType } from "@/styles/colorMaps";
 export const HomePageView: FC = () => {
   return (
     <Container>
-      <MainTitle
-        text='FANGO SOLUTIONS '
-        underText='Simplfied to suit evryone'
-      />
+      <MainTitle text='FANGO SOLUTIONS ' underText='Created for you' />
 
       <MainSection>
         <MainTextContainer
