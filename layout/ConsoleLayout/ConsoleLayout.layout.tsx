@@ -4,6 +4,7 @@ import { ConsoleNavAside, ProfileCard } from "@/components";
 
 import { useIdToken } from "@/hooks";
 import { auth } from "@/firebase";
+import { UnderConstrusction } from "@/components/UnderConstrusction";
 
 interface Props {
   children: ReactNode;
@@ -35,6 +36,7 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
 
   return (
     <Container>
+      <UnderConstrusction />
       <ProfileCard />
       <ConsoleNavAside />
       {children}
