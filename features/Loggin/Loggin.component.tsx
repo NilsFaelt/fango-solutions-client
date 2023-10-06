@@ -24,7 +24,7 @@ export const Loggin = () => {
 
   return (
     <Container ref={logginRef}>
-      <MainTitle text='LOGGIN' underText='To console' />
+      <MainTitle text='LOGGIN ' underText='To console' />
       <PrimaryInput
         placeholder='email'
         type='text'

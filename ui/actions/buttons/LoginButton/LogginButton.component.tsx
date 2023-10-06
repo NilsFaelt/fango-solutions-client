@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "./LogginButton.style";
+import { Container, StyledImage } from "./LogginButton.style";
 import React, { FC, useEffect, useState } from "react";
 import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
 import { auth, googleProvider } from "@/firebase";
@@ -71,6 +71,12 @@ export const LogginButton: FC = () => {
     <>
       {!user ? (
         <Container onClick={handleLogin}>
+          <StyledImage
+            alt='Google logo'
+            width={15}
+            height={15}
+            src={"/svg/google.png"}
+          />
           {isLoading ? "LOADING..." : "LOGIN"}
         </Container>
       ) : (
