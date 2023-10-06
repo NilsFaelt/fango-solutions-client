@@ -12,8 +12,8 @@ export const ContactForm = () => {
     <Container>
       <MainTextContainer
         text='Hello!
-       im happy that you want to be a part of our new saas.
-       We are still in the early process of building this project but please send us a mail and i will set up a account for you.
+       Im happy that you want to be a part of our new  saas.
+       We are still in the early process of building this project but please send us a mail and we will do all in our power will help .
        
        '
       />
