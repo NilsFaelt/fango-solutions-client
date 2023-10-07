@@ -7,6 +7,11 @@ export const Container = styled.div`
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+  &:hover {
+    transition: 0.3s;
+
+    transform: scale(1.05);
+  }
 `;
 
 export const SvgImage = styled(Image)``;

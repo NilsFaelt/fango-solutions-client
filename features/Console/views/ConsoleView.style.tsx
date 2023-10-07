@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: column;
   min-height: 100vh;
   color: black;
-  background-color: white;
+  background-color: black;
   @media (max-width: ${mediaQueries.tablet}) {
   }
 `;

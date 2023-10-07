@@ -1,5 +1,5 @@
 import { mediaQueries, theme } from "@/styles";
-import Image from "next/image";
+
 import { styled } from "styled-components";
 
 export const Container = styled.div`
@@ -9,15 +9,24 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-right: 2rem;
+  padding-right: 1.5rem;
   width: auto;
-  height: Authorization;
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
   border: 0.1rem solid black;
   background-color: black;
-  border: 0.1rem solid black;
+  border-bottom: 0.08rem solid white;
+
   @media (max-width: ${mediaQueries.tablet}) {
-    right: 0rem;
+    right: 1rem;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
   }
 `;
 
@@ -25,8 +34,8 @@ export const StyledImage = styled.img`
   object-fit: cover;
   transform: translateX(-50%);
   border: 0.1rem solid #5a002e;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
   @media (max-width: ${mediaQueries.tablet}) {
     width: 2.5rem;
@@ -35,9 +44,10 @@ export const StyledImage = styled.img`
 `;
 export const Name = styled.h4`
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   color: white;
   margin: 0;
+
   margin-left: -0.7rem;
   @media (max-width: ${mediaQueries.tablet}) {
     font-size: 1rem;
