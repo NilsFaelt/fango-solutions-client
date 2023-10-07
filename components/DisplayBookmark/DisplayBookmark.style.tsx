@@ -10,7 +10,6 @@ const fadeIn = keyframes`
   30% {
     z-index: 0;
     opacity: 0;
-    
   }
   100% {
     opacity: 1;
@@ -23,99 +22,55 @@ export const Container = styled.div`
   position: relative;
 `;
 
-export const BookmarkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: solid black 0.1rem;
-  border-radius: 0rem;
-  width: calc(4rem + 8vw);
+export const BookmarkContainer = styled.button`
+  min-width: 7rem;
   height: 3rem;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    transition: top 0.3s;
-  }
-
-  &:hover::before {
-    top: 0;
-  }
-
+  background-color: black;
+  border: 0.1rem solid ${theme.colors.primary};
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
   &:hover {
-    background-color: white;
-    color: white; /* Text color on hover */
-    box-shadow: 0rem 0.1rem 0.1rem grey;
-  }
-
-  &:not(:hover) {
-    transition: background-color 1s, color 1s, box-shadow 1s, border-radius 1s;
-  }
-
-  &:active {
     transition: 0.3s;
-    background-color: white;
-    color: white;
-    box-shadow: 0rem 0rem 0rem;
+    box-shadow: 0 0 15px ${theme.colors.secondary};
+    /* background-color: ${theme.colors.extra}; */
   }
-`;
-
-export const BookMarkTitle = styled.h3`
-  font-size: calc(0.5rem + 0.8vw);
-  color: black;
-  transition: color 0.3s;
-
-  ${BookmarkContainer}:hover & {
-    z-index: 3;
-    color: white;
+  &:active {
+    box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
   }
 `;
 
 export const DropDownContainer = styled.div`
-  box-sizing: border-box;
-  top: 3rem;
-  width: 100%;
   background-color: black;
   position: absolute;
-  z-index: 3;
-  font-size: calc(0.5rem + 0.8vw);
-  color: white;
-
-  border-top: none;
-  cursor: pointer;
-
-  padding-top: 0.3rem;
-  padding-bottom: 0.3rem;
-  transition: background-color 0.3s; /* Add transition for background-color */
-  &:hover {
-    color: ${theme.colors.secondary};
-  }
-  animation: ${fadeIn} 0.7s 0.1s forwards; /* Apply the animation with a 0.3s delay */
-  opacity: 0; /* Start with opacity set to 0 */
-
-  ${BookmarkContainer}:hover & {
-    z-index: 3;
-    color: white;
-    background-color: white; /* Change background color on hover */
-  }
+  z-index: 2;
 `;
+
 export const Add = styled.button`
-  font-size: calc(0.3rem + 0.5vw);
-  background-color: black;
-  color: white;
-  border: none;
+  margin-top: 0.3rem;
+  min-width: 7rem;
+  height: 2rem;
   cursor: pointer;
+  background-color: white;
+  border: 0.1rem solid ${theme.colors.primary};
+  color: ${theme.colors.primary};
+  border-radius: 1rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 0 15px ${theme.colors.secondary};
+    background-color: black;
+    color: white;
+  }
+  &:active {
+    box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
+  }
 
   width: 100%;
   &:hover {
-    color: ${theme.colors.primary};
+    color: white;
   }
 `;

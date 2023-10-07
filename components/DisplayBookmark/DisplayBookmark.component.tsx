@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  BookMarkTitle,
   BookmarkContainer,
   Container,
   DropDownContainer,
@@ -17,15 +16,13 @@ export const DisplayBookmark = () => {
       onMouseLeave={() => setToogleDropDown(false)}
     >
       <StyledLink target='blank' href={"https://facebook.com"}>
-        <BookmarkContainer>
-          <BookMarkTitle>FACEBOOK</BookMarkTitle>
-        </BookmarkContainer>
+        <BookmarkContainer>FACEBOOK</BookmarkContainer>
       </StyledLink>
       {toogleDropDown && (
         <DropDownContainer>
-          <Add>Add</Add>
-          <Add>Add</Add>
-          <Add>Add</Add>
+          <Add>Add url</Add>
+          <Add>Add Todo</Add>
+          <Add>Remove</Add>
         </DropDownContainer>
       )}
     </Container>
