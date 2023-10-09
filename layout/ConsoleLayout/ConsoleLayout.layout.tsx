@@ -36,7 +36,7 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
 
   return (
     <Container>
-      {/* <UnderConstrusction /> */}
+      <UnderConstrusction />
       <ProfileCard />
       <ConsoleNavAside />
       {children}
