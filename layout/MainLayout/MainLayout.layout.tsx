@@ -12,6 +12,7 @@ export const MainLayout: FC<Props> = ({ children }) => {
     <Container>
       <HeaderWithNav />
       <Loggin />
+
       {children}
       <Footer />
     </Container>

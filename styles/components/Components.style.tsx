@@ -12,6 +12,7 @@ export const PrimaryInput = styled.input`
   padding: 0.5rem;
   font-size: 1.3rem;
   border-radius: 1rem;
+  border: none;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -21,4 +22,8 @@ export const PrimaryInput = styled.input`
   &[type="number"] {
     -moz-appearance: textfield;
   }
+`;
+export const PrimaryLabel = styled.label`
+  color: white;
+  font-size: calc(0.8rem + 0.8vw);
 `;

@@ -1,7 +1,6 @@
 "use client";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import { Container, StyledLinkLogo } from "./HeaderWithNav.style";
-
 import { LogginButton } from "@/ui";
 
 interface Props {}

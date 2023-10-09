@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 export function useClickOustsideToClose(
-  ref: React.MutableRefObject<HTMLInputElement>,
+  ref: React.MutableRefObject<HTMLElement | null>,
   setToogleMenu?: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   useEffect(() => {
