@@ -18,10 +18,6 @@ const fadeIn = keyframes`
   }
 `;
 
-export const Container = styled.div`
-  position: relative;
-`;
-
 export const BookmarkContainer = styled.button`
   min-width: 7rem;
   height: 3rem;
@@ -42,6 +38,12 @@ export const BookmarkContainer = styled.button`
   }
 `;
 
+export const Container = styled.div`
+  position: relative;
+  &:hover ${BookmarkContainer} {
+    box-shadow: 0 0 15px ${theme.colors.secondary};
+  }
+`;
 export const DropDownContainer = styled.div`
   background-color: black;
   position: absolute;
