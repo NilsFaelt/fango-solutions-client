@@ -16,7 +16,7 @@ export const MainTitle: FC<Props> = ({ text, underText, linkUrl }) => {
     <Container>
       <StyledLink href={linkUrl ? linkUrl : ""}>
         <Title className={bebasNeue.className}>{text}</Title>
-        <Image src={"/svg/logga.png"} width={20} height={20} alt='loggo' />
+        {/* <Image src={"/svg/logga.png"} width={20} height={20} alt='loggo' /> */}
         <UnderText className={dancingScript.className}>{underText}</UnderText>
       </StyledLink>
     </Container>

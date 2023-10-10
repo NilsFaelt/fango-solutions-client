@@ -1,6 +1,8 @@
+import { theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.nav`
+  z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -12,7 +14,7 @@ export const Container = styled.nav`
   top: 0;
   height: 100%;
   width: calc(8rem + 6vw);
-  background-color: black;
+  background-color: ${theme.colors.backgroundPrimary};
 `;
 export const InnerLinkContainer = styled.nav`
   display: flex;

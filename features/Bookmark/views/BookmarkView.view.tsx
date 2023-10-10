@@ -1,22 +1,34 @@
 "use client";
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import { Container } from "./BookmarkView.style";
 import { AddBookmarkPopup, DisplayBookmarks } from "..";
 import { NavBarExtras } from "@/components";
-import { AddButton } from "@/ui";
-import { useClickOustsideToClose } from "@/hooks";
+import { AddButton, DropDownInnerButton, HooverButtonDropDown } from "@/ui";
 
 export const BookmarkView: FC = () => {
-  const addButtonRef = useRef<HTMLButtonElement | null>(null);
   const [toogleAddPopup, setTooglePopup] = useState(false);
-  useClickOustsideToClose(addButtonRef, setTooglePopup);
+  const openNewWindow = (url: string) => {
+    window.open(url, "_blank");
+  };
 
   return (
     <Container>
       <DisplayBookmarks />
-      {toogleAddPopup && <AddBookmarkPopup />}
+      {toogleAddPopup && <AddBookmarkPopup setTooglePopup={setTooglePopup} />}
       <NavBarExtras>
-        <AddButton ref={addButtonRef} onClick={() => setTooglePopup(true)} />
+        <AddButton onClick={() => setTooglePopup(true)} />
+        <HooverButtonDropDown svgSource='/svg/robot.svg'>
+          <DropDownInnerButton
+            svgSourc='/svg/google.png'
+            text='BARD'
+            onClick={() => openNewWindow("https://bard.google.com/chat")}
+          />
+          <DropDownInnerButton
+            svgSourc='/svg/openai.svg'
+            text='GTP'
+            onClick={() => openNewWindow("https://chat.openai.com")}
+          />
+        </HooverButtonDropDown>
       </NavBarExtras>
     </Container>
   );

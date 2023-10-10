@@ -6,12 +6,11 @@ export const Container = styled.button`
   justify-content: center;
   background-color: black;
   border-radius: 50%;
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border: 0.1rem solid white;
-  font-size: 1rem;
   color: white;
-  font-size: 2rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 1s, color 1s, box-shadow 1s; /* Add transitions here */
 

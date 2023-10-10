@@ -13,7 +13,8 @@ export const Container = styled.div`
   width: auto;
   /* border-radius: 1rem; */
   border: 0.1rem solid black;
-  background-color: black;
+  background-color: transparent;
+  border: none;
   border-bottom: 0.08rem solid white;
 
   @media (max-width: ${mediaQueries.tablet}) {
@@ -34,8 +35,8 @@ export const StyledImage = styled.img`
   object-fit: cover;
   transform: translateX(-50%);
   border: 0.1rem solid #5a002e;
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   @media (max-width: ${mediaQueries.tablet}) {
     width: 2.5rem;
