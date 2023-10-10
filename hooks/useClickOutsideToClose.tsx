@@ -1,18 +1,20 @@
 import { useEffect } from "react";
 
 export function useClickOustsideToClose(
-  ref: React.MutableRefObject<HTMLElement | null>,
-  setToogleMenu?: React.Dispatch<React.SetStateAction<boolean>>
+  ref: React.MutableRefObject<any | null>,
+  setToogle: React.Dispatch<React.SetStateAction<boolean>>
 ) {
   useEffect(() => {
     const handler = (event: Event) => {
       const target = event.target as HTMLInputElement;
+
+      console.log(target, "target");
+
       if (target)
         if (!ref.current?.contains(target)) {
-          if (setToogleMenu) setToogleMenu(false);
+          if (setToogle) setToogle(false);
         }
     };
-
     document.addEventListener("mousedown", handler);
     return () => {
       document.removeEventListener("mousedown", handler);

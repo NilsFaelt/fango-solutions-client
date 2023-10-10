@@ -6,7 +6,6 @@ import {
   Add,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
-import { ButtonWithRings } from "@/ui";
 
 export const DisplayBookmark = () => {
   const [toogleDropDown, setToogleDropDown] = useState(false);

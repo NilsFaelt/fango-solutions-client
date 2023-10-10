@@ -1,13 +1,17 @@
+import { theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.nav`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: auto;
-  margin-left: 15rem;
-  margin-right: 10rem;
-  margin-top: 1rem;
+  gap: 3vw;
+
   min-height: 5rem;
-  background-color: black;
+  background-color: ${theme.colors.backgroundPrimary};
 `;
