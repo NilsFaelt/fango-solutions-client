@@ -17,7 +17,6 @@ export const LogginButton: FC = () => {
     try {
       signInWithPopup(auth, googleProvider)
         .then(({ user }) => {
-          console.log(user, " lalaalallal");
           // auth.currentUser?.getIdToken().then((token) =>
           //   fetch(`http://localhost:3000/user`, {
           //     method: "POST",

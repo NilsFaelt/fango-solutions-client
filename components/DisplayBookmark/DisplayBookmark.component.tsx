@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import {
   BookmarkContainer,
   Container,
@@ -6,16 +6,22 @@ import {
   Add,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
+import { extractUrlMainName } from "@/features/Bookmark/utils";
 
-export const DisplayBookmark = () => {
+interface Props {
+  url: string;
+}
+export const DisplayBookmark: FC<Props> = ({ url }) => {
   const [toogleDropDown, setToogleDropDown] = useState(false);
+  const primaryUrlName = extractUrlMainName(url);
+  if (!url) return null;
   return (
     <Container
       onMouseEnter={() => setToogleDropDown(true)}
       onMouseLeave={() => setToogleDropDown(false)}
     >
-      <StyledLink target='blank' href={"https://facebook.com"}>
-        <BookmarkContainer>FACEBOOK</BookmarkContainer>
+      <StyledLink target='blank' href={url}>
+        <BookmarkContainer>{primaryUrlName?.toUpperCase()}</BookmarkContainer>
       </StyledLink>
       {toogleDropDown && (
         <DropDownContainer>

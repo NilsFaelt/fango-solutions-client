@@ -10,15 +10,18 @@ export const PrimaryInput = styled.input`
   width: 15rem;
   height: 2rem;
   padding: 0.5rem;
-  font-size: 1.3rem;
+  font-size: 1rem;
   border-radius: 1rem;
-  border: none;
+  border: 0.05rem solid black;
+
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
-
+  &:focus {
+    outline: none;
+  }
   &[type="number"] {
     -moz-appearance: textfield;
   }
@@ -26,4 +29,11 @@ export const PrimaryInput = styled.input`
 export const PrimaryLabel = styled.label`
   color: white;
   font-size: calc(0.8rem + 0.8vw);
+`;
+
+export const SpinnerWrapperCenter = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
