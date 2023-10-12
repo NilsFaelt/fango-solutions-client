@@ -12,13 +12,13 @@ export const Container = styled.form`
   align-items: center;
   width: clamp(20rem, 30vw, 50rem);
   gap: 2rem;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: black;
   padding: 2rem;
-  border-radius: 2rem;
   color: white;
+  border: 0.05rem solid white;
   border-radius: 1rem;
   box-shadow: 0rem 0rem 0.5rem grey;
-  padding: 3rem;
+  padding: 2rem 1rem 2rem 1rem;
 `;
 export const LabelAndInputContainer = styled.div`
   display: flex;

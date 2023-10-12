@@ -9,7 +9,7 @@ export const ProfileCard: FC = () => {
   const { loggedInUser } = useContext(LoggedinUserContext);
 
   const user = auth.currentUser;
-  console.log(user);
+
   if (!loggedInUser) return null;
   const { displayName, photoURL } = loggedInUser;
 

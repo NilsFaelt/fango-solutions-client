@@ -2,7 +2,7 @@ import { theme } from "@/styles";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.button`
-  width: auto;
+  min-width: 130px;
 
   cursor: pointer;
   background-color: black;

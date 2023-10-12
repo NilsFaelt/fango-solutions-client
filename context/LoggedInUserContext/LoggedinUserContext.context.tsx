@@ -8,6 +8,7 @@ interface MenuContextInterface {
 }
 
 import { auth } from "@/firebase";
+
 import { onAuthStateChanged } from "firebase/auth";
 import {
   Dispatch,
