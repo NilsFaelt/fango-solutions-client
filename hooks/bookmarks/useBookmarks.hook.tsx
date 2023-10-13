@@ -1,13 +1,12 @@
 import { apiClient } from "@/api";
 import { auth } from "@/firebase";
+import { BookmarkInterface } from "@/types/bookmark";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchBookmarks = async (
   token: string,
   pagination?: { limit: number; skip: number; page: number }
-): Promise<any> => {
-  console.log(token, " in query");
-
+): Promise<BookmarkInterface[] | undefined> => {
   try {
     const user = auth.currentUser;
 
@@ -26,11 +25,10 @@ const fetchBookmarks = async (
       }
 
       const data = await response.json();
-      return data;
+      return data as BookmarkInterface[];
     }
   } catch (error) {
     console.error("Error fetching data:", error);
-    return null;
   }
 };
 
