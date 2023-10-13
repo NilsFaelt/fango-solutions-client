@@ -5,3 +5,4 @@ export * from "./Footer";
 export * from "./ConsoleNavAside";
 export * from "./DisplayBookmark";
 export * from "./NavBarExtras";
+export * from "./CookieBanner";

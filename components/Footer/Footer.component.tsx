@@ -9,9 +9,7 @@ export const Footer: FC = () => {
       <LinksContainer>
         <StyledLink href={"/"}>HOME</StyledLink>
         <StyledLink href={"/contact"}>CONTACT</StyledLink>
-        <StyledLink href={"/display-info/3d0c0ce2-5145-11ee-be56-0242ac120002"}>
-          ABOUT
-        </StyledLink>
+        <StyledLink href={"/cookie-policy"}>COOKIE POLICY</StyledLink>
       </LinksContainer>
       <ShareButton />
     </Container>

@@ -5,6 +5,11 @@ export const StyledLink = styled(Link)`
   text-decoration: none;
   color: white;
 `;
+export const StyledLinkBlack = styled(Link)`
+  text-decoration: none;
+  color: black;
+  text-decoration: underline;
+`;
 
 export const PrimaryInput = styled.input`
   width: 15rem;

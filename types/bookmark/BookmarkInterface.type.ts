@@ -3,4 +3,6 @@ export interface BookmarkInterface {
   id: string;
   url: string;
   userEmail: string;
+  childUlrs?: string[];
+  todos?: string[];
 }
