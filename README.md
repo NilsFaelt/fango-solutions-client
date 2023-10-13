@@ -19,13 +19,3 @@ FangoSolutions Browser Companion is a user-centric Software as a Service (SaaS) 
 ## Why FangoSolutions?
 
 FangoSolutions aims to simplify and enhance your daily web activities. Say goodbye to the hassles and inefficiencies of conventional browsing. Embrace a smarter way to surf the web with FangoSolutions Browser Companion.
-
-Join us today and experience the future of web browsing - designed exclusively for you!
-
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/nextjs-base-project.git
-# saas-client
-
-/Fango
