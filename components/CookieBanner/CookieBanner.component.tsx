@@ -22,9 +22,9 @@ export const CookieBanner: FC = () => {
   }, []);
 
   const handleClick = () => {
-    const tenSecondsFromNow = new Date();
-    tenSecondsFromNow.setTime(tenSecondsFromNow.getTime() + 10000);
-    const expires = tenSecondsFromNow.toUTCString();
+    const oneWeekFromNow = new Date();
+    oneWeekFromNow.setDate(oneWeekFromNow.getDate() + 7);
+    const expires = oneWeekFromNow.toUTCString();
     document.cookie = `cookie_consent=accepted; expires=${expires}; path=/`;
 
     setIsVisible(false);
