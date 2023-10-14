@@ -34,7 +34,7 @@ export const Container = styled.div`
 export const StyledImage = styled.img`
   object-fit: cover;
   transform: translateX(-50%);
-  border: 0.1rem solid #5a002e;
+  border: 0.1rem solid white;
   width: 2.5rem;
   height: 2.5rem;
   border-radius: 50%;
