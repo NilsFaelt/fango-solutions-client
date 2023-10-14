@@ -1,12 +1,13 @@
 "use client";
 import React, { FC, useState } from "react";
 import { Container } from "./BookmarkView.style";
-import { AddBookmarkPopup, DisplayBookmarks } from "..";
+import { AddBookmark, DisplayBookmarks } from "..";
 import { NavBarExtras } from "@/components";
 import { AddButton, DropDownInnerButton, HooverButtonDropDown } from "@/ui";
+import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 
 export const BookmarkView: FC = () => {
-  const [toogleAddPopup, setTooglePopup] = useState(false);
+  const [toogleContainer, setToogleContainer] = useState(false);
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
@@ -14,9 +15,16 @@ export const BookmarkView: FC = () => {
   return (
     <Container>
       <DisplayBookmarks />
-      {toogleAddPopup && <AddBookmarkPopup setTooglePopup={setTooglePopup} />}
+
       <NavBarExtras>
-        <AddButton onClick={() => setTooglePopup(true)} />
+        <AddButton onClick={() => setToogleContainer(true)} />
+        <SlideInContainer
+          title='ADD BOOKMARK'
+          setToogleContainer={setToogleContainer}
+          toogleContainer={toogleContainer}
+        >
+          <AddBookmark />
+        </SlideInContainer>
         <HooverButtonDropDown svgSource='/svg/robot.svg'>
           <DropDownInnerButton
             svgSourc='/svg/google.png'

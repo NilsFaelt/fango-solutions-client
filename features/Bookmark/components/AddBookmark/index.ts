@@ -1,1 +1,1 @@
-export { AddBookmarkPopup } from "./AddBookmarkPopup.component";
+export { AddBookmark } from "./AddBookmark.component";

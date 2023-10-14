@@ -16,9 +16,9 @@ export const PrimaryInput = styled.input`
   height: 2rem;
   padding: 0.5rem;
   font-size: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   border: 0.05rem solid black;
-
+  margin-top: 0.5rem;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -33,7 +33,7 @@ export const PrimaryInput = styled.input`
 `;
 export const PrimaryLabel = styled.label`
   color: white;
-  font-size: calc(0.8rem + 0.8vw);
+  font-size: calc(0.5rem + 0.8vw);
 `;
 
 export const SpinnerWrapperCenter = styled.div`
