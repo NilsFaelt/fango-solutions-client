@@ -1,15 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import { Container } from "./DisplayBookmarks.style";
 import { DisplayBookmark } from "@/components";
 import { useBookmarks, useIdToken } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
 import { Spinner } from "@/ui";
 import { SpinnerWrapperCenter } from "@/styles";
-interface Data {
-  statusCode: number;
+
+interface Props {
+  idToken: string;
 }
-export const DisplayBookmarks: FC = () => {
-  const { data, error, isLoading } = useBookmarks('token ? token :""');
+export const DisplayBookmarks: FC<Props> = ({ idToken }) => {
+  const { data, isLoading } = useBookmarks(idToken);
 
   if (isLoading)
     return (

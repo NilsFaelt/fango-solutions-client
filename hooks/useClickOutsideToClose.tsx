@@ -8,8 +8,6 @@ export function useClickOustsideToClose(
     const handler = (event: Event) => {
       const target = event.target as HTMLInputElement;
 
-      console.log(target, "target");
-
       if (target)
         if (!ref.current?.contains(target)) {
           if (setToogle) setToogle(false);

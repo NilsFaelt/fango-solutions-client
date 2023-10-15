@@ -1,22 +1,36 @@
 import { apiClient } from "@/api";
-import { QueryClient, useMutation } from "@tanstack/react-query";
+import { auth } from "@/firebase";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 
-const queryClient = new QueryClient();
-
-const mutateBookark = async (token: string, bookmark: string) => {
-  const response = await fetch(`${apiClient}/bookmark`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify(bookmark),
-  }).then((res) => res.json);
-  return response;
+const fetchBookmark = async (token: string, bookmark: string) => {
+  try {
+    if (token) {
+      const response = await fetch(
+        `${apiClient("/bookmark", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ url: bookmark }),
+        })}`
+      ).then((res) => res.json);
+      console.log(response, " in query");
+      return response;
+    }
+  } catch (err) {
+    console.log(`couldnt add bookamrk`, err);
+    throw err;
+  }
 };
 
-export const useMutateAddBookmark = (bookmark: string, token: string) => {
-  return useMutation(() => mutateBookark(bookmark, token), {
+export const useMutateAddBookmark = (token: string, bookmark: string) => {
+  const queryClient = useQueryClient();
+  return useMutation(() => fetchBookmark(token, bookmark), {
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },
