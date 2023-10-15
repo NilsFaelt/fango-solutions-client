@@ -4,7 +4,9 @@ interface LoggedInUser {
 }
 interface MenuContextInterface {
   loggedInUser: null | LoggedInUser;
+  idToken: null | string;
   setLoggedInUser: Dispatch<SetStateAction<null | LoggedInUser>>;
+  setIdToken: Dispatch<SetStateAction<null | string>>;
 }
 
 import { auth } from "@/firebase";
@@ -22,24 +24,41 @@ import {
 
 export const LoggedinUserContext = createContext<MenuContextInterface>({
   loggedInUser: null,
+  idToken: null,
   setLoggedInUser: () => {},
+  setIdToken: () => {},
 });
-
 export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
+  const [idToken, setIdToken] = useState<null | string>(null); // New state for ID token
+
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      setLoggedInUser({
-        displayName: user?.displayName ? user.displayName : "",
-        photoURL: user?.photoURL ? user.photoURL : "",
-      });
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        // Set the ID token here
+        const token = await user.getIdToken();
+        setIdToken(token);
+
+        // Update the logged-in user
+        setLoggedInUser({
+          displayName: user.displayName ? user.displayName : "",
+          photoURL: user.photoURL ? user.photoURL : "",
+        });
+      } else {
+        setIdToken(null); // Clear the ID token when the user logs out
+        setLoggedInUser(null);
+      }
     });
+
     return () => unsubscribe();
   }, []);
+
   return (
-    <LoggedinUserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
+    <LoggedinUserContext.Provider
+      value={{ loggedInUser, idToken, setLoggedInUser, setIdToken }}
+    >
       {children}
     </LoggedinUserContext.Provider>
   );

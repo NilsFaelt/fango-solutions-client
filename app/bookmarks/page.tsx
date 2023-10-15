@@ -1,8 +1,7 @@
 "use client";
-
 import { BookmarkView } from "@/features";
 import { ConsoleLayout } from "@/layout/ConsoleLayout";
-import React from "react";
+import React, { FC } from "react";
 
 const page = () => {
   return (

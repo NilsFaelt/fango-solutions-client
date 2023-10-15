@@ -5,7 +5,7 @@ interface Props {
   children: string;
   fontSize?: "8" | "12" | "16" | "24";
   color?: "black" | "white";
-  margin: string;
+  margin?: string;
 }
 
 export const MainText: FC<Props> = ({
