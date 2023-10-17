@@ -7,27 +7,41 @@ import {
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
 import { extractUrlMainName } from "@/features/Bookmark/utils";
+import { useMutateDeleteBookmark } from "@/hooks";
 
 interface Props {
-  url: string;
+  bookmark: { url: string; id: string };
+  token: string;
 }
-export const DisplayBookmark: FC<Props> = ({ url }) => {
+export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const [toogleDropDown, setToogleDropDown] = useState(false);
-  const primaryUrlName = extractUrlMainName(url);
-  if (!url) return null;
+  const primaryUrlName = extractUrlMainName(bookmark?.url);
+  const { mutate } = useMutateDeleteBookmark(token, bookmark?.id);
+  const handelDeleteOnClick = () => {
+    mutate();
+    console.log("delete");
+  };
+  if (!bookmark?.url) return null;
   return (
     <Container
       onMouseEnter={() => setToogleDropDown(true)}
       onMouseLeave={() => setToogleDropDown(false)}
     >
-      <StyledLink target='blank' href={url}>
+      <StyledLink target='blank' href={bookmark?.url}>
         <BookmarkContainer>{primaryUrlName?.toUpperCase()}</BookmarkContainer>
       </StyledLink>
       {toogleDropDown && (
         <DropDownContainer>
           <Add>Add url</Add>
           <Add>Add Todo</Add>
-          <Add>Remove</Add>
+          <Add
+            onClick={(e) => {
+              e.preventDefault();
+              handelDeleteOnClick();
+            }}
+          >
+            Remove
+          </Add>
         </DropDownContainer>
       )}
     </Container>

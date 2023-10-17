@@ -1,2 +1,3 @@
-export { extractUrlMainName } from "./ExtractUrlMainName";
-export { createValidURL } from "./CreateValidUrl";
+export { extractUrlMainName } from "./extractUrlMainName";
+export { createValidURL } from "./createValidurl";
+export { validateUrl } from "./validateUrl";
