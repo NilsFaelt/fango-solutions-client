@@ -62,12 +62,9 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
       <LabelAndInputContainer>
         <PrimaryLabel>SPECIFIC PART OF WEBSITE</PrimaryLabel>
         <MainText fontSize='12' margin='0'>
-          Copy and can paste a more specific paths to reach different sections
-          directly, example go to your profile-page and copy website adress.
+          Add more specific locations on site.
         </MainText>
-        <MainText margin='0' fontSize='12'>
-          or manulay type in
-        </MainText>
+
         <PrimaryInput placeholder='www.mypage.com/profile' />
       </LabelAndInputContainer>
       <PrimaryButton

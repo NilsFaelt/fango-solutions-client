@@ -32,7 +32,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       </StyledLink>
       {toogleDropDown && (
         <DropDownContainer>
-          <Add>Add url</Add>
+          <Add>Update</Add>
           <Add>Add Todo</Add>
           <Add
             onClick={(e) => {
