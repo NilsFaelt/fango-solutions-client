@@ -1,9 +1,15 @@
 "use client";
 import React, { FC, useRef, useState } from "react";
-import { Container, LabelAndInputContainer } from "./AddBookmark.style";
+import {
+  Container,
+  DisplayUrlWrapper,
+  LabelAndInputContainer,
+  StyledA,
+  StyledImage,
+} from "./AddBookmark.style";
 import { PrimaryButton } from "@/ui";
 import { PrimaryInput, PrimaryLabel } from "@/styles";
-import { createValidURL, extractUrlMainName } from "../../utils";
+import { createValidURL, validateUrl } from "../../utils";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
 
@@ -13,14 +19,14 @@ interface Props {
 export const AddBookmark: FC<Props> = ({ idToken }) => {
   const [url, setUrl] = useState("");
 
-  const { mutate } = useMutateAddBookmark(idToken, url);
-
-  const validUrl = createValidURL(url);
-
+  const validHttpUrl = createValidURL(url);
+  const isUrl = validateUrl(validHttpUrl);
+  const { mutate } = useMutateAddBookmark(idToken, validHttpUrl);
+  console.log(isUrl);
   const handleClick = () => {
     mutate();
   };
-  console.log(validUrl);
+
   return (
     <Container>
       <LabelAndInputContainer>
@@ -36,6 +42,22 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
           placeholder='www.mypage.com'
           required
         />
+        {validHttpUrl && (
+          <DisplayUrlWrapper>
+            <MainText margin='0'>Try me first ?</MainText>
+            <StyledA color='green' href={validHttpUrl} target='_blank'>
+              {validHttpUrl}{" "}
+              {isUrl && (
+                <StyledImage
+                  alt='Green check mark'
+                  width={12}
+                  height={12}
+                  src='/svg/check.svg'
+                />
+              )}
+            </StyledA>
+          </DisplayUrlWrapper>
+        )}
       </LabelAndInputContainer>
       <LabelAndInputContainer>
         <PrimaryLabel>SPECIFIC PART OF WEBSITE</PrimaryLabel>

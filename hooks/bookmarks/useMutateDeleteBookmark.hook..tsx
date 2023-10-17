@@ -6,21 +6,21 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-const fetchBookmark = async (token: string, bookmark: string | null) => {
+const fetchBookmark = async (token: string, id: string) => {
   try {
-    if (token && bookmark) {
-      const response = await fetch(
+    if (token) {
+      await fetch(
         `${apiClient("/bookmark", {
-          method: "POST",
+          method: "DELETE",
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ url: bookmark }),
+          body: JSON.stringify({ id: id }),
         })}`
-      ).then((res) => res.json);
-      console.log(response, " in query");
-      return response;
+      ).then((res) => {
+        console.log("succesfully deleted bookmark");
+      });
     }
   } catch (err) {
     console.log(`couldnt add bookamrk`, err);
@@ -28,12 +28,9 @@ const fetchBookmark = async (token: string, bookmark: string | null) => {
   }
 };
 
-export const useMutateAddBookmark = (
-  token: string,
-  bookmark: string | null
-) => {
+export const useMutateDeleteBookmark = (token: string, id: string) => {
   const queryClient = useQueryClient();
-  return useMutation(() => fetchBookmark(token, bookmark), {
+  return useMutation(() => fetchBookmark(token, id), {
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },
