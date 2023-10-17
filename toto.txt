@@ -1,5 +1,0 @@
-loggin 
-create api
-loggin with jwt and refresh api
-text comp for purpose
-pattern to webp

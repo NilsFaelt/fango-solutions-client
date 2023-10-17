@@ -48,6 +48,7 @@ export const DropDownContainer = styled.div`
   background-color: ${theme.colors.backgroundPrimary};
   position: absolute;
   z-index: 2;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
 `;
 
 export const Add = styled.button`
