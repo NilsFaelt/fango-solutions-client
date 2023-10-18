@@ -2,14 +2,16 @@ import { theme } from "@/styles";
 import Image from "next/image";
 import styled from "styled-components";
 
-export const Container = styled.form`
+export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: space-around;
   width: 100%;
   gap: 2rem;
   color: white;
   padding-right: 1rem;
+  min-height: 30rem;
 `;
 export const LabelAndInputContainer = styled.div`
   display: flex;
@@ -22,6 +24,7 @@ export const StyledA = styled.a`
   text-decoration: underline;
   max-width: 16rem;
   word-wrap: break-word;
+  font-size: 0.8rem;
 `;
 export const DisplayUrlWrapper = styled.div`
   display: flex;
@@ -32,4 +35,9 @@ export const DisplayUrlWrapper = styled.div`
 export const StyledImage = styled(Image)`
   margin-left: 1rem;
   margin-bottom: -0.2rem;
+`;
+export const ButtonInputWrapperCollumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;

@@ -2,8 +2,8 @@ import { theme } from "@/styles";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.button`
-  min-width: 130px;
-
+  min-width: 10rem;
+  max-width: 16rem;
   cursor: pointer;
   background-color: black;
   border: 0.1rem solid ${theme.colors.primary};
