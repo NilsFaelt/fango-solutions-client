@@ -21,7 +21,7 @@ export const Container = styled.div`
   bottom: 0;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 8rem;
+  padding-top: 5rem;
   height: 100vh;
   box-shadow: 1.7rem 1rem 1rem 1rem white;
   background-color: black;

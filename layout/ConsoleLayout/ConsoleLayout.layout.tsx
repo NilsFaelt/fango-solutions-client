@@ -11,7 +11,7 @@ interface Props {
 export const ConsoleLayout: FC<Props> = ({ children }) => {
   return (
     <Container>
-      <UnderConstrusction />
+      {/* <UnderConstrusction /> */}
       <ProfileCard />
       <CookieBanner />
       <ConsoleNavAside />
