@@ -1,4 +1,4 @@
-export function extractUrlMainName(url: string | null) {
+export function extractMainPathUrl(url: string | null) {
   if (!url) return null;
   try {
     const urlObject = new URL(url);
