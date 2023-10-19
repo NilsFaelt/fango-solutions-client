@@ -1,4 +1,4 @@
-export function createValidUrl(inputURL: string | null) {
+export function createAValidUrl(inputURL: string | null) {
   if (!inputURL) return null;
   if (inputURL.startsWith("http://") || inputURL.startsWith("https://")) {
     return inputURL;
