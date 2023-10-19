@@ -1,4 +1,4 @@
-export { extractUrlMainName } from "./extractUrlMainName";
-export { createValidURL } from "./createValidurl";
+export { createValidUrl } from "./createValidUrl";
 export { validateUrl } from "./validateUrl";
+export { extractUrlMainName } from "./extractUrlMainName";
 export { extractChildPathFromURL } from "./extractChildPathFromUrl";

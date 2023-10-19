@@ -12,12 +12,13 @@ import {
   DeleteConfirmButton,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
+
+import { useMutateDeleteBookmark } from "@/hooks";
+import { BookmarkInterface } from "@/types/bookmark";
 import {
   extractChildPathFromURL,
   extractUrlMainName,
 } from "@/features/Bookmark/utils";
-import { useMutateDeleteBookmark } from "@/hooks";
-import { BookmarkInterface } from "@/types/bookmark";
 
 interface Props {
   bookmark: BookmarkInterface;
