@@ -18,9 +18,6 @@ import {
 } from "@/features/Bookmark/utils";
 import { useMutateDeleteBookmark } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
-import { StyledImage } from "../ProfileCard/ProfileCard.style";
-import { MainText } from "@/ui/display/MainText/MainText.component";
-import { ButtonWithRings } from "@/ui";
 
 interface Props {
   bookmark: BookmarkInterface;
