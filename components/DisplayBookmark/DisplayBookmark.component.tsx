@@ -17,7 +17,7 @@ import { useMutateDeleteBookmark } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
 import {
   extractChildPathFromURL,
-  extractUrlMainName,
+  extractMainPathUrl,
 } from "@/features/Bookmark/utils";
 
 interface Props {
@@ -27,7 +27,7 @@ interface Props {
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
-  const primaryUrlName = extractUrlMainName(bookmark?.url);
+  const primaryUrlName = extractMainPathUrl(bookmark?.url);
   const { mutate } = useMutateDeleteBookmark(token, bookmark?.id);
   const openDeleteContainerOnClick = () => {
     setToogleDeleteContainer(!toogleDeleteContainer);

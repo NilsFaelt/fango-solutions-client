@@ -1,4 +1,4 @@
 export { createAValidUrl } from "./createAValidUrl";
 export { validateUrl } from "./validateUrl";
-export { extractUrlMainName } from "./extractUrlMainName";
+export { extractMainPathUrl } from "./extractMainPathUrl";
 export { extractChildPathFromURL } from "./extractChildPathFromUrl";
