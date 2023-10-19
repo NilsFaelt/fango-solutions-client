@@ -19,3 +19,6 @@ FangoSolutions Browser Companion is a user-centric Software as a Service (SaaS) 
 ## Why FangoSolutions?
 
 FangoSolutions aims to simplify and enhance your daily web activities. Say goodbye to the hassles and inefficiencies of conventional browsing. Embrace a smarter way to surf the web with FangoSolutions Browser Companion.
+
+/
+FANGO
