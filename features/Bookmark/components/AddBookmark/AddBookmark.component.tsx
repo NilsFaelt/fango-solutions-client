@@ -24,7 +24,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
   const hidePlusButton = childUrls.length < 3;
   const validHttpUrl = createValidURL(url);
   const isUrl = validateUrl(validHttpUrl);
-  const { mutate } = useMutateAddBookmark(idToken, validHttpUrl);
+  const { mutate } = useMutateAddBookmark(idToken, validHttpUrl, childUrls);
 
   const handleClick = () => {
     if (isUrl) mutate();
@@ -33,7 +33,10 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
   const handleAddChildUrlOnClick = (childUrl: string) => {
     const validHttpUrl = createValidURL(childUrl);
     const isUrl = validateUrl(validHttpUrl);
-    if (isUrl && validHttpUrl) setChildUrls((prev) => [...prev, validHttpUrl]);
+    if (isUrl && validHttpUrl) {
+      setChildUrls((prev) => [...prev, validHttpUrl]);
+      setChildUrl("");
+    }
   };
   return (
     <Container>
@@ -76,6 +79,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
           <PrimaryInput
             onChange={(e) => setChildUrl(e.target.value)}
             placeholder='www.mypage.com/profile'
+            value={childUrl}
           />
           {hidePlusButton && (
             <AddButton

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, InnerLinkContainer } from "./ConsoleNavAside.style";
-import { AddButton, MainTitle } from "@/ui";
+import { MainTitle } from "@/ui";
 import { SignoutButton } from ".";
 import { NavLink } from "./components";
 

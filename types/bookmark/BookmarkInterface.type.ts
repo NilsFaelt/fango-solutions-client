@@ -3,6 +3,15 @@ export interface BookmarkInterface {
   id: string;
   url: string;
   userEmail: string;
-  childUlrs?: string[];
+  children?: ChildUrls[];
   todos?: string[];
+}
+
+export interface ChildUrls {
+  bookmarkId: string;
+  createdAt: string;
+  deletedAt: string | null;
+  id: string;
+  updatedAt: string;
+  url: string;
 }
