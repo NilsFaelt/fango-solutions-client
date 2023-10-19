@@ -13,7 +13,7 @@ import { PrimaryInput, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
 
-import { createValidUrl, validateUrl } from "../../utils";
+import { createAValidUrl, validateUrl } from "../../utils";
 interface Props {
   idToken: string;
 }
@@ -22,7 +22,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
   const [childUrl, setChildUrl] = useState("");
   const [childUrls, setChildUrls] = useState<string[]>([]);
   const hidePlusButton = childUrls.length < 3;
-  const validHttpUrl = createValidUrl(url);
+  const validHttpUrl = createAValidUrl(url);
   const isUrl = validateUrl(validHttpUrl);
   const { mutate } = useMutateAddBookmark(idToken, validHttpUrl, childUrls);
 
@@ -31,7 +31,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
   };
 
   const handleAddChildUrlOnClick = (childUrl: string) => {
-    const validHttpUrl = createValidUrl(childUrl);
+    const validHttpUrl = createAValidUrl(childUrl);
     const isUrl = validateUrl(validHttpUrl);
     if (isUrl && validHttpUrl) {
       setChildUrls((prev) => [...prev, validHttpUrl]);
@@ -111,7 +111,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
 };
 
 export const ChildUrl: FC<{ url: string }> = ({ url }) => {
-  const validHttpUrl = createValidUrl(url);
+  const validHttpUrl = createAValidUrl(url);
   const isUrl = validateUrl(validHttpUrl);
 
   return (
