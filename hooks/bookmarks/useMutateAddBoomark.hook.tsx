@@ -6,7 +6,11 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-const fetchBookmark = async (token: string, bookmark: string | null) => {
+const fetchBookmark = async (
+  token: string,
+  bookmark: string | null,
+  childUrls?: string[]
+) => {
   try {
     if (token && bookmark) {
       const response = await fetch(
@@ -16,7 +20,7 @@ const fetchBookmark = async (token: string, bookmark: string | null) => {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ url: bookmark }),
+          body: JSON.stringify({ url: bookmark, childUrls }),
         })}`
       ).then((res) => res.json);
       console.log(response, " in query");
@@ -30,10 +34,11 @@ const fetchBookmark = async (token: string, bookmark: string | null) => {
 
 export const useMutateAddBookmark = (
   token: string,
-  bookmark: string | null
+  bookmark: string | null,
+  childUrls?: string[]
 ) => {
   const queryClient = useQueryClient();
-  return useMutation(() => fetchBookmark(token, bookmark), {
+  return useMutation(() => fetchBookmark(token, bookmark, childUrls), {
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },
