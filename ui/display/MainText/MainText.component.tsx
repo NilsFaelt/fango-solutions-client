@@ -15,7 +15,7 @@ export const MainText: FC<Props> = ({
   margin = "1",
 }) => {
   return (
-    <Text fontSize={fontSize} color={color} margin={margin}>
+    <Text fontSize={fontSize} color={color} $margin={margin}>
       {children}
     </Text>
   );

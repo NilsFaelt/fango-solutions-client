@@ -43,7 +43,7 @@ export const StyledImage = styled.img`
     height: 2.5rem;
   }
 `;
-export const Name = styled.h4`
+export const Name = styled.p`
   text-align: center;
   font-size: 0.7rem;
   color: white;

@@ -15,7 +15,10 @@ export const ProfileCard: FC = () => {
 
   return (
     <Container>
-      <StyledImage src={"/svg/logga.png"} />
+      <StyledImage
+        alt='User logo image'
+        src={photoURL ? photoURL : "/svg/logga.png"}
+      />
 
       <Name>{displayName}</Name>
       {/* <InfoText>{jobTitle}</InfoText> */}
