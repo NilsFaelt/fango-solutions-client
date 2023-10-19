@@ -11,7 +11,7 @@ interface Props {
 }
 export const DisplayBookmarks: FC<Props> = ({ token }) => {
   const { data, isLoading } = useBookmarks(token);
-  console.log(data);
+
   if (isLoading)
     return (
       <SpinnerWrapperCenter>
