@@ -12,8 +12,8 @@ import { AddButton, PrimaryButton } from "@/ui";
 import { PrimaryInput, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
-
 import { createAValidUrl, validateUrl } from "../../utils";
+
 interface Props {
   idToken: string;
 }
