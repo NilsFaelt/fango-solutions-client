@@ -11,14 +11,13 @@ export const StyledLinkBlack = styled(Link)`
   text-decoration: underline;
 `;
 
-export const PrimaryInput = styled.input`
-  width: 15rem;
+export const PrimaryInput = styled.input<{ $width?: string }>`
+  width: ${(props) => (props.$width ? props.$width : "15rem")};
   height: 2rem;
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 0.5rem;
   border: 0.05rem solid black;
-  margin-top: 0.5rem;
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;

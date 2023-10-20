@@ -1,4 +1,4 @@
-import { theme } from "@/styles";
+import { mediaQueries, theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.nav`
@@ -14,4 +14,9 @@ export const Container = styled.nav`
 
   min-height: 5rem;
   background-color: ${theme.colors.backgroundPrimary};
+  @media (max-width: ${mediaQueries.mobile}) {
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    padding-right: 1rem;
+  }
 `;

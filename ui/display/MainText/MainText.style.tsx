@@ -9,5 +9,5 @@ interface Props {
 export const Text = styled.p<Props>`
   font-size: ${(props) => props.fontSize}px;
   color: ${(props) => props.color};
-  margin: ${(props) => props.$margin && `margin: ${props.$margin}px;`};
+  margin: ${(props) => props.$margin && ` ${props.$margin}rem`};
 `;

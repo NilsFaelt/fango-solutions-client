@@ -26,7 +26,7 @@ export const Container = styled.div`
   box-shadow: 1.7rem 1rem 1rem 1rem white;
   background-color: black;
   border-left: 0.05rem solid white;
-  animation: ${slideIn} 1s; /* Apply the slideIn animation for 1 second */
+  animation: ${slideIn} 1s;
 `;
 
 export const Title = styled.h3`

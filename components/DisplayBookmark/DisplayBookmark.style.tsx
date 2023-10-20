@@ -41,6 +41,7 @@ export const BookmarkContainer = styled.button`
   justify-content: center;
   gap: 1vw;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   height: 5rem;
   cursor: pointer;
   background-color: black;
@@ -76,6 +77,7 @@ export const DropDownContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out forwards;
 
   width: calc(7rem + 6vw);
+
   z-index: 5;
 `;
 export const DropUpContainer = styled.div`
@@ -86,6 +88,7 @@ export const DropUpContainer = styled.div`
   z-index: 2;
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   margin-bottom: 0.3rem;
 `;
 export const DeleteContainer = styled.div`
@@ -141,6 +144,7 @@ export const StyledA = styled.a`
   align-items: center;
   margin-top: 0.3rem;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   height: 3.5rem;
   word-break: break-all;
   cursor: pointer;

@@ -9,8 +9,7 @@ export const Container = styled.div`
   cursor: pointer;
   &:hover {
     transition: 0.3s;
-
-    transform: scale(1.05);
+    text-decoration: underline 0.05rem white;
   }
 `;
 

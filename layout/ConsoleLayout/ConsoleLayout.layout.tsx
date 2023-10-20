@@ -12,7 +12,7 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
   return (
     <Container>
       {/* <UnderConstrusction /> */}
-      <ProfileCard />
+      {/* <ProfileCard /> */}
       <CookieBanner />
       <ConsoleNavAside />
       {children}
