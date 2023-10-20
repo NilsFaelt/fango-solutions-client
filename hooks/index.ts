@@ -1,3 +1,4 @@
 export * from "./useClickOutsideToClose";
-export { useIdToken } from "./useIdToken";
 export * from "./bookmarks";
+export * from "./click";
+export { useIdToken } from "./useIdToken";

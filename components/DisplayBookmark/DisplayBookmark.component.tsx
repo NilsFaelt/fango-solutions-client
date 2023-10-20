@@ -13,14 +13,13 @@ import {
   StyledImage,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
-
-import { useMutateDeleteBookmark } from "@/hooks";
+import { useMutateDeleteBookmark, useMutateIncrementClick } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
 import {
   extractChildPathFromURL,
   extractMainPathUrl,
 } from "@/features/Bookmark/utils";
-import { checkForFavicon, getFaviconUrl } from "./utils";
+import { getFaviconUrl } from "./utils";
 
 interface Props {
   bookmark: BookmarkInterface;
@@ -33,11 +32,20 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
 
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
   const { mutate } = useMutateDeleteBookmark(token, bookmark?.id);
+  const { mutateAsync: mutateIncrementClick } = useMutateIncrementClick(
+    bookmark.id,
+    token
+  );
   const openDeleteContainerOnClick = () => {
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
   const handelDeleteOnClick = () => {
     mutate();
+  };
+  const handleClick = (url: string) => {
+    mutateIncrementClick().then(() => {
+      window.open(url, "_blank");
+    });
   };
   const { children } = bookmark;
 
@@ -94,7 +102,14 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
           </InnerDropUpContainer>
         </DropUpContainer>
       )}
-      <StyledLink target='blank' href={bookmark?.url}>
+      <StyledLink
+        target='_blank'
+        onClick={(e) => {
+          e.preventDefault();
+          handleClick(bookmark?.url);
+        }}
+        href={bookmark?.url}
+      >
         <BookmarkContainer>
           <StyledImage
             width={30}
@@ -110,7 +125,15 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
             children.map((child, i) => {
               const path = extractChildPathFromURL(child.url);
               return (
-                <StyledA href={child.url} target='_blank' key={i}>
+                <StyledA
+                  // href={child.url}
+                  // target='_blank'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleClick(child.url);
+                  }}
+                  key={i}
+                >
                   {path.toUpperCase()}
                 </StyledA>
               );
