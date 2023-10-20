@@ -15,10 +15,7 @@ export const ProfileCard: FC = () => {
 
   return (
     <Container>
-      <StyledImage src={"/svg/logga.png"} />
-
       <Name>{displayName}</Name>
-      {/* <InfoText>{jobTitle}</InfoText> */}
     </Container>
   );
 };

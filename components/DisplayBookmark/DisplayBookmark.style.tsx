@@ -36,7 +36,12 @@ const fadeInUp = keyframes`
 `;
 
 export const BookmarkContainer = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   height: 5rem;
   cursor: pointer;
   background-color: black;
@@ -72,28 +77,33 @@ export const DropDownContainer = styled.div`
   animation: ${fadeIn} 0.5s ease-in-out forwards;
 
   width: calc(7rem + 6vw);
+
   z-index: 5;
 `;
 export const DropUpContainer = styled.div`
   position: absolute;
   bottom: 4rem;
+  display: flex;
+  flex-direction: column;
   z-index: 2;
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   margin-bottom: 0.3rem;
 `;
 export const DeleteContainer = styled.div`
-  width: calc(7rem + 6vw);
   display: flex;
   flex-direction: row;
-  gap: 2rem;
+  gap: 1vw;
   align-items: center;
   justify-content: center;
-  padding-bottom: 2rem;
 `;
 
-export const UpdateWrapper = styled.div`
+export const InnerDropUpContainer = styled.div`
+  width: 100%;
   padding-bottom: 1rem;
+  gap: 1vw;
+  display: flex;
 `;
 export const SvgImage = styled(Image)``;
 export const DropDownChildren = styled.div`
@@ -134,6 +144,7 @@ export const StyledA = styled.a`
   align-items: center;
   margin-top: 0.3rem;
   width: calc(7rem + 6vw);
+  min-width: 10rem;
   height: 3.5rem;
   word-break: break-all;
   cursor: pointer;
@@ -168,7 +179,7 @@ export const DeleteConfirmButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 0.3rem;
+
   height: 2rem;
   word-break: break-all;
   cursor: pointer;
@@ -199,3 +210,5 @@ export const DeleteConfirmButton = styled.button`
     ${theme.colors.primary}
   }
 `;
+
+export const StyledImage = styled.img``;

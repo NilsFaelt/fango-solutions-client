@@ -5,14 +5,14 @@ export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.2rem;
   cursor: pointer;
 `;
 export const Button = styled.button`
   color: white;
   border: none;
   background-color: transparent;
-  font-size: 16px;
+  font-size: 0.7rem;
   cursor: pointer;
 `;
 export const SvgImage = styled(Image)`

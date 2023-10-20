@@ -5,29 +5,28 @@ import { styled } from "styled-components";
 export const Container = styled.div`
   position: absolute;
   right: 1rem;
-  top: 1rem;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-right: 1.5rem;
-  width: auto;
-  /* border-radius: 1rem; */
-  border: 0.1rem solid black;
-  background-color: transparent;
-  border: none;
-  border-bottom: 0.08rem solid white;
+  width: calc(6rem + 2vw);
+  cursor: pointer;
+  background-color: black;
+  border: 0.1rem solid ${theme.colors.primary};
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
 
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 0 15px ${theme.colors.secondary};
+    /* background-color: ${theme.colors.extra}; */
+  }
+  &:active {
+    box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
+  }
   @media (max-width: ${mediaQueries.tablet}) {
     right: 1rem;
   }
-
-  @keyframes spin {
-    0% {
-      transform: translateX(-50%) rotate(0deg);
-    }
-    100% {
-      transform: translateX(-50%) rotate(360deg);
-    }
+  @media (max-width: ${mediaQueries.mobile}) {
+    display: none;
   }
 `;
 
@@ -43,9 +42,9 @@ export const StyledImage = styled.img`
     height: 2.5rem;
   }
 `;
-export const Name = styled.h4`
+export const Name = styled.p`
   text-align: center;
-  font-size: 0.7rem;
+  font-size: calc(0.7rem + 0.3vw);
   color: white;
   margin: 0;
 
