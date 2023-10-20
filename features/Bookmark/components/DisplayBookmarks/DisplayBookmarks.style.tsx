@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -11,4 +12,8 @@ export const Container = styled.div`
   width: auto;
   padding: 3rem;
   color: black;
+`;
+export const InputWrapper = styled.div`
+  position: absolute;
+  top: -1rem;
 `;
