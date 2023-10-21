@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext } from "react";
+import React, { FC, ReactNode, useEffect } from "react";
 import { Container } from "./ConsoleLayout.style";
 import { ConsoleNavAside, ProfileCard } from "@/components";
 import { UnderConstrusction } from "@/components/UnderConstrusction";
