@@ -13,7 +13,7 @@ interface Props {
 export const DisplayBookmarks: FC<Props> = ({ token }) => {
   const [searchWord, setSearchWord] = useState("");
   const { data, isLoading } = useBookmarks(token);
-
+  console.log(data);
   const filteredData = data?.filter((b) => {
     if (b.url.includes(searchWord)) {
       return b;
