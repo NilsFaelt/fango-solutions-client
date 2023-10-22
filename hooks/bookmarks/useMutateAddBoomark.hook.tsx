@@ -23,7 +23,6 @@ const fetchBookmark = async (
           body: JSON.stringify({ url: bookmark, childUrls }),
         })}`
       ).then((res) => res.json);
-      console.log(response, " in query");
       return response;
     }
   } catch (err) {

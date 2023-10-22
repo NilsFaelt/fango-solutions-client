@@ -1,5 +1,39 @@
 import Link from "next/link";
-import { styled } from "styled-components";
+import { keyframes, styled } from "styled-components";
+import { theme } from "..";
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+    z-index: 0;
+    transform: translateY(-100%);
+  }
+  30% {
+    z-index: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    z-index: 3;
+    transform: translateY(0);
+  }
+`;
+const fadeInUp = keyframes`
+  0% {
+    opacity: 0;
+    z-index: 0;
+    transform: translateY(100%);
+  }
+  30% {
+    z-index: 0;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    z-index: 3;
+    transform: translateY(0);
+  }
+`;
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
@@ -40,4 +74,14 @@ export const SpinnerWrapperCenter = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
+
+export const DropDownContainer = styled.div`
+  position: absolute;
+  background-color: ${theme.colors.backgroundPrimary};
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
+
+  width: 100%;
+
+  z-index: 5;
 `;

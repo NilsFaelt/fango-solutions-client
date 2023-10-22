@@ -9,10 +9,19 @@ import { PrimaryInput, SpinnerWrapperCenter } from "@/styles";
 
 interface Props {
   token: string;
+  displaySearch?: boolean;
+  limit?: number;
 }
-export const DisplayBookmarks: FC<Props> = ({ token }) => {
+export const DisplayBookmarks: FC<Props> = ({
+  token,
+  limit = 100,
+  displaySearch = false,
+}) => {
   const [searchWord, setSearchWord] = useState("");
-  const { data, isLoading } = useBookmarks(token);
+  const { data, isLoading } = useBookmarks(token, {
+    limit,
+    skip: 0,
+  });
   console.log(data);
   const filteredData = data?.filter((b) => {
     if (b.url.includes(searchWord)) {
@@ -30,13 +39,15 @@ export const DisplayBookmarks: FC<Props> = ({ token }) => {
 
   return (
     <Container>
-      <InputWrapper>
-        <PrimaryInput
-          $width={"calc(7rem + 5vw)"}
-          placeholder='Search'
-          onChange={(e) => setSearchWord(e.target.value)}
-        />
-      </InputWrapper>
+      {displaySearch && (
+        <InputWrapper>
+          <PrimaryInput
+            $width={"calc(7rem + 5vw)"}
+            placeholder='Search'
+            onChange={(e) => setSearchWord(e.target.value)}
+          />
+        </InputWrapper>
+      )}
       {filteredData?.map((bookmark: BookmarkInterface, i: number) => {
         return <DisplayBookmark key={i} bookmark={bookmark} token={token} />;
       })}

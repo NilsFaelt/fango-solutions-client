@@ -35,7 +35,7 @@ export const LogginButton: FC = () => {
           // );
         })
         .then(() => {
-          router.push(`/console`);
+          router.push(`/overview`);
         })
         .catch((error) => {
           console.log("Error:", error);
@@ -82,7 +82,7 @@ export const LogginButton: FC = () => {
         <>
           {" "}
           <ButtonWithRings
-            href='/console'
+            href='/overview'
             svgSrc='/svg/console.svg'
           ></ButtonWithRings>
         </>

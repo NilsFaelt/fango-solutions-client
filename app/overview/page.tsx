@@ -1,12 +1,13 @@
 "use client";
-import { ConsoleView } from "@/features";
+
+import { OverViewView } from "@/features";
 import { ConsoleLayout } from "@/layout/ConsoleLayout";
 import React from "react";
 
 const page = () => {
   return (
     <ConsoleLayout>
-      <ConsoleView />
+      <OverViewView />
     </ConsoleLayout>
   );
 };

@@ -35,7 +35,7 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
   const [idToken, setIdToken] = useState<null | string>(null); // New state for ID token
   const { mutate } = useMutatecreateUser(idToken);
-
+  console.log(idToken);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
