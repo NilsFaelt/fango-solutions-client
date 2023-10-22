@@ -2,8 +2,7 @@ import { theme } from "@/styles";
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.button`
-  min-width: 10rem;
-  max-width: 16rem;
+  width: 100%;
   cursor: pointer;
   background-color: black;
   border: 0.1rem solid ${theme.colors.primary};

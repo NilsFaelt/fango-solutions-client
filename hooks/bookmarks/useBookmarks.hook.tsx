@@ -5,14 +5,13 @@ import { useQuery } from "@tanstack/react-query";
 const fetchBookmarks = async (
   token: string,
   pagination?: {
-    limit: number;
+    limit: number | null;
     skip: number;
-    page: number;
   }
 ): Promise<BookmarkInterface[] | undefined> => {
   try {
     const response = await fetch(
-      `http://localhost:3000/bookmark?limit=${pagination?.limit}&skip=${pagination?.skip}&page=${pagination?.page}`,
+      `http://localhost:3000/bookmark?limit=${pagination?.limit}&skip=${pagination?.skip}`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -32,10 +31,9 @@ const fetchBookmarks = async (
 
 export const useBookmarks = (
   token: string,
-  pagination: { limit: number; skip: number; page: number } = {
+  pagination: { limit: number | null; skip: number } = {
     limit: 100,
     skip: 0,
-    page: 0,
   }
 ) => {
   return useQuery(["bookmarks"], () => fetchBookmarks(token, pagination));

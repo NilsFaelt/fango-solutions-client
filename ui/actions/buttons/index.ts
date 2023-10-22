@@ -5,3 +5,5 @@ export * from "./LoginButton";
 export * from "./AddButton";
 export * from "./HooverButtonDropDown";
 export * from "./DropDownInnerButton";
+export * from "./DeleteAccountButton";
+export * from "./ExtraConfirmButton";

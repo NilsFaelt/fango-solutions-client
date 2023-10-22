@@ -1,3 +1,4 @@
+import { mediaQueries } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -12,6 +13,10 @@ export const Container = styled.div`
   width: auto;
   padding: 3rem;
   color: black;
+  @media (max-width: ${mediaQueries.mobile}) {
+    margin-top: 6rem;
+    justify-content: center;
+  }
 `;
 export const InputWrapper = styled.div`
   position: absolute;

@@ -22,7 +22,7 @@ export const BookmarkView: FC = () => {
   if (!idToken) return null;
   return (
     <Container>
-      <DisplayBookmarks token={idToken} />
+      <DisplayBookmarks token={idToken} displaySearch={true} />
 
       <NavBarExtras>
         <AddButton onClick={() => setToogleContainer(true)} />

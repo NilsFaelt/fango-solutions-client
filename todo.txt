@@ -1,6 +1,6 @@
-slide in update 
-add user on cretae
-hooks update 
-add analytics on click 
-add clicked 
+fix loggin to email and password
 add todo 
+fix form for adding bookmarks
+docs
+delete account
+drop dwn account
