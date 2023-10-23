@@ -1,6 +1,6 @@
 "use client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { MenuContextProvider } from "@/context";
+import { BookmarkContextProvider, MenuContextProvider } from "@/context";
 import { GlobalStyle } from "@/styles";
 import { PropsWithChildren, useState } from "react";
 import { LoggedinUserContextProvider } from "@/context/LoggedInUserContext";
@@ -11,9 +11,11 @@ export function ProviderWrapper({ children }: PropsWithChildren) {
     <>
       <GlobalStyle />
       <QueryClientProvider client={queryClient}>
-        <LoggedinUserContextProvider>
-          <MenuContextProvider>{children}</MenuContextProvider>
-        </LoggedinUserContextProvider>
+        <BookmarkContextProvider>
+          <LoggedinUserContextProvider>
+            <MenuContextProvider>{children}</MenuContextProvider>
+          </LoggedinUserContextProvider>
+        </BookmarkContextProvider>
       </QueryClientProvider>
     </>
   );

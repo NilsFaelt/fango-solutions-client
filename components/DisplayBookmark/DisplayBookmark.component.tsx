@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import {
   BookmarkContainer,
   Container,
@@ -20,12 +20,16 @@ import {
   extractMainPathUrl,
 } from "@/features/Bookmark/utils";
 import { getFaviconUrl } from "./utils";
+import { BookmarkContext, MenuContext } from "@/context";
+import { UpdateBookmark } from "../UpdateBookmark/UpdateBookmark.component";
 
 interface Props {
   bookmark: BookmarkInterface;
   token: string;
 }
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
+  const { setToogleUpdateBookmark } = useContext(MenuContext);
+  const { setBookmarkId } = useContext(BookmarkContext);
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
   const faviconUrl = getFaviconUrl(bookmark.url);
@@ -46,6 +50,10 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     mutateIncrementClick().then(() => {
       window.open(url, "_blank");
     });
+  };
+  const handleUpdateBookmarkClick = (id: string) => {
+    setBookmarkId(id);
+    setToogleUpdateBookmark(true);
   };
   const { children } = bookmark;
 
@@ -74,6 +82,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                 onClick={() => setToogleDeleteContainer(false)}
               >
                 <SvgImage
+                  onClick={() => {
+                    setToogleDeleteContainer(false);
+                  }}
                   width={15}
                   height={15}
                   alt='cogwheel'
@@ -91,7 +102,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                 src={"/svg/trash.svg"}
               />
             </DropDownChildren>
-            <DropDownChildren>
+            <DropDownChildren
+              onClick={() => handleUpdateBookmarkClick(bookmark.id)}
+            >
               <SvgImage
                 width={25}
                 height={25}
