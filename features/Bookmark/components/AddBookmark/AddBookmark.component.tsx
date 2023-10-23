@@ -4,6 +4,7 @@ import {
   ButtonInputWrapperCollumn,
   Container,
   DisplayUrlWrapper,
+  FormContainer,
   LabelAndInputContainer,
   StyledA,
   StyledImage,
@@ -16,18 +17,34 @@ import { createAValidUrl, validateUrl } from "../../utils";
 
 interface Props {
   idToken: string;
+  setToogleAddBookmarkContainer: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export const AddBookmark: FC<Props> = ({ idToken }) => {
-  const [url, setUrl] = useState("");
+export const AddBookmark: FC<Props> = ({
+  idToken,
+  setToogleAddBookmarkContainer,
+}) => {
   const [childUrl, setChildUrl] = useState("");
   const [childUrls, setChildUrls] = useState<string[]>([]);
   const hidePlusButton = childUrls.length < 3;
-  const validHttpUrl = createAValidUrl(url);
+  const mainValidHttpUrl = createAValidUrl(childUrls[0]);
+  const validHttpUrl = createAValidUrl(childUrl);
   const isUrl = validateUrl(validHttpUrl);
-  const { mutate } = useMutateAddBookmark(idToken, validHttpUrl, childUrls);
+  const blockUrlInput = childUrls.length > 2;
+  const { mutateAsync } = useMutateAddBookmark(
+    idToken,
+    mainValidHttpUrl,
+    childUrls
+  );
 
   const handleClick = () => {
-    if (isUrl) mutate();
+    if (mainValidHttpUrl)
+      mutateAsync()
+        .then(() => {
+          setToogleAddBookmarkContainer(false);
+        })
+        .catch(() => {
+          console.log("couldnt add bookmark");
+        });
   };
 
   const handleAddChildUrlOnClick = (childUrl: string) => {
@@ -40,7 +57,7 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
   };
   return (
     <Container>
-      <LabelAndInputContainer>
+      {/* <LabelAndInputContainer>
         <PrimaryLabel>WEBSITE URL</PrimaryLabel>
         <MainText fontSize='12' margin='0'>
           Copy paste your website adress of choice
@@ -69,42 +86,81 @@ export const AddBookmark: FC<Props> = ({ idToken }) => {
             </StyledA>
           </DisplayUrlWrapper>
         )}
-      </LabelAndInputContainer>
-      <LabelAndInputContainer>
-        <PrimaryLabel>SPECIFIC PART OF WEBSITE</PrimaryLabel>
-        <MainText fontSize='12' margin='0'>
-          Add more specific locations on site.
-        </MainText>
-        <ButtonInputWrapperCollumn>
-          <PrimaryInput
-            onChange={(e) => setChildUrl(e.target.value)}
-            placeholder='www.mypage.com/profile'
-            value={childUrl}
-          />
-          {hidePlusButton && (
-            <AddButton
-              onClick={(e) => {
-                e.preventDefault();
-                handleAddChildUrlOnClick(childUrl);
-              }}
-            />
+      </LabelAndInputContainer> */}
+      <FormContainer>
+        <LabelAndInputContainer>
+          <PrimaryLabel>ADD BOOKMARK/URLS</PrimaryLabel>
+          <MainText fontSize='12' margin='0'>
+            Create bookmark, add on or multiple webadresses, by default you will
+            get a main adress and underneath all your specific paths.
+          </MainText>
+          <ButtonInputWrapperCollumn>
+            <PrimaryInput
+              readOnly={blockUrlInput}
+              onChange={(e) => setChildUrl(e.target.value)}
+              placeholder='www.mypage.com/profile'
+              value={childUrl}
+            />{" "}
+            {hidePlusButton && (
+              <AddButton
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleAddChildUrlOnClick(childUrl);
+                }}
+              />
+            )}
+            {validHttpUrl && (
+              <DisplayUrlWrapper>
+                <MainText margin='0'>Try me first ?</MainText>
+                <StyledA color='green' href={validHttpUrl} target='_blank'>
+                  {validHttpUrl}{" "}
+                  {isUrl && (
+                    <StyledImage
+                      alt='Green check mark'
+                      width={12}
+                      height={12}
+                      src='/svg/check.svg'
+                    />
+                  )}
+                </StyledA>
+              </DisplayUrlWrapper>
+            )}
+          </ButtonInputWrapperCollumn>
+          {mainValidHttpUrl && (
+            <DisplayUrlWrapper>
+              <MainText margin='0'>Main Url</MainText>
+              <StyledA color='green' href={mainValidHttpUrl} target='_blank'>
+                {mainValidHttpUrl}{" "}
+                {mainValidHttpUrl && (
+                  <StyledImage
+                    alt='Green check mark'
+                    width={12}
+                    height={12}
+                    src='/svg/check.svg'
+                  />
+                )}
+              </StyledA>
+            </DisplayUrlWrapper>
           )}
-        </ButtonInputWrapperCollumn>
-        {childUrls.length > 0 && (
-          <DisplayUrlWrapper>
-            {childUrls.map((url, i) => {
-              return <ChildUrl key={i} url={url} />;
-            })}
-          </DisplayUrlWrapper>
-        )}
-      </LabelAndInputContainer>
+          {childUrls.length > 0 && (
+            <>
+              <DisplayUrlWrapper>
+                <MainText margin='0'>Specific Urls</MainText>
+                {childUrls.map((url, i) => {
+                  return <ChildUrl key={i} url={url} />;
+                })}
+              </DisplayUrlWrapper>
+            </>
+          )}
+        </LabelAndInputContainer>
+      </FormContainer>
 
       <PrimaryButton
         onClick={(e) => {
           e.preventDefault();
           handleClick();
         }}
-        text={isUrl ? "SAVE BOOKMARK" : "ADD VALID URL"}
+        text={mainValidHttpUrl ? "SAVE BOOKMARK" : "ADD VALID URL"}
       />
     </Container>
   );

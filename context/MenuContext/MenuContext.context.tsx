@@ -1,6 +1,6 @@
 interface MenuContextInterface {
-  toogleMenu: boolean;
-  setToogleMenu: Dispatch<SetStateAction<boolean>>;
+  toogleUpdateBookmark: boolean;
+  setToogleUpdateBookmark: Dispatch<SetStateAction<boolean>>;
   toogleLoggin: boolean;
   setToogleLoggin: Dispatch<SetStateAction<boolean>>;
 }
@@ -15,8 +15,8 @@ import {
 } from "react";
 
 export const MenuContext = createContext<MenuContextInterface>({
-  toogleMenu: false,
-  setToogleMenu: () => {},
+  toogleUpdateBookmark: false,
+  setToogleUpdateBookmark: () => {},
   toogleLoggin: false,
   setToogleLoggin: () => {},
 });
@@ -24,11 +24,16 @@ export const MenuContext = createContext<MenuContextInterface>({
 export const MenuContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [toogleMenu, setToogleMenu] = useState(true);
+  const [toogleUpdateBookmark, setToogleUpdateBookmark] = useState(false);
   const [toogleLoggin, setToogleLoggin] = useState(false);
   return (
     <MenuContext.Provider
-      value={{ toogleMenu, setToogleMenu, toogleLoggin, setToogleLoggin }}
+      value={{
+        toogleUpdateBookmark,
+        setToogleUpdateBookmark,
+        toogleLoggin,
+        setToogleLoggin,
+      }}
     >
       {children}
     </MenuContext.Provider>

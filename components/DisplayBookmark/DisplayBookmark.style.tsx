@@ -51,6 +51,7 @@ export const BookmarkContainer = styled.button`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   word-break: break-all;
+
   &:hover {
     color: ${theme.colors.primary};
     transition: 0.3s;
@@ -66,19 +67,16 @@ export const Container = styled.div`
   position: relative;
   diplay: flex;
   flex-direction: column;
-
   &:hover ${BookmarkContainer} {
     box-shadow: 0 0 1rem ${theme.colors.secondary};
   }
 `;
+
 export const DropDownContainer = styled.div`
   position: absolute;
-  background-color: ${theme.colors.backgroundPrimary};
+  background-color: rgba(0, 0, 0, 0.9);
+
   animation: ${fadeIn} 0.5s ease-in-out forwards;
-
-  width: calc(7rem + 6vw);
-
-  z-index: 5;
 `;
 export const DropUpContainer = styled.div`
   position: absolute;
@@ -89,7 +87,10 @@ export const DropUpContainer = styled.div`
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
   min-width: 10rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 1rem;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
 `;
 export const DeleteContainer = styled.div`
   display: flex;
@@ -101,8 +102,8 @@ export const DeleteContainer = styled.div`
 
 export const InnerDropUpContainer = styled.div`
   width: 100%;
-  padding-bottom: 1rem;
-  gap: 1vw;
+  padding-bottom: 0.5rem;
+  gap: 0.5vw;
   display: flex;
 `;
 export const SvgImage = styled(Image)``;
@@ -179,7 +180,6 @@ export const DeleteConfirmButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: 2rem;
   word-break: break-all;
   cursor: pointer;

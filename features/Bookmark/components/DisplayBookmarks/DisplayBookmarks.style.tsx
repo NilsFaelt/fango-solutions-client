@@ -10,6 +10,7 @@ export const Container = styled.div`
   gap: calc(0.5rem + 1vw);
   margin-top: 8rem;
   margin-left: calc(8rem + 6vw);
+  margin-bottom: 10rem;
   width: auto;
   padding: 3rem;
   color: black;

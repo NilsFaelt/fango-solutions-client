@@ -7,11 +7,16 @@ import { AddButton, DropDownInnerButton, HooverButtonDropDown } from "@/ui";
 import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 import { useMutatecreateUser } from "@/hooks";
+import { MenuContext } from "@/context";
+import { UpdateBookmark } from "@/components/UpdateBookmark/UpdateBookmark.component";
 
 export const BookmarkView: FC = () => {
+  const { toogleUpdateBookmark, setToogleUpdateBookmark } =
+    useContext(MenuContext);
   const { idToken } = useContext(LoggedinUserContext);
   const { mutate } = useMutatecreateUser(idToken);
-  const [toogleContainer, setToogleContainer] = useState(false);
+  const [toogleAddBookmarkContainer, setToogleAddBookmarkContainer] =
+    useState(false);
   useEffect(() => {
     console.log(" in use");
     mutate();
@@ -19,19 +24,30 @@ export const BookmarkView: FC = () => {
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
+  console.log(toogleUpdateBookmark);
   if (!idToken) return null;
   return (
     <Container>
+      <SlideInContainer
+        title='Update Bookmark'
+        toogleContainer={toogleUpdateBookmark}
+        setToogleContainer={setToogleUpdateBookmark}
+      >
+        <UpdateBookmark idToken={idToken} />
+      </SlideInContainer>
       <DisplayBookmarks token={idToken} displaySearch={true} />
 
       <NavBarExtras>
-        <AddButton onClick={() => setToogleContainer(true)} />
+        <AddButton onClick={() => setToogleAddBookmarkContainer(true)} />
         <SlideInContainer
           title='ADD BOOKMARK'
-          setToogleContainer={setToogleContainer}
-          toogleContainer={toogleContainer}
+          setToogleContainer={setToogleAddBookmarkContainer}
+          toogleContainer={toogleAddBookmarkContainer}
         >
-          <AddBookmark idToken={idToken} />
+          <AddBookmark
+            setToogleAddBookmarkContainer={setToogleAddBookmarkContainer}
+            idToken={idToken}
+          />
         </SlideInContainer>
         <HooverButtonDropDown svgSource='/svg/robot.svg'>
           <DropDownInnerButton

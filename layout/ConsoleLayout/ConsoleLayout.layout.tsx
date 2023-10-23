@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect } from "react";
+import React, { FC, ReactNode, useContext, useEffect } from "react";
 import { Container } from "./ConsoleLayout.style";
 import { ConsoleNavAside, ProfileCard } from "@/components";
 import { UnderConstrusction } from "@/components/UnderConstrusction";
@@ -11,7 +11,7 @@ interface Props {
 export const ConsoleLayout: FC<Props> = ({ children }) => {
   return (
     <Container>
-      {/* <UnderConstrusction /> */}
+      <UnderConstrusction />
 
       <CookieBanner />
       <ConsoleNavAside />

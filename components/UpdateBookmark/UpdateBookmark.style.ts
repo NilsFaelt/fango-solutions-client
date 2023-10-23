@@ -13,20 +13,10 @@ export const Container = styled.div`
   padding-right: 1rem;
   min-height: 30rem;
 `;
-export const FormContainer = styled.form``;
-export const LabelAndInputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  max-width: 16rem;
-  gap: 0.5rem;
-`;
-export const StyledA = styled.a`
-  color: ${theme.colors.secondary};
-  text-decoration: underline;
-  max-width: 16rem;
-  word-wrap: break-word;
-  font-size: 0.8rem;
+
+export const StyledInput = styled.input`
+  background-color: black;
+  color: white;
 `;
 export const DisplayUrlWrapper = styled.div`
   display: flex;
@@ -38,8 +28,10 @@ export const StyledImage = styled(Image)`
   margin-left: 1rem;
   margin-bottom: -0.2rem;
 `;
-export const ButtonInputWrapperCollumn = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+export const Text = styled.p`
+  color: ${theme.colors.secondary};
+  text-decoration: underline;
+  max-width: 16rem;
+  word-wrap: break-word;
+  font-size: 0.8rem;
 `;
