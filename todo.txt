@@ -4,3 +4,7 @@ fix form for adding bookmarks
 docs
 delete account
 drop dwn account
+change mail
+change firebase credntials
+update bookmark 
+click bookmark not hoover (double tap)

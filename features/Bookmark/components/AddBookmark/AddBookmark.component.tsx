@@ -9,7 +9,7 @@ import {
   StyledA,
   StyledImage,
 } from "./AddBookmark.style";
-import { AddButton, PrimaryButton } from "@/ui";
+import { AddButton, MainTitle, PrimaryButton } from "@/ui";
 import { PrimaryInput, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
@@ -57,6 +57,7 @@ export const AddBookmark: FC<Props> = ({
   };
   return (
     <Container>
+      <MainTitle text='BOOKMARK' underText='ADD' />
       {/* <LabelAndInputContainer>
         <PrimaryLabel>WEBSITE URL</PrimaryLabel>
         <MainText fontSize='12' margin='0'>

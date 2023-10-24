@@ -25,7 +25,7 @@ export const Container = styled.div`
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
-  border: 0.5rem solid ${theme.colors.primary};
+  border: 0.1rem solid ${theme.colors.primary};
   transition: box-shadow 0.3s ease-in-out; /* Add a transition for smooth hover effect */
 
   &:hover {

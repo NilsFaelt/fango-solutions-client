@@ -9,6 +9,7 @@ import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 import { useMutatecreateUser } from "@/hooks";
 import { MenuContext } from "@/context";
 import { UpdateBookmark } from "@/components/UpdateBookmark/UpdateBookmark.component";
+import { ContentDisplay } from "@/features";
 
 export const BookmarkView: FC = () => {
   const { toogleUpdateBookmark, setToogleUpdateBookmark } =
@@ -28,8 +29,8 @@ export const BookmarkView: FC = () => {
   if (!idToken) return null;
   return (
     <Container>
+      <ContentDisplay idToken={idToken} />
       <SlideInContainer
-        title='Update Bookmark'
         toogleContainer={toogleUpdateBookmark}
         setToogleContainer={setToogleUpdateBookmark}
       >
@@ -40,7 +41,6 @@ export const BookmarkView: FC = () => {
       <NavBarExtras>
         <AddButton onClick={() => setToogleAddBookmarkContainer(true)} />
         <SlideInContainer
-          title='ADD BOOKMARK'
           setToogleContainer={setToogleAddBookmarkContainer}
           toogleContainer={toogleAddBookmarkContainer}
         >

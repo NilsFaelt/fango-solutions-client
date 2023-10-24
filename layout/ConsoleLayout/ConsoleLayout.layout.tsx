@@ -15,6 +15,7 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
 
       <CookieBanner />
       <ConsoleNavAside />
+
       {children}
     </Container>
   );
