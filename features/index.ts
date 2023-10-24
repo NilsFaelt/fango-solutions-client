@@ -5,3 +5,4 @@ export * from "./Loggin";
 export * from "./OverView";
 export * from "./Bookmark";
 export * from "./CookiePolicy";
+export * from "./ContentDisplay";

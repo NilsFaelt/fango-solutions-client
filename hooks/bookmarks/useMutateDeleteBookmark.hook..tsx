@@ -6,7 +6,7 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-const fetchBookmark = async (token: string, id: string) => {
+const fetchBookmark = async (token: string, id: string | null) => {
   try {
     if (token) {
       await fetch(
@@ -23,12 +23,12 @@ const fetchBookmark = async (token: string, id: string) => {
       });
     }
   } catch (err) {
-    console.log(`couldnt add bookamrk`, err);
+    console.log(`couldnt delete bookmark`);
     throw err;
   }
 };
 
-export const useMutateDeleteBookmark = (token: string, id: string) => {
+export const useMutateDeleteBookmark = (token: string, id: string | null) => {
   const queryClient = useQueryClient();
   return useMutation(() => fetchBookmark(token, id), {
     onSuccess: () => {

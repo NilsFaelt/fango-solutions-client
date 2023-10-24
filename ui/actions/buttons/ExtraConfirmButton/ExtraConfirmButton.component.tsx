@@ -12,7 +12,7 @@ import { MainText } from "@/ui/display/MainText/MainText.component";
 import { Spinner } from "@/ui";
 
 interface Props {
-  onClick: () => {};
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   text?: string;
 }
 

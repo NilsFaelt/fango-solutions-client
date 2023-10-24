@@ -21,12 +21,13 @@ export const Container = styled.div`
   bottom: 0;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-top: 5rem;
-  height: 100vh;
+  padding-top: 2rem;
+  min-height: 100vh;
   box-shadow: 1.7rem 1rem 1rem 1rem white;
   background-color: black;
   border-left: 0.05rem solid white;
   animation: ${slideIn} 1s;
+  overflow: scroll;
 `;
 
 export const Title = styled.h3`
