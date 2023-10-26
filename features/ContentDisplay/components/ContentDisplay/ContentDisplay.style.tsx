@@ -1,4 +1,5 @@
 import { mediaQueries, theme } from "@/styles";
+import Image from "next/image";
 import styled from "styled-components";
 
 export const OuterContainer = styled.div`
@@ -16,6 +17,7 @@ export const OuterContainer = styled.div`
   padding: 1rem;
   z-index: 6;
   box-sizing: border-box;
+  overflow: scroll;
   @media (max-width: ${mediaQueries.mobile}) {
     flex-direction: column-reverse;
   }
@@ -36,7 +38,9 @@ export const Container = styled.div`
     height: 60vh;
   }
 `;
+
 export const CenterContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -46,21 +50,49 @@ export const CenterContainer = styled.div`
   gap: 1rem;
 `;
 export const DisplayPreviewContentContainer = styled.div`
-  min-width: 10rem;
-  height: 80vh;
   display: flex;
   flex-direction: column;
+  width: 12rem;
+  height: 80vh;
+  gap: 0.9rem;
   background-color: black;
   color: white;
   border: 0.05rem solid white;
   padding: 1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.7rem;
+  overflow: scroll;
   @media (max-width: ${mediaQueries.mobile}) {
     width: clamp(300px, 80vw, 50rem);
     height: 10vh;
   }
 `;
-export const StyledInput = styled.input`
+export const ExtrasContainer = styled.div`
+  display: flex;
+  display: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3;
+  margin-bottom: 1rem;
+`;
+
+export const SpinnerWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 7;
+`;
+export const ContentPreviewTitle = styled.p`
+  color: white;
+  font-size: calc(0.7rem + 0.3vw);
+  margin: 0;
+  cursor: pointer;
+  font-family: monospace;
+  /* text-decoration: underline; */
+`;
+
+export const StyledInput = styled.textarea`
   height: 94%;
   display: flex;
   background-color: black;
@@ -68,7 +100,7 @@ export const StyledInput = styled.input`
   border: none;
   color: white;
   text-align: center;
-
+  font-family: monospace;
   &:focus {
     outline: none;
   }
@@ -96,4 +128,24 @@ export const CloseButton = styled.button`
   background-color: transparent;
   cursor: pointer;
   color: white;
+  margin-top: -1.5rem;
+`;
+export const SavedText = styled.p`
+  font-size: calc(0.7rem + 0.3vw);
+  font-family: monospace;
+  color: ${theme.colors.primary};
+`;
+export const SvgImage = styled(Image)``;
+export const MarkButton = styled.button`
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  margin-top: 1rem;
 `;
