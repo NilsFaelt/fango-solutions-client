@@ -1,3 +1,5 @@
+import { ContentInterface } from "../content";
+
 export interface BookmarkInterface {
   createdAt: string;
   id: string;
@@ -5,6 +7,7 @@ export interface BookmarkInterface {
   userEmail: string;
   children?: ChildUrls[];
   todos?: string[];
+  content: ContentInterface[];
 }
 
 export interface ChildUrls {

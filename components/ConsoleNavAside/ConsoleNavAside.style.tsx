@@ -2,7 +2,7 @@ import { theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

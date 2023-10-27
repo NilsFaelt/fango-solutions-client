@@ -41,6 +41,7 @@ export const useMutatePatchContent = (
   return useMutation(() => fetchContent(token, id, data), {
     onSuccess: () => {
       queryClient.invalidateQueries(["content"]);
+      queryClient.invalidateQueries(["bookmarks"]);
     },
     onError: (error) => {
       console.log(error);
