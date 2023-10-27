@@ -12,7 +12,6 @@ const fetchContent = async (
   data: { title: string; text: string; todo: boolean }
 ) => {
   try {
-    console.log(token, bookmarkId, data, "in fetch before if");
     if (token && bookmarkId) {
       const response = await fetch(
         `${apiClient(`/content/${bookmarkId}`, {
@@ -38,7 +37,6 @@ export const useMutateAddContent = (
   bookmarkId: string | null,
   data: { title: string; text: string; todo: boolean }
 ) => {
-  console.log(token, bookmarkId, data, "in mutate");
   const queryClient = useQueryClient();
   return useMutation(() => fetchContent(token, bookmarkId, data), {
     onSuccess: () => {

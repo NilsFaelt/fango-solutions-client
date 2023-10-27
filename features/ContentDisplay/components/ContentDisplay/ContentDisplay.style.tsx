@@ -6,7 +6,7 @@ export const OuterContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   position: fixed;
   top: 0;
@@ -15,14 +15,17 @@ export const OuterContainer = styled.div`
   min-height: 100vh;
   background-color: black;
   padding: 1rem;
+  padding-top: 2rem;
   z-index: 6;
   box-sizing: border-box;
   overflow: scroll;
   @media (max-width: ${mediaQueries.mobile}) {
     flex-direction: column-reverse;
+    justify-content: flex-end;
+    padding-top: 1rem;
   }
 `;
-export const Container = styled.div`
+export const Container = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -49,6 +52,25 @@ export const CenterContainer = styled.div`
   height: 100%;
   gap: 1rem;
 `;
+export const ContentPreviewContainer = styled.p`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+
+  /* text-decoration: underline; */
+`;
+export const ContentPreviewTitle = styled.p`
+  color: white;
+  font-size: calc(0.7rem + 0.3vw);
+  margin: 0;
+  cursor: pointer;
+  font-family: monospace;
+  margin-right: 1rem;
+  /* text-decoration: underline; */
+`;
+
 export const DisplayPreviewContentContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -66,6 +88,7 @@ export const DisplayPreviewContentContainer = styled.div`
     height: 10vh;
   }
 `;
+
 export const ExtrasContainer = styled.div`
   display: flex;
   display: row;
@@ -74,6 +97,18 @@ export const ExtrasContainer = styled.div`
   width: 100%;
   height: 3;
   margin-bottom: 1rem;
+  gap: 0rem;
+`;
+export const ExtraButtonContainer = styled.div`
+  display: flex;
+  display: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 3;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  gap: 1rem;
 `;
 
 export const SpinnerWrapper = styled.div`
@@ -82,14 +117,6 @@ export const SpinnerWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 7;
-`;
-export const ContentPreviewTitle = styled.p`
-  color: white;
-  font-size: calc(0.7rem + 0.3vw);
-  margin: 0;
-  cursor: pointer;
-  font-family: monospace;
-  /* text-decoration: underline; */
 `;
 
 export const StyledInput = styled.textarea`

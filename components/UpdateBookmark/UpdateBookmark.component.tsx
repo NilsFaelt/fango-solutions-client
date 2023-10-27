@@ -52,7 +52,7 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
       <MainTitle text={` ${mainUrl?.toUpperCase()}.COM`} underText='Bookamrk' />
       <FlexRowContainer>
         <AddButton onClick={() => setToogleContentDisplay(true)} />
-        <MainText fontSize='16'>ADD INFO/TEXT</MainText>
+        <MainText fontSize='16'>ADD CONTENT/TODO</MainText>
       </FlexRowContainer>
       <DisplayUrlWrapper>
         <MainText margin=''>Main Path</MainText>

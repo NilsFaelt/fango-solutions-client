@@ -1,5 +1,5 @@
 fix loggin to email and password
-add todo 
+
 fix form for adding bookmarks
 docs
 delete account

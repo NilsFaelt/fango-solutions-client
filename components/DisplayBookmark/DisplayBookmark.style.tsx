@@ -51,11 +51,12 @@ export const BookmarkContainer = styled.button`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   word-break: break-all;
-
+  z-index: 4;
   &:hover {
     color: ${theme.colors.primary};
     transition: 0.3s;
     box-shadow: 0 0 15px ${theme.colors.secondary};
+
     /* background-color: ${theme.colors.extra}; */
   }
   &:active {
@@ -74,8 +75,8 @@ export const Container = styled.div`
 
 export const DropDownContainer = styled.div`
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-bottom: 10rem;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
 `;
 export const DropUpContainer = styled.div`
@@ -87,6 +88,7 @@ export const DropUpContainer = styled.div`
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
   min-width: 10rem;
+  padding-top: 0rem;
   margin-bottom: 1rem;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
