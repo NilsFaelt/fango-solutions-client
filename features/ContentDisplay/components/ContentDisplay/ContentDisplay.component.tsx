@@ -12,7 +12,9 @@ import {
   SpinnerWrapper,
   SavedText,
   ExtrasContainer,
+  ExtraButtonContainer,
   MarkButton,
+  ContentPreviewContainer,
 } from "./ContentDisplay.style";
 import { BookmarkContext, MenuContext } from "@/context";
 import {
@@ -20,11 +22,12 @@ import {
   useGetContent,
   useGetContentById,
   useMutateAddContent,
+  useMutateDeleteContent,
   useMutatePatchContent,
 } from "@/hooks";
-import { MainTitle, PrimaryButton, Spinner } from "@/ui";
+import { ExtraConfirmButton, MainTitle, PrimaryButton, Spinner } from "@/ui";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
-import { MainText } from "@/ui/display/MainText/MainText.component";
+
 import { StyledImage } from "@/components/DisplayBookmark/DisplayBookmark.style";
 
 interface Props {
@@ -37,12 +40,15 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
   const [id, setId] = useState<string | null>(null);
   const [content, setContent] = useState("");
   const [todo, setTodo] = useState(false);
+  const [done, setDone] = useState(false);
   const { toogleContentDisplay, setToogleContentDisplay } =
     useContext(MenuContext);
   const { bookmarkId } = useContext(BookmarkContext);
   const { data: bookmark } = useBookMarkById(idToken, bookmarkId);
   const { data: contentData } = useGetContent(idToken, bookmarkId);
   const { data: singleContentData } = useGetContentById(idToken, id);
+  const { mutateAsync: deleteMutateAsync, isLoading: deleteIsLoading } =
+    useMutateDeleteContent(idToken, id);
   const { mutateAsync: patchAsync, isLoading } = useMutatePatchContent(
     idToken,
     id,
@@ -50,6 +56,7 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
       title,
       text: content,
       todo,
+      done,
     }
   );
   const mainUrl = extractMainPathUrl(bookmark?.url);
@@ -58,7 +65,7 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
     idToken,
     bookmarkId,
     {
-      title,
+      title: title ? title : "Comment",
       text: content,
       todo,
     }
@@ -69,27 +76,50 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
     setTitle("");
     setId("");
     setTodo(false);
+    setDone(false);
+  };
+  const createNewOnCLick = () => {
+    setContent("");
+    setTitle("");
+    setId("");
+    setTodo(false);
+    setDone(false);
+  };
+  const deleteOnCLick = () => {
+    deleteMutateAsync()
+      .then(() => {
+        setContent("");
+        setTitle("");
+        setId("");
+        setTodo(false);
+        setDone(false);
+      })
+      .catch((err) => {
+        console.log("could not delete content");
+      });
   };
   const handleUpsertContentOnClick = () => {
-    if (!id) {
-      mutateAsync()
-        .then(() => {
-          setSaved(true);
-          console.log("sucess");
-        })
-        .catch((err) => {
-          console.log("buhuu");
-        });
-    }
-    if (id) {
-      patchAsync()
-        .then(() => {
-          setSaved(true);
-          console.log("sucess");
-        })
-        .catch((err) => {
-          console.log("buhuu");
-        });
+    if (title) {
+      if (!id) {
+        mutateAsync()
+          .then(() => {
+            setSaved(true);
+            console.log("sucess");
+          })
+          .catch((err) => {
+            console.log("buhuu");
+          });
+      }
+      if (id) {
+        patchAsync()
+          .then(() => {
+            setSaved(true);
+            console.log("sucess");
+          })
+          .catch((err) => {
+            console.log("buhuu");
+          });
+      }
     }
   };
   useEffect(() => {
@@ -98,12 +128,18 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
       setTitle(singleContentData?.title);
       if (singleContentData?.todo === false || singleContentData?.todo)
         setTodo(singleContentData?.todo);
+      if (singleContentData?.done) setDone(singleContentData?.done);
     }
   }, [singleContentData]);
   if (!toogleContentDisplay) return null;
   return (
     <OuterContainer onClick={() => setSaved(false)}>
-      <Container>
+      <Container
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleUpsertContentOnClick();
+        }}
+      >
         <Header>
           <MainTitle
             text={mainUrl ? mainUrl : " Not Found"}
@@ -113,12 +149,14 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
             placeholder='ADD TITLE'
             onChange={(e) => setTitle(e.target.value)}
             value={title}
+            required
           />
 
           <CloseButton onClick={handleCloseOnClick}>CLOSE</CloseButton>
         </Header>
         <CenterContainer>
           <SpinnerWrapper>
+            {deleteIsLoading && <Spinner />}
             {isLoading || (isLoadingAdd && <Spinner />)}
             {saved && <SavedText>Saved</SavedText>}
           </SpinnerWrapper>
@@ -130,32 +168,63 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
         </CenterContainer>
         <ExtrasContainer>
           {!todo && (
-            <MarkButton onClick={() => setTodo(true)}>MARK AS TODO </MarkButton>
+            <MarkButton onClick={() => setTodo(true)}> TODO </MarkButton>
           )}
           {todo && (
-            <MarkButton onClick={() => setTodo(true)}>MARK AS DONE</MarkButton>
+            <MarkButton
+              onClick={() => {
+                setDone(false);
+                setTodo(false);
+              }}
+            >
+              REMOVE TODO{" "}
+            </MarkButton>
           )}
-          {todo && <StyledImage src='/svg/writingpad.svg' width={20} />}
+          {todo && !done && (
+            <MarkButton onClick={() => setDone(true)}>MARK AS DONE </MarkButton>
+          )}
+
+          {done && <StyledImage src='/svg/check.svg' width={18} />}
+          {todo && !done && (
+            <StyledImage src='/svg/writingpad.svg' width={20} />
+          )}
         </ExtrasContainer>
-        <PrimaryButton
-          text='SAVE CHANGES'
-          onClick={(e) => {
-            e.preventDefault();
-            handleUpsertContentOnClick();
-          }}
-        />
+        <PrimaryButton text='SAVE CHANGES' />
+        {id && (
+          <ExtraButtonContainer>
+            <ExtraConfirmButton
+              text='CREATE NEW'
+              onClick={(e) => {
+                e.preventDefault(), createNewOnCLick();
+              }}
+            />
+            <ExtraConfirmButton
+              text='DELETE'
+              onClick={(e) => {
+                e.preventDefault(), deleteOnCLick();
+              }}
+            />
+          </ExtraButtonContainer>
+        )}
       </Container>
       <DisplayPreviewContentContainer>
         {contentData?.map((content, i) => {
           return (
-            <ContentPreviewTitle
-              onClick={() => {
-                setId(content.id);
-              }}
-              key={i}
-            >
-              {content.title}
-            </ContentPreviewTitle>
+            <ContentPreviewContainer key={i}>
+              <ContentPreviewTitle
+                onClick={() => {
+                  setTodo(false);
+                  setDone(false);
+                  setId(content.id);
+                }}
+              >
+                {content.title}
+              </ContentPreviewTitle>
+              {content.done && <StyledImage src='/svg/check.svg' width={18} />}
+              {content.todo && !content.done && (
+                <StyledImage src='/svg/writingpad.svg' width={20} />
+              )}
+            </ContentPreviewContainer>
           );
         })}
       </DisplayPreviewContentContainer>

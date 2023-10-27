@@ -10,7 +10,7 @@ const fetchContent = async (
   if (!bookmarkId) return null;
   try {
     const response = await fetch(
-      `http://localhost:3000/content/${bookmarkId}`,
+      `http://localhost:3000/content?bookmarkId=${bookmarkId}`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },

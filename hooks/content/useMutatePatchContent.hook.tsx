@@ -9,7 +9,7 @@ import {
 const fetchContent = async (
   token: string,
   id: string | null,
-  data: { title: string; text: string; todo: boolean }
+  data: { title: string; text: string; todo: boolean; done: boolean }
 ) => {
   try {
     if (token && id) {
@@ -35,9 +35,8 @@ const fetchContent = async (
 export const useMutatePatchContent = (
   token: string,
   id: string | null,
-  data: { title: string; text: string; todo: boolean }
+  data: { title: string; text: string; todo: boolean; done: boolean }
 ) => {
-  console.log(token, data, "in mutate");
   const queryClient = useQueryClient();
   return useMutation(() => fetchContent(token, id, data), {
     onSuccess: () => {

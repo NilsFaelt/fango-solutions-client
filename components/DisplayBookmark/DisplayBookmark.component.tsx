@@ -40,6 +40,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     bookmark.id,
     token
   );
+
   const openDeleteContainerOnClick = () => {
     setToogleDeleteContainer(!toogleDeleteContainer);
   };

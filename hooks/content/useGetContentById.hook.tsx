@@ -9,7 +9,7 @@ const fetchContent = async (
 ): Promise<ContentInterface | null> => {
   if (!id) return null;
   try {
-    const response = await fetch(`http://localhost:3000/content/single/${id}`, {
+    const response = await fetch(`http://localhost:3000/content/${id}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -19,6 +19,7 @@ const fetchContent = async (
     }
 
     const data = await response.json();
+    console.log(data, "in by id");
     return data as ContentInterface;
   } catch (error) {
     console.error("Error fetching data:", error);
