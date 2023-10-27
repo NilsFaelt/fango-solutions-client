@@ -22,7 +22,7 @@ export const OuterContainer = styled.div`
   @media (max-width: ${mediaQueries.mobile}) {
     flex-direction: column-reverse;
     justify-content: flex-end;
-    padding-top: 1rem;
+    padding-top: 5rem;
   }
 `;
 export const Container = styled.form`

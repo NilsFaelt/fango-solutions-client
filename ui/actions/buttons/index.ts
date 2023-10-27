@@ -7,3 +7,4 @@ export * from "./HooverButtonDropDown";
 export * from "./DropDownInnerButton";
 export * from "./DeleteAccountButton";
 export * from "./ExtraConfirmButton";
+export * from "./SecondaryButton";

@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import { Text } from "./MainText.style";
 
 interface Props {
-  children: string;
+  children: string | string[];
   fontSize?: "8" | "12" | "16" | "24";
   color?: "black" | "white";
   margin?: string;

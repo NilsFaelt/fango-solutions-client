@@ -35,6 +35,7 @@ interface Props {
 }
 
 export const ContentDisplay: FC<Props> = ({ idToken }) => {
+  const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
   const [saved, setSaved] = useState(false);
   const [title, setTitle] = useState("");
   const [id, setId] = useState<string | null>(null);
@@ -71,6 +72,7 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
     }
   );
   const handleCloseOnClick = () => {
+    setToogleBlacBackgroundDisplay(false);
     setToogleContentDisplay(false);
     setContent("");
     setTitle("");
@@ -104,6 +106,8 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
         mutateAsync()
           .then(() => {
             setSaved(true);
+            setContent("");
+            setTitle("");
             console.log("sucess");
           })
           .catch((err) => {

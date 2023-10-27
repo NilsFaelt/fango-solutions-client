@@ -29,8 +29,8 @@ export const Container = styled.div`
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
-
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   &:hover {
     transition: 0.3s;
     box-shadow: 0 0 15px ${theme.colors.secondary};
@@ -58,6 +58,7 @@ export const DeleteContainer = styled.div`
   margin-top: 1rem;
   align-items: center;
   justify-content: center;
+  margin: 1rem 1rem 0rem;
 `;
 export const SpinnerWrapper = styled.div`
   display: flex;

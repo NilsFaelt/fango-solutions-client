@@ -7,6 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
   width: 100%;
   height: 95%;
   gap: 2rem;
@@ -29,7 +30,6 @@ export const DisplayUrlWrapper = styled.div`
 `;
 export const StyledImage = styled(Image)`
   margin-left: 1rem;
-  margin-bottom: -0.2rem;
 `;
 export const StyledA = styled.a`
   color: ${theme.colors.secondary};
@@ -44,5 +44,10 @@ export const ButtonWrapper = styled.div`
 export const FlexRowContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+`;
+export const FlexCollumnContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
 `;

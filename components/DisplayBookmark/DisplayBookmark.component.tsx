@@ -1,4 +1,4 @@
-import React, { FC, useContext, useState } from "react";
+import React, { FC, useContext, useRef, useState } from "react";
 import {
   BookmarkContainer,
   Container,
@@ -11,9 +11,14 @@ import {
   DeleteContainer,
   DeleteConfirmButton,
   StyledImage,
+  TodoImageContainer,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
-import { useMutateDeleteBookmark, useMutateIncrementClick } from "@/hooks";
+import {
+  useClickOustsideToClose,
+  useMutateDeleteBookmark,
+  useMutateIncrementClick,
+} from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
 import {
   extractChildPathFromURL,
@@ -30,10 +35,14 @@ interface Props {
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const { setToogleUpdateBookmark } = useContext(MenuContext);
   const { setBookmarkId } = useContext(BookmarkContext);
+  const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
   const faviconUrl = getFaviconUrl(bookmark.url);
+  const ref = useRef(null);
 
+  // useClickOustsideToClose(ref, setToogleBlacBackgroundDisplay);
+  useClickOustsideToClose(ref, setToogleDropDown);
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
   const { mutate } = useMutateDeleteBookmark(token, bookmark?.id);
   const { mutateAsync: mutateIncrementClick } = useMutateIncrementClick(
@@ -49,23 +58,34 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   };
   const handleClick = (url: string) => {
     mutateIncrementClick().then(() => {
-      window.open(url, "_blank");
+      if (toogleDropDown) window.open(url, "_blank");
     });
   };
   const handleUpdateBookmarkClick = (id: string) => {
     setBookmarkId(id);
     setToogleUpdateBookmark(true);
   };
-  const { children } = bookmark;
-
+  const { children, content } = bookmark;
+  const todos = content?.filter((c) => {
+    if (c.todo === true && c.done === false) {
+      return c;
+    }
+  });
+  const isTodo = todos.length > 0;
+  console.log(todos, content, bookmark);
   if (!bookmark?.url) return null;
   return (
     <Container
-      onMouseEnter={() => setToogleDropDown(true)}
-      onMouseLeave={() => {
-        setToogleDropDown(false);
-        setToogleDeleteContainer(false);
+      ref={ref}
+      $zindex={toogleDropDown ? 4 : 0}
+      onClick={() => {
+        setToogleDropDown(true);
+        setToogleBlacBackgroundDisplay(true);
       }}
+      // onMouseLeave={() => {
+      //   setToogleDropDown(false);
+      //   setToogleDeleteContainer(false);
+      // }}
     >
       {toogleDropDown && (
         <DropUpContainer>
@@ -125,12 +145,15 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         href={bookmark?.url}
       >
         <BookmarkContainer>
+          <TodoImageContainer>
+            {isTodo && <StyledImage src='/svg/writingpad.svg' width={15} />}
+          </TodoImageContainer>
           <StyledImage
             width={30}
             height={30}
             src={faviconUrl ? faviconUrl : "/svg/logga.png"}
           />
-          {primaryUrlName?.toUpperCase()}{" "}
+          {primaryUrlName?.toUpperCase()}
         </BookmarkContainer>
       </StyledLink>
       {toogleDropDown && (

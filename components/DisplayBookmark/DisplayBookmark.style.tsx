@@ -64,10 +64,11 @@ export const BookmarkContainer = styled.button`
   }
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<{ $zindex: number }>`
   position: relative;
   diplay: flex;
   flex-direction: column;
+  z-index: ${(props) => props.$zindex};
   &:hover ${BookmarkContainer} {
     box-shadow: 0 0 1rem ${theme.colors.secondary};
   }
@@ -76,7 +77,6 @@ export const Container = styled.div`
 export const DropDownContainer = styled.div`
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
-  padding-bottom: 10rem;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
 `;
 export const DropUpContainer = styled.div`
@@ -88,7 +88,7 @@ export const DropUpContainer = styled.div`
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
   min-width: 10rem;
-  padding-top: 0rem;
+
   margin-bottom: 1rem;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
@@ -176,6 +176,11 @@ export const StyledA = styled.a`
   &:hover {
     ${theme.colors.primary}
   }
+`;
+export const TodoImageContainer = styled.div`
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
 `;
 
 export const DeleteConfirmButton = styled.button`

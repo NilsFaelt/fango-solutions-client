@@ -6,6 +6,7 @@ import {
   StyledImage,
   StyledA,
   FlexRowContainer,
+  FlexCollumnContainer,
 } from "./UpdateBookmark.style";
 import { useBookMarkById, useMutateDeleteBookmark } from "@/hooks";
 import { BookmarkContext, MenuContext } from "@/context";
@@ -16,7 +17,8 @@ import {
   extractMainPathUrl,
   validateUrl,
 } from "@/features/Bookmark/utils";
-import { AddButton, ExtraConfirmButton, MainTitle } from "@/ui";
+import { ExtraConfirmButton, MainTitle, SecondaryButton } from "@/ui";
+import { countTotalTodos } from "./utils";
 
 interface Props {
   idToken: string;
@@ -38,6 +40,8 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
       });
   };
   const { data } = useBookMarkById(idToken, bookmarkId);
+  const todos = data?.content.filter((c) => c.todo && !c.done);
+  const totalTodos = countTotalTodos(todos);
   const mainUrl = extractMainPathUrl(data?.url);
   useEffect(() => {
     if (data) {
@@ -46,14 +50,24 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
     }
   }, [data, idToken]);
 
-  console.log(data, " in update");
   return (
     <Container>
       <MainTitle text={` ${mainUrl?.toUpperCase()}.COM`} underText='Bookamrk' />
-      <FlexRowContainer>
-        <AddButton onClick={() => setToogleContentDisplay(true)} />
-        <MainText fontSize='16'>ADD CONTENT/TODO</MainText>
-      </FlexRowContainer>
+      <FlexCollumnContainer>
+        <FlexRowContainer>
+          <StyledImage
+            alt='wrtingpad'
+            src={"svg/writingpad.svg"}
+            width={15}
+            height={15}
+          />
+          <MainText> todo: {totalTodos}</MainText>
+        </FlexRowContainer>
+        <SecondaryButton
+          text='CONTENT/TODO'
+          onClick={() => setToogleContentDisplay(true)}
+        />
+      </FlexCollumnContainer>
       <DisplayUrlWrapper>
         <MainText margin=''>Main Path</MainText>
         <StyledA target='_blank' href={data?.url}>
@@ -86,14 +100,6 @@ export const ChildUrl: FC<{ url: string }> = ({ url }) => {
       <StyledA target='_blank' href={url} color='green'>
         {url}
       </StyledA>
-      {isUrl && (
-        <StyledImage
-          alt='Green check mark'
-          width={12}
-          height={12}
-          src='/svg/check.svg'
-        />
-      )}
     </FlexRowContainer>
   );
 };
