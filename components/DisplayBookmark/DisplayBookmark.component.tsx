@@ -44,7 +44,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   // useClickOustsideToClose(ref, setToogleBlacBackgroundDisplay);
   useClickOustsideToClose(ref, setToogleDropDown);
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
-  const { mutate } = useMutateDeleteBookmark(token, bookmark?.id);
+  const { mutateAsync } = useMutateDeleteBookmark(token, bookmark?.id);
   const { mutateAsync: mutateIncrementClick } = useMutateIncrementClick(
     bookmark.id,
     token
@@ -54,7 +54,14 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
   const handelDeleteOnClick = () => {
-    mutate();
+    mutateAsync()
+      .then(() => {
+        setToogleBlacBackgroundDisplay(false);
+        setToogleDropDown(false);
+      })
+      .catch((err) => {
+        console.log("could not delete bookmark");
+      });
   };
   const handleClick = (url: string) => {
     mutateIncrementClick().then(() => {
@@ -151,7 +158,11 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
           <StyledImage
             width={30}
             height={30}
-            src={faviconUrl ? faviconUrl : "/svg/logga.png"}
+            src={faviconUrl ? faviconUrl : "/svg/web.png"}
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "/svg/web.svg";
+            }}
           />
           {primaryUrlName?.toUpperCase()}
         </BookmarkContainer>

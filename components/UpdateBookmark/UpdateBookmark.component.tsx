@@ -17,7 +17,12 @@ import {
   extractMainPathUrl,
   validateUrl,
 } from "@/features/Bookmark/utils";
-import { ExtraConfirmButton, MainTitle, SecondaryButton } from "@/ui";
+import {
+  ExtraConfirmButton,
+  MainTitle,
+  PrimaryButton,
+  SecondaryButton,
+} from "@/ui";
 import { countTotalTodos } from "./utils";
 
 interface Props {
@@ -63,7 +68,7 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
           />
           <MainText> todo: {totalTodos}</MainText>
         </FlexRowContainer>
-        <SecondaryButton
+        <PrimaryButton
           text='CONTENT/TODO'
           onClick={() => setToogleContentDisplay(true)}
         />

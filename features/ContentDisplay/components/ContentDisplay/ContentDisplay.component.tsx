@@ -172,7 +172,7 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
         </CenterContainer>
         <ExtrasContainer>
           {!todo && (
-            <MarkButton onClick={() => setTodo(true)}> TODO </MarkButton>
+            <MarkButton onClick={() => setTodo(true)}>MARK AS TODO </MarkButton>
           )}
           {todo && (
             <MarkButton

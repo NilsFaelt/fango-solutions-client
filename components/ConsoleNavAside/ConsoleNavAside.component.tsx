@@ -17,7 +17,11 @@ export const ConsoleNavAside = () => {
         />
         <NavLink text='TODO' linkPath='/' svgPath='/svg/todo.svg' />
       </InnerLinkContainer>
-      <NavLink text='ANALYTICS' linkPath='/' svgPath='/svg/analytics.svg' />
+      <NavLink
+        text='ANALYTICS'
+        linkPath='/analytics'
+        svgPath='/svg/analytics.svg'
+      />
       <SignoutButton />
     </Container>
   );
