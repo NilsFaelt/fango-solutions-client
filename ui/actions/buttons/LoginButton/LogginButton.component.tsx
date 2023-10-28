@@ -35,7 +35,7 @@ export const LogginButton: FC = () => {
           // );
         })
         .then(() => {
-          router.push(`/overview`);
+          router.push(`/bookmarks`);
         })
         .catch((error) => {
           console.log("Error:", error);
