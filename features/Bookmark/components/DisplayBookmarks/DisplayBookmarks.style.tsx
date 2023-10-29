@@ -1,4 +1,4 @@
-import { mediaQueries } from "@/styles";
+import { mediaQueries, theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -20,6 +20,13 @@ export const Container = styled.div`
   }
 `;
 export const InputWrapper = styled.div`
+  display: flex;
+  gap: 2rem;
   position: absolute;
   top: -1rem;
+`;
+
+export const IndicateColorText = styled.p`
+  color: ${theme.colors.secondary};
+  font-size: 0.7rem;
 `;

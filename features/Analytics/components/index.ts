@@ -1,2 +1,3 @@
 export * from "./DisplayAnaltyics";
-export * from "./DisplayEachAnalytics";
+export * from "./PolarChart";
+export * from "./DoughnutChart";

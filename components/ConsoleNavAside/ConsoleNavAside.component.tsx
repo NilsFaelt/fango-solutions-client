@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Container, InnerLinkContainer } from "./ConsoleNavAside.style";
 import { MainTitle } from "@/ui";
 import { SignoutButton } from ".";
@@ -15,7 +15,7 @@ export const ConsoleNavAside = () => {
           linkPath='/bookmarks'
           svgPath='/svg/browser.svg'
         />
-        <NavLink text='TODO' linkPath='/' svgPath='/svg/todo.svg' />
+        {/* <NavLink text='TODO' linkPath='/' svgPath='/svg/todo.svg' /> */}
       </InnerLinkContainer>
       <NavLink
         text='ANALYTICS'

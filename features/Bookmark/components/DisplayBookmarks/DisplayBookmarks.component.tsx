@@ -1,6 +1,10 @@
 "use client";
 import React, { FC, useState } from "react";
-import { Container, InputWrapper } from "./DisplayBookmarks.style";
+import {
+  Container,
+  IndicateColorText,
+  InputWrapper,
+} from "./DisplayBookmarks.style";
 import { DisplayBookmark } from "@/components";
 import { useBookmarks } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
@@ -46,6 +50,9 @@ export const DisplayBookmarks: FC<Props> = ({
             placeholder='Search'
             onChange={(e) => setSearchWord(e.target.value)}
           />
+          {/* <IndicateColorText>
+            Pink border indicates <br /> incomplete tasks
+          </IndicateColorText> */}
         </InputWrapper>
       )}
       {filteredData?.map((bookmark: BookmarkInterface, i: number) => {

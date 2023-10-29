@@ -1,11 +1,12 @@
 import { auth } from "@/firebase";
+import { AnalyticsInterface } from "@/types/analytics";
 import { BookmarkInterface } from "@/types/bookmark";
 import { ContentInterface } from "@/types/content";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchAnalytics = async (
   token: string | null
-): Promise<ContentInterface[] | null> => {
+): Promise<AnalyticsInterface | null> => {
   if (!token) return null;
   try {
     const response = await fetch(`http://localhost:3000/analytics`, {
@@ -18,7 +19,7 @@ const fetchAnalytics = async (
     }
 
     const data = await response.json();
-    return data as ContentInterface[];
+    return data as AnalyticsInterface;
   } catch (error) {
     console.error("Error fetching analytucs:", error);
     return null;

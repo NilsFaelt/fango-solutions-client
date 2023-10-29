@@ -217,5 +217,13 @@ export const DeleteConfirmButton = styled.button`
     ${theme.colors.primary}
   }
 `;
+export const DougnutContainer = styled.div`
+  width: calc(7rem + 6vw);
+  padding: 1rem;
+  align-self: center;
+  justify-self: center;
+  margin: 0 auto;
 
+  box-sizing: border-box;
+`;
 export const StyledImage = styled.img``;

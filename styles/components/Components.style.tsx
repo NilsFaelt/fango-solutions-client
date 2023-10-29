@@ -80,8 +80,12 @@ export const DropDownContainer = styled.div`
   position: absolute;
   background-color: ${theme.colors.backgroundPrimary};
   animation: ${fadeIn} 0.5s ease-in-out forwards;
-
   width: 100%;
-
   z-index: 5;
+`;
+
+export const ChartTitle = styled.h5`
+  font-size: calc(0.8rem + 4vw);
+  color: ${theme.colors.primary};
+  height: 1rem;
 `;
