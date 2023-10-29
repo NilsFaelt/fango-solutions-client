@@ -9,7 +9,7 @@ import {
   Legend,
   Title,
 } from "chart.js";
-import { ChartTitle } from "@/styles";
+
 Chart.register(ArcElement, RadialLinearScale, Tooltip, Legend, Title);
 interface Props {
   chartTitle: string;

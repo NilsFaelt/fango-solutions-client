@@ -1,6 +1,7 @@
 interface LoggedInUser {
   displayName: string;
   photoURL: string;
+  email: string;
 }
 interface MenuContextInterface {
   loggedInUser: null | LoggedInUser;
@@ -45,6 +46,7 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
         setLoggedInUser({
           displayName: user.displayName ? user.displayName : "",
           photoURL: user.photoURL ? user.photoURL : "",
+          email: user.email ? user.email : "",
         });
       } else {
         setIdToken(null);

@@ -190,7 +190,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       >
         <BookmarkContainer>
           <TodoImageContainer>
-            {isTodo && <StyledImage src='/svg/writingpad.svg' width={15} />}
+            {isTodo && <StyledImage src='/svg/writingpad.svg' width={12} />}
           </TodoImageContainer>
           <StyledImage
             width={30}
