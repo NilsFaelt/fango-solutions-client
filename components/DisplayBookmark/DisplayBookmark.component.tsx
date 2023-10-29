@@ -12,6 +12,7 @@ import {
   DeleteConfirmButton,
   StyledImage,
   TodoImageContainer,
+  DougnutContainer,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
 import {
@@ -26,7 +27,10 @@ import {
 } from "@/features/Bookmark/utils";
 import { getFaviconUrl } from "./utils";
 import { BookmarkContext, MenuContext } from "@/context";
-import { UpdateBookmark } from "../UpdateBookmark/UpdateBookmark.component";
+import { Doughnut } from "react-chartjs-2";
+import { Chart, ArcElement } from "chart.js";
+
+Chart.register(ArcElement);
 
 interface Props {
   bookmark: BookmarkInterface;
@@ -78,8 +82,41 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       return c;
     }
   });
+  const allContent = content?.filter((c) => {
+    if (c.id) {
+      return c;
+    }
+  });
+  const doneTodos = content?.filter((c) => c?.done);
   const isTodo = todos.length > 0;
-  console.log(todos, content, bookmark);
+  const allContentWithZeroAsDefault =
+    allContent.length > 0 ? allContent.length : 1;
+  // React-chart-data
+  const data = {
+    labels: ["Content", "Todo", "Done"],
+    datasets: [
+      {
+        label: "Content/Todo",
+        data: [allContentWithZeroAsDefault, todos.length, doneTodos.length],
+        backgroundColor: [
+          "rgba(159, 13, 127, 1)",
+          "rgba(234, 17, 121, 1)",
+          "rgba(125, 222, 114, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const options = {
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+  };
+
   if (!bookmark?.url) return null;
   return (
     <Container
@@ -186,6 +223,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                 </StyledA>
               );
             })}
+          <DougnutContainer>
+            <Doughnut data={data} options={options} />
+          </DougnutContainer>
         </DropDownContainer>
       )}
     </Container>

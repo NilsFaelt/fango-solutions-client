@@ -7,11 +7,10 @@ import { DisplayAnaltyics } from "..";
 
 export const AnaltyicsView: FC = () => {
   const { idToken } = useContext(LoggedinUserContext);
-  const { data } = useGetAnalytics(idToken);
-  console.log(data, " in analytcics");
+  if (!idToken) return null;
   return (
     <Container>
-      <DisplayAnaltyics />
+      <DisplayAnaltyics idToken={idToken} />
     </Container>
   );
 };
