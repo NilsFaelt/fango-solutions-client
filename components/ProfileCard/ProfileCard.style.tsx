@@ -73,6 +73,7 @@ export const Container = styled.div`
   flex-direction: column;
   /*  */
   @media (max-width: ${mediaQueries.mobile}) {
+    position: absolute;
     width: calc(7.2rem + 6vw);
     left: 1rem;
     top: 5rem;

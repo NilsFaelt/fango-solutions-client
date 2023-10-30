@@ -45,7 +45,6 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const faviconUrl = getFaviconUrl(bookmark.url);
   const ref = useRef(null);
 
-  // useClickOustsideToClose(ref, setToogleBlacBackgroundDisplay);
   useClickOustsideToClose(ref, setToogleDropDown);
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
   const { mutateAsync } = useMutateDeleteBookmark(token, bookmark?.id);
@@ -91,7 +90,8 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const isTodo = todos.length > 0;
   const allContentWithZeroAsDefault =
     allContent.length > 0 ? allContent.length : 1;
-  // React-chart-data
+
+  // React-chart-data------------------------------------------------------------//
   const data = {
     labels: ["Content", "Todo", "Done"],
     datasets: [
@@ -116,6 +116,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       },
     },
   };
+  // React-chart-data------------------------------------------------------------//
 
   if (!bookmark?.url) return null;
   return (
@@ -126,10 +127,6 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         setToogleDropDown(true);
         setToogleBlacBackgroundDisplay(true);
       }}
-      // onMouseLeave={() => {
-      //   setToogleDropDown(false);
-      //   setToogleDeleteContainer(false);
-      // }}
     >
       {toogleDropDown && (
         <DropUpContainer>
