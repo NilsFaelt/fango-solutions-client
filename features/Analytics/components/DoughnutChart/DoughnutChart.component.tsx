@@ -27,7 +27,7 @@ export const DoughnutChart: FC<Props> = ({
     datasets: [
       {
         label: "Content/Todo",
-        data: [44, 37, 28],
+        data: chartData,
         backgroundColor: [
           "rgba(159, 13, 127, 1)",
           "rgba(234, 17, 121, 1)",
