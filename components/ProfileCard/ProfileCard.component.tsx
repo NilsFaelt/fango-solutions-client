@@ -35,7 +35,15 @@ export const ProfileCard: FC = () => {
       </ProfileContainer>
       {toogleDropDown && (
         <DropDownContainer>
-          <StyledImage src={userImageUrl} width={50} height={50} />
+          <StyledImage
+            src={userImageUrl}
+            width={50}
+            height={50}
+            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              const target = e.target as HTMLImageElement;
+              target.src = "/svg/web.svg";
+            }}
+          />
           <MainText margin='1' color='white'>
             {email}
           </MainText>

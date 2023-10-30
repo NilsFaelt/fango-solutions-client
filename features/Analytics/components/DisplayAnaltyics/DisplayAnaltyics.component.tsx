@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Container } from "./DisplayAnalytics.style";
 import { CardChart, DisplayCardCharts, DoughnutChart, PolarChart } from "..";
-import { useGetAnalytics } from "@/hooks";
+import { useGetAnalytics, useGetUserCount } from "@/hooks";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
 
 interface Props {
@@ -10,7 +10,8 @@ interface Props {
 
 export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   const { data } = useGetAnalytics(idToken);
-
+  const { data: userCountData } = useGetUserCount(idToken);
+  console.log(data);
   const mostClickedSorted = data?.bookmark.sort(
     (a, b) => b.totalClick - a.totalClick
   );
@@ -23,8 +24,8 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
     if (mainName !== null) return mainName;
     return "No Name found";
   });
-  const mostVisitedBookmark = extractMainPathUrl(mostClickedSorted?.[0].title);
-  console.log(data);
+  const mostVisitedBookmark = extractMainPathUrl(mostClickedSorted?.[0]?.title);
+
   function calculatePercentage(
     done: number | undefined,
     undnone: number | undefined
@@ -36,7 +37,10 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       return 100;
     }
   }
-  const todosDonePercenbtage = calculatePercentage(
+  const totalTodosDone = data?.todos.done ? data?.todos.done : 0;
+  const totalTodosNotDone = data?.todos.todo ? data?.todos.todo : 0;
+  const total = totalTodosDone + totalTodosNotDone;
+  const todosDonePercentage = calculatePercentage(
     data?.todos.done,
     data?.todos?.todo
   )
@@ -48,7 +52,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       <DisplayCardCharts>
         <CardChart
           backGroundColor='#54ab85'
-          mainTitle={`${todosDonePercenbtage} %`}
+          mainTitle={`${todosDonePercentage} %`}
           underTitle='Of content is done'
           imageSrc='/svg/writingpad.svg'
         />
@@ -62,7 +66,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
         />
         <CardChart
           backGroundColor='#ef8610'
-          mainTitle='876 Users'
+          mainTitle={`${userCountData?.users.total} Users`}
           underTitle='Total Users Fango'
           imageSrc='/svg/user.svg'
         />
@@ -74,7 +78,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       />
       <DoughnutChart
         chartLabels={["Total", "Undone", "Done"]}
-        chartData={mostClickedNumbers ? mostClickedNumbers : [0, 0, 0]}
+        chartData={[totalTodosDone, totalTodosNotDone, totalTodosDone]}
         chartTitle='Content/todo'
       />
     </Container>
