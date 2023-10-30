@@ -8,15 +8,21 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: calc(0.5rem + 1vw);
-  margin-top: 8rem;
   margin-left: calc(8rem + 6vw);
   margin-bottom: 10rem;
   width: auto;
   padding: 3rem;
+  margin-right: 2rem;
   color: black;
+  @media (max-width: ${mediaQueries.tablet}) {
+    padding: 0rem;
+    margin-top: 6rem;
+    justify-content: center;
+  }
   @media (max-width: ${mediaQueries.mobile}) {
     margin-top: 6rem;
     justify-content: center;
+    margin-right: 0rem;
   }
 `;
 export const InputWrapper = styled.div`

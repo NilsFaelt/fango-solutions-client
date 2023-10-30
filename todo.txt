@@ -1,10 +1,10 @@
+overview 
 fix loggin to email and password
-
-fix form for adding bookmarks
 docs
+usersettings
 delete account
-drop dwn account
+display shoretr url max(30letters)
 change mail
-change firebase credntials
-update bookmark 
-click bookmark not hoover (double tap)
+change firebase credentials
+update bookmark
+add 10 bookmakrs by default
