@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ConsoleNavAside/components/NavLink/cypress/integration/nav-link.cy.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/ConsoleNavAside/components/NavLink/cypress/integration/nav-link.cy.js", "firebase/firebaseConfig.ts"],
   "exclude": ["node_modules"]
 }

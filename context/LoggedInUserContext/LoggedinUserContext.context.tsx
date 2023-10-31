@@ -1,5 +1,5 @@
 interface LoggedInUser {
-  displayName: string;
+  displayName: string | null;
   photoURL: string;
   email: string;
 }
@@ -39,12 +39,13 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      console.log(user, " in context ");
       if (user) {
         const token = await user.getIdToken();
         setIdToken(token);
 
         setLoggedInUser({
-          displayName: user.displayName ? user.displayName : "",
+          displayName: user.displayName ? user.displayName : null,
           photoURL: user.photoURL ? user.photoURL : "",
           email: user.email ? user.email : "",
         });

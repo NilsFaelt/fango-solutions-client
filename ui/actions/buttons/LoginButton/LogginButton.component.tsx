@@ -1,7 +1,13 @@
 "use client";
 import { Container, StyledImage } from "./LogginButton.style";
 import React, { FC, useEffect, useState } from "react";
-import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  signInWithPopup,
+  signOut,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { auth, googleProvider } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { ButtonWithRings } from "..";
@@ -16,24 +22,26 @@ export const LogginButton: FC = () => {
     setIsLoading(true);
     try {
       signInWithPopup(auth, googleProvider)
-        .then(({ user }) => {
-          // auth.currentUser?.getIdToken().then((token) =>
-          //   fetch(`http://localhost:3000/user`, {
-          //     method: "POST",
-          //     headers: {
-          //       "Content-Type": "application/json",
-          //       Authorization: `Bearer ${token}`, // Use the retrieved token here
-          //     },
-          //     body: JSON.stringify({
-          //       user: {
-          //         id: user?.uid,
-          //         email: user?.email,
-          //         userName: user.displayName,
-          //       },
-          //     }),
-          //   })
-          // );
+        .then(({ user }) => {})
+        .then(() => {
+          router.push(`/bookmarks`);
         })
+        .catch((error) => {
+          console.log("Error:", error);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    } catch (err) {
+      console.log(err);
+      setIsLoading(false);
+    }
+  };
+  const handleLoginCredentials = () => {
+    setIsLoading(true);
+    try {
+      signInWithEmailAndPassword(auth, "nilss@gmail.com", "ernesto")
+        .then(({ user }) => {})
         .then(() => {
           router.push(`/bookmarks`);
         })
@@ -68,25 +76,15 @@ export const LogginButton: FC = () => {
   if (isLoading) return <Spinner />;
   return (
     <>
-      {!user ? (
-        <Container onClick={handleLogin}>
-          <StyledImage
-            alt='Google logo'
-            width={15}
-            height={15}
-            src={"/svg/google.png"}
-          />
-          {isLoading ? "LOADING..." : "LOGIN"}
-        </Container>
-      ) : (
-        <>
-          {" "}
-          <ButtonWithRings
-            href='/overview'
-            svgSrc='/svg/console.svg'
-          ></ButtonWithRings>
-        </>
-      )}
+      <Container onClick={handleLogin}>
+        <StyledImage
+          alt='Google logo'
+          width={15}
+          height={15}
+          src={"/svg/google.png"}
+        />
+        {isLoading ? "LOADING..." : "LOGIN"}
+      </Container>
     </>
   );
 };

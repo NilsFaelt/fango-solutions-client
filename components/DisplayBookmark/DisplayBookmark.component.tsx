@@ -24,6 +24,7 @@ import { BookmarkInterface } from "@/types/bookmark";
 import {
   extractChildPathFromURL,
   extractMainPathUrl,
+  shortenString,
 } from "@/features/Bookmark/utils";
 import { getFaviconUrl } from "./utils";
 import { BookmarkContext, MenuContext } from "@/context";
@@ -205,7 +206,10 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         <DropDownContainer>
           {children?.[0] &&
             children.map((child, i) => {
-              const path = extractChildPathFromURL(child.url);
+              const path = shortenString(
+                extractChildPathFromURL(child.url),
+                20
+              );
               return (
                 <StyledA
                   // href={child.url}

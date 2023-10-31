@@ -3,10 +3,8 @@ fix loggin to email and password
 docs
 usersettings
 delete account
-display shoretr url max(30letters)
 change mail
 change firebase credentials
 update bookmark
-add 10 bookmakrs by default
 add one test each day 
-fix dougnhut chart todos (woring anlytics)
+remove todos when removeing bookmark
