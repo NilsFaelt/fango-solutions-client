@@ -5,7 +5,6 @@ export const Container = styled.div`
   dispaly: flex;
   flex-direction: column;
   justify-content: flex-start;
-  z-index: 3;
 `;
 export const Title = styled.h2`
   font-size: calc(1rem + 1vw);

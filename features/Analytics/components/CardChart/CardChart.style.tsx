@@ -28,9 +28,12 @@ export const InnerContainer = styled.div`
   width: 100%;
   border-radius: 0.5rem;
   background-color: black;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 `;
 export const StyledImage = styled(Image)``;
 export const Title = styled.h5`
+  text-align: center;
   font-size: 1.8rem;
   margin: 0;
   color: white;

@@ -14,6 +14,7 @@ import { PrimaryInput, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
 import { createAValidUrl, validateUrl } from "../../utils";
+import { shortenString } from "../../utils/shortenString";
 
 interface Props {
   idToken: string;
@@ -58,41 +59,11 @@ export const AddBookmark: FC<Props> = ({
   return (
     <Container>
       <MainTitle text='BOOKMARK' underText='ADD' />
-      {/* <LabelAndInputContainer>
-        <PrimaryLabel>WEBSITE URL</PrimaryLabel>
-        <MainText fontSize='12' margin='0'>
-          Copy paste your website adress of choice
-        </MainText>
-        <MainText margin='0' fontSize='12'>
-          or manually type in, ex: google.com
-        </MainText>
-        <PrimaryInput
-          onChange={(e) => setUrl(e.target.value)}
-          placeholder='www.mypage.com'
-          required
-        />
-        {validHttpUrl && (
-          <DisplayUrlWrapper>
-            <MainText margin='0'>Try me first ?</MainText>
-            <StyledA color='green' href={validHttpUrl} target='_blank'>
-              {validHttpUrl}{" "}
-              {isUrl && (
-                <StyledImage
-                  alt='Green check mark'
-                  width={12}
-                  height={12}
-                  src='/svg/check.svg'
-                />
-              )}
-            </StyledA>
-          </DisplayUrlWrapper>
-        )}
-      </LabelAndInputContainer> */}
       <FormContainer>
         <LabelAndInputContainer>
           <PrimaryLabel>ADD BOOKMARK/URLS</PrimaryLabel>
           <MainText fontSize='12' margin='0'>
-            Create bookmark, add on or multiple webadresses, by default you will
+            Create bookmark, add on or multiple webadresses. By default you will
             get a main adress and underneath all your specific paths.
           </MainText>
           <ButtonInputWrapperCollumn>
@@ -114,7 +85,7 @@ export const AddBookmark: FC<Props> = ({
               <DisplayUrlWrapper>
                 <MainText margin='0'>Try me first ?</MainText>
                 <StyledA color='green' href={validHttpUrl} target='_blank'>
-                  {validHttpUrl}{" "}
+                  {shortenString(validHttpUrl, 70)}{" "}
                   {isUrl && (
                     <StyledImage
                       alt='Green check mark'
@@ -131,7 +102,7 @@ export const AddBookmark: FC<Props> = ({
             <DisplayUrlWrapper>
               <MainText margin='0'>Main Url</MainText>
               <StyledA color='green' href={mainValidHttpUrl} target='_blank'>
-                {mainValidHttpUrl}{" "}
+                {shortenString(mainValidHttpUrl, 70)}
                 {mainValidHttpUrl && (
                   <StyledImage
                     alt='Green check mark'
@@ -173,7 +144,7 @@ export const ChildUrl: FC<{ url: string }> = ({ url }) => {
 
   return (
     <StyledA color='green' href={url} target='_blank'>
-      {url}
+      {shortenString(url, 70)}
       {isUrl && (
         <StyledImage
           alt='Green check mark'

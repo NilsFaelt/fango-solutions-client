@@ -4,7 +4,6 @@ import {
   ProfileContainer,
   Container,
   Name,
-  ButtonWrapper,
   StyledImage,
   DropDownContainer,
 } from "./ProfileCard.style";
@@ -12,7 +11,7 @@ import { auth } from "@/firebase";
 
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 // import { DropDownContainer } from "@/styles";
-import { DeleteAccountButton, PrimaryButton } from "@/ui";
+
 import { useClickOustsideToClose } from "@/hooks";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { NavLink } from "../ConsoleNavAside/components";
@@ -27,11 +26,12 @@ export const ProfileCard: FC = () => {
   if (!loggedInUser || !user) return null;
   const { displayName, email } = loggedInUser;
   const userImageUrl = user?.photoURL ? user?.photoURL : "/svg/web.svg";
-
+  const nameOrEmail = displayName ? displayName : email;
+  console.log(email);
   return (
     <Container ref={ref} onClick={() => setToogleDropDown(true)}>
       <ProfileContainer>
-        <Name>{displayName}</Name>
+        <Name>{nameOrEmail}</Name>
       </ProfileContainer>
       {toogleDropDown && (
         <DropDownContainer>
@@ -45,7 +45,7 @@ export const ProfileCard: FC = () => {
             }}
           />
           <MainText margin='1' color='white'>
-            {email}
+            {nameOrEmail}
           </MainText>
           {/* <ButtonWrapper>
             <DeleteAccountButton />

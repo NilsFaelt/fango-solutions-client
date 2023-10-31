@@ -8,3 +8,5 @@ export * from "./DropDownInnerButton";
 export * from "./DeleteAccountButton";
 export * from "./ExtraConfirmButton";
 export * from "./SecondaryButton";
+export * from "./LoginWithEmailAndPasswordButton";
+export * from "./PopUpLoginButton";

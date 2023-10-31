@@ -83,7 +83,7 @@ export const Container = styled.div`
 export const DropDownContainer = styled.div`
   position: absolute;
   display: flex;
-  width: calc(7rem + 4vw);
+  width: calc(7.4rem + 4vw);
   flex-direction: column;
   align-items: center;
   background-color: rgba(0, 0, 0, 1);
@@ -93,6 +93,7 @@ export const DropDownContainer = styled.div`
   z-index: 3;
   padding: 1rem;
   margin-top: -3.7rem;
+
   box-shadow: 0.1rem 0.1rem 0.2rem white;
 `;
 
