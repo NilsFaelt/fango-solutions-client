@@ -13,7 +13,7 @@ export const OuterContainer = styled.div`
   left: 0;
   width: 100vw;
   min-height: 100vh;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
   padding-top: 2rem;
   z-index: 6;
@@ -35,7 +35,7 @@ export const Container = styled.form`
   background-color: black;
   border-radius: 0.5rem;
   border: 0.05rem solid white;
-  box-shadow: 0.05rem 0.05rem 0.05rem white;
+  box-shadow: 0.3em 0.3rem 0.3rem black;
   padding: 1rem;
   @media (max-width: ${mediaQueries.mobile}) {
     height: 60vh;
@@ -58,7 +58,7 @@ export const ContentPreviewContainer = styled.p`
   align-items: center;
   justify-content: space-between;
   margin: 0;
-
+  box-shadow: 0.3em 0.3rem 0.3rem black;
   /* text-decoration: underline; */
 `;
 export const ContentPreviewTitle = styled.p`
@@ -68,6 +68,8 @@ export const ContentPreviewTitle = styled.p`
   cursor: pointer;
   font-family: monospace;
   margin-right: 1rem;
+  max-width: 7rem;
+  word-wrap: break-word;
   /* text-decoration: underline; */
 `;
 
@@ -175,4 +177,32 @@ export const MarkButton = styled.button`
   gap: 0.5rem;
   cursor: pointer;
   margin-top: 1rem;
+`;
+export const AddHighLIghtedContentButton = styled.button`
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 7rem;
+  cursor: pointer;
+  background-color: black;
+  border: 0.1rem solid ${theme.colors.primary};
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+
+  &:hover {
+    transition: 0.3s;
+    box-shadow: 0 0 15px ${theme.colors.secondary};
+    /* background-color: ${theme.colors.extra}; */
+  }
+  &:active {
+    box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
+  }
+  @media (max-width: ${mediaQueries.mobile}) {
+    top: 60%;
+    left: 50%;
+  }
 `;

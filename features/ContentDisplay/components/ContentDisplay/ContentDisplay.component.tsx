@@ -15,6 +15,7 @@ import {
   ExtraButtonContainer,
   MarkButton,
   ContentPreviewContainer,
+  AddHighLIghtedContentButton,
 } from "./ContentDisplay.style";
 import { BookmarkContext, MenuContext } from "@/context";
 import {
@@ -29,6 +30,8 @@ import { ExtraConfirmButton, MainTitle, PrimaryButton, Spinner } from "@/ui";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
 
 import { StyledImage } from "@/components/DisplayBookmark/DisplayBookmark.style";
+import { MainText } from "@/ui/display/MainText/MainText.component";
+import { extractFirstWordsString } from "../../utils";
 
 interface Props {
   idToken: string;
@@ -38,9 +41,12 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
   const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
   const [saved, setSaved] = useState(false);
   const [title, setTitle] = useState("");
+  const [highligtedTodoTitle, setHighligtedTodoTitle] = useState("");
   const [id, setId] = useState<string | null>(null);
   const [content, setContent] = useState("");
+  const [highLigtedContent, setHighlightedContent] = useState("");
   const [todo, setTodo] = useState(false);
+  const [highLigtedTodo, sethighLigtedTodoHighLigtedTodo] = useState(false);
   const [done, setDone] = useState(false);
   const { toogleContentDisplay, setToogleContentDisplay } =
     useContext(MenuContext);
@@ -48,6 +54,30 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
   const { data: bookmark } = useBookMarkById(idToken, bookmarkId);
   const { data: contentData } = useGetContent(idToken, bookmarkId);
   const { data: singleContentData } = useGetContentById(idToken, id);
+
+  const [highlightedText, setHighlightedText] = useState<string>("");
+
+  useEffect(() => {
+    const handleSelectionChange = () => {
+      const selection = window.getSelection();
+      if (selection) {
+        const selectedText = selection.toString();
+        if (selectedText) {
+          setHighlightedText(selectedText);
+          setHighligtedTodoTitle(extractFirstWordsString(selectedText));
+          setHighlightedContent(selectedText);
+          sethighLigtedTodoHighLigtedTodo(true);
+        }
+      }
+    };
+
+    document.addEventListener("mouseup", handleSelectionChange);
+
+    return () => {
+      document.removeEventListener("mouseup", handleSelectionChange);
+    };
+  }, []);
+
   const { mutateAsync: deleteMutateAsync, isLoading: deleteIsLoading } =
     useMutateDeleteContent(idToken, id);
   const { mutateAsync: patchAsync, isLoading } = useMutatePatchContent(
@@ -71,6 +101,14 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
       todo,
     }
   );
+  const {
+    mutateAsync: mutateHighlightedAsync,
+    isLoading: isLoadingHighlighted,
+  } = useMutateAddContent(idToken, bookmarkId, {
+    title: highligtedTodoTitle,
+    text: highLigtedContent,
+    todo: highLigtedTodo,
+  });
   const handleCloseOnClick = () => {
     setToogleBlacBackgroundDisplay(false);
     setToogleContentDisplay(false);
@@ -108,6 +146,7 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
             setSaved(true);
             setContent("");
             setTitle("");
+
             console.log("sucess");
           })
           .catch((err) => {
@@ -126,6 +165,23 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
       }
     }
   };
+  const handleInsertHighlightedContentOnClick = () => {
+    mutateHighlightedAsync()
+      .then(() => {
+        setSaved(true);
+        setHighlightedContent("");
+        setHighligtedTodoTitle("");
+
+        console.log("sucess");
+      })
+      .then(() => {
+        setHighlightedContent("");
+      })
+      .catch((err) => {
+        console.log("buhuu");
+      });
+  };
+
   useEffect(() => {
     if (singleContentData?.text) {
       setContent(singleContentData?.text);
@@ -135,9 +191,20 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
       if (singleContentData?.done) setDone(singleContentData?.done);
     }
   }, [singleContentData]);
+
+  useEffect(() => {
+    setHighlightedContent("");
+  }, [content, title]);
   if (!toogleContentDisplay) return null;
   return (
     <OuterContainer onClick={() => setSaved(false)}>
+      {highLigtedContent && (
+        <AddHighLIghtedContentButton
+          onClick={handleInsertHighlightedContentOnClick}
+        >
+          ADD TODO
+        </AddHighLIghtedContentButton>
+      )}
       <Container
         onSubmit={(e) => {
           e.preventDefault();

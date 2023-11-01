@@ -12,12 +12,12 @@ export const Container = styled.div`
   justify-content: center;
   text-align: center;
   gap: 2rem;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
   border: 0.1rem solid white;
   border-radius: 0.5rem;
   padding: 2.5rem 5rem 5rem 5rem;
   z-index: 1000;
-  box-shadow: 0.1em 0.1rem 0.1rem white;
+  box-shadow: 0.3em 0.3rem 0.3rem black;
   @media (max-width: ${mediaQueries.mobile}) {
     padding: 2.5rem 3rem 5rem 3rem;
   }

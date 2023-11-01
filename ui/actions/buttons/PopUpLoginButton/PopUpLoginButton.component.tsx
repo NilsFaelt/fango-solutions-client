@@ -31,7 +31,7 @@ export const PopUpLoginButton: FC<Props> = ({ setToogle, toogle }) => {
             alt='Google logo'
             width={15}
             height={15}
-            src={"/svg/google.png"}
+            src={"/svg/web.svg"}
           />
           {isLoading ? "LOADING..." : "LOGIN"}
         </Container>

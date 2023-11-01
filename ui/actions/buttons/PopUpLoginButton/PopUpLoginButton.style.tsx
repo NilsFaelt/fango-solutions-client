@@ -16,6 +16,7 @@ export const Container = styled.button`
   border-radius: 1rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   padding: 1rem;
+  color: white;
   &:hover {
     transition: 0.3s;
     box-shadow: 0 0 15px ${theme.colors.secondary};
