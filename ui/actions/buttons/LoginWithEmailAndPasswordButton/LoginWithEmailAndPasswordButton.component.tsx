@@ -11,10 +11,11 @@ import { Spinner } from "@/ui";
 export const LoginWithEmailAndPasswordButton: FC<{
   email: string | null;
   password: string | null;
-}> = ({ email, password }) => {
+  create: boolean;
+}> = ({ email, password, create = false }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-
+  const createUser = create ? "CREATE" : "LOGIN";
   console.log(email, password);
   const handleLoginWithCredentials = () => {
     if (email && password) {
@@ -66,13 +67,7 @@ export const LoginWithEmailAndPasswordButton: FC<{
         handleCreateUserWithCredentials(), e.preventDefault();
       }}
     >
-      <StyledImage
-        alt='Google logo'
-        width={15}
-        height={15}
-        src={"/svg/web.svg"}
-      />
-      {isLoading ? "LOADING..." : "LOGIN"}
+      {isLoading ? "LOADING..." : createUser}
     </Container>
   );
 };

@@ -9,7 +9,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   border: 0.05rem solid white;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   width: 18rem;
   height: 25rem;
   box-shadow: 0.1rem 0.1rem 0.1rem ${theme.colors.extra};
@@ -20,7 +20,7 @@ export const InnerUpperContainer = styled.div<{ imageurl: string }>`
   gap: 1rem;
   width: 100%;
   height: 40%;
-  border-radius: 1rem 1rem 0rem 0rem;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
   box-shadow: 0.5rem, 0.5rem, 0.5rem black;
   background-image: url(${(props) => props.imageurl});
   background-size: cover;

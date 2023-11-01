@@ -43,6 +43,7 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
               Create account?
             </ExtraText>
             <LoginWithEmailAndPasswordButton
+              create={toogleCreateAccount}
               email={email}
               password={password}
             />
@@ -70,6 +71,7 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
               Login?
             </ExtraText>
             <LoginWithEmailAndPasswordButton
+              create={toogleCreateAccount}
               email={email}
               password={password}
             />

@@ -29,7 +29,7 @@ export const DisplayUrlWrapper = styled.div`
   width: 100%;
 `;
 export const StyledImage = styled(Image)`
-  margin-left: 1rem;
+  margin-left: 0rem;
 `;
 export const StyledA = styled.a`
   color: ${theme.colors.secondary};
