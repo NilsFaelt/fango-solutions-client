@@ -1,7 +1,7 @@
 import { mediaQueries } from "@/styles";
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   position: absolute;
   top: 300%;
   left: 50%;

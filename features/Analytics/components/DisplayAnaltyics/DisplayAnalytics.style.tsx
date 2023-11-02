@@ -14,7 +14,9 @@ export const Container = styled.div`
   padding: 3rem;
   margin-right: 2rem;
   color: black;
-  @media (max-width: ${mediaQueries.tablet}) {
+  background-color: transparent;
+
+  ´ @media (max-width: ${mediaQueries.tablet}) {
     padding: 0rem;
     margin-top: 6rem;
     justify-content: center;

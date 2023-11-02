@@ -3,6 +3,11 @@ import { Container } from "./DisplayAnalytics.style";
 import { CardChart, DisplayCardCharts, DoughnutChart, PolarChart } from "..";
 import { useGetAnalytics, useGetUserCount } from "@/hooks";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
+import { BannerMultiColorText } from "@/ui/display/BannerMultiColorText";
+import { theme } from "@/styles";
+import { BarChart } from "../BarChart";
+import { BookmarkInterface } from "@/types/bookmark";
+import { AnalyticsInterface } from "@/types/analytics";
 
 interface Props {
   idToken: string;
@@ -11,7 +16,24 @@ interface Props {
 export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   const { data } = useGetAnalytics(idToken);
   const { data: userCountData } = useGetUserCount(idToken);
-  console.log(data);
+
+  function sortBookmarksByTodos(data: AnalyticsInterface | undefined | null) {
+    if (!data?.bookmark) return [];
+
+    data.bookmark.sort((a, b) => (b.todos?.todo || 0) - (a?.todos?.todo || 0));
+    return data?.bookmark;
+  }
+
+  const mostTodosBoomarks = sortBookmarksByTodos(data);
+  const mostTodosBoomarksTitleArray = mostTodosBoomarks.map(
+    (a) => extractMainPathUrl(a.title) || "Nam not found"
+  );
+  const mostTodosBoomarksDataTodo = mostTodosBoomarks.map((a) => a.todos.todo);
+  const mostTodosBoomarksDataDone = mostTodosBoomarks.map((a) => a.todos.done);
+  const mostTodosBoomarksDataTotal = mostTodosBoomarks.map(
+    (a) => a.todos.done + a.todos.todo
+  );
+
   const mostClickedSorted = data?.bookmark.sort(
     (a, b) => b.totalClick - a.totalClick
   );
@@ -39,7 +61,9 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   }
   const totalTodosDone = data?.todos.done ? data?.todos.done : 0;
   const totalTodosNotDone = data?.todos.todo ? data?.todos.todo : 0;
-  const total = totalTodosDone + totalTodosNotDone;
+  const totalUsers = userCountData?.users.total
+    ? userCountData?.users.total.toString()
+    : "0";
   const todosDonePercentage = calculatePercentage(
     data?.todos.done,
     data?.todos?.todo
@@ -49,28 +73,33 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
 
   return (
     <Container>
+      <BannerMultiColorText
+        colorOne='rgba(53, 162, 235, 1)'
+        colorTwo={"rgba(255, 162, 235, 1)"}
+        text={["ANALYTICS", "PANEL"]}
+      />
       <DisplayCardCharts>
         <CardChart
-          backGroundColor='#54ab85'
+          backGroundColor='rgba(0,216,234,255)'
           mainTitle={`${todosDonePercentage} %`}
           underTitle='Of content is done'
           imageSrc='/svg/writingpad.svg'
         />
+
         <CardChart
-          backGroundColor='#ecd913'
-          mainTitle={
-            mostVisitedBookmark ? mostVisitedBookmark : "No bookmark yet"
-          }
-          underTitle='Top visited Bookmark'
-          imageSrc='/svg/browser.svg'
-        />
-        <CardChart
-          backGroundColor='#ef8610'
-          mainTitle={`${userCountData?.users.total} Users`}
+          backGroundColor='rgba(142,220,198,255)'
+          mainTitle={`${totalUsers} Users`}
           underTitle='Total Users Fango'
           imageSrc='/svg/user.svg'
         />
       </DisplayCardCharts>
+      <BarChart
+        title='Content/todo per bookmark'
+        datasetOne={{ label: "Todo", data: mostTodosBoomarksDataTodo }}
+        datasetTwo={{ label: "Done", data: mostTodosBoomarksDataDone }}
+        datasetThree={{ label: "Total", data: mostTodosBoomarksDataTotal }}
+        labels={mostTodosBoomarksTitleArray}
+      />
       <PolarChart
         chartLabels={mostClickedNames ? mostClickedNames : ["no bookmarks"]}
         chartData={mostClickedNumbers ? mostClickedNumbers : [0, 0, 0]}
@@ -79,8 +108,18 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       <DoughnutChart
         chartLabels={["Total", "Undone", "Done"]}
         chartData={[totalTodosDone, totalTodosNotDone, totalTodosDone]}
-        chartTitle='Content/todo'
+        chartTitle='Content/todo, total all bookmarks'
       />
+      <DisplayCardCharts>
+        <CardChart
+          backGroundColor='rgba(127,66,126,255)'
+          mainTitle={
+            mostVisitedBookmark ? mostVisitedBookmark : "No bookmark yet"
+          }
+          underTitle='Top visited Bookmark'
+          imageSrc='/svg/browser.svg'
+        />
+      </DisplayCardCharts>
     </Container>
   );
 };

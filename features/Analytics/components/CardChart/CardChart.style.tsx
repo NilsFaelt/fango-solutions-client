@@ -11,7 +11,8 @@ export const Container = styled.div<{ $backgroundcolor: string }>`
   min-width: 13rem;
   border-radius: 0.5rem;
   border: solid 0.05rem white;
-  background-color: ${(props) => props.$backgroundcolor};
+  // background-color: ${(props) => props.$backgroundcolor};
+  background-color:transparent;
   box-sizeing: border-box;
   padding: 0.5rem;
   padding-left: 1rem;
@@ -25,7 +26,7 @@ export const InnerContainer = styled.div`
   gap: 1rem;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: 80%;
   border-radius: 0.5rem;
   background-color: black;
   padding-left: 0.5rem;
@@ -34,8 +35,10 @@ export const InnerContainer = styled.div`
 export const StyledImage = styled(Image)``;
 export const Title = styled.h5`
   text-align: center;
+  max-width: 100%;
+  word-wrap: break-word;
   font-size: 1.8rem;
   margin: 0;
-  color: white;
+  color: rgba(53, 162, 235, 1);
 `;
 // export const StyledImage = styled(Image)``;

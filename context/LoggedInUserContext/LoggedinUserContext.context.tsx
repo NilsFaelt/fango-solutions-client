@@ -12,7 +12,6 @@ interface MenuContextInterface {
 
 import { auth } from "@/firebase";
 import { useMutatecreateUser } from "@/hooks";
-
 import { onAuthStateChanged } from "firebase/auth";
 import {
   Dispatch,
@@ -30,16 +29,24 @@ export const LoggedinUserContext = createContext<MenuContextInterface>({
   setLoggedInUser: () => {},
   setIdToken: () => {},
 });
+
 export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
-  const [idToken, setIdToken] = useState<null | string>(null); // New state for ID token
+  const [idToken, setIdToken] = useState<null | string>(null);
   const { mutate } = useMutatecreateUser(idToken);
+
+  // Function to refresh the token
+  const refreshIdToken = async () => {
+    if (auth.currentUser) {
+      const newToken = await auth.currentUser.getIdToken(true);
+      setIdToken(newToken);
+    }
+  };
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      console.log(user, " in context ");
       if (user) {
         const token = await user.getIdToken();
         setIdToken(token);
@@ -55,8 +62,14 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
       }
     });
 
-    return () => unsubscribe();
+    const tokenRefreshInterval = setInterval(refreshIdToken, 3662000);
+
+    return () => {
+      clearInterval(tokenRefreshInterval);
+      unsubscribe();
+    };
   }, []);
+
   useEffect(() => {
     mutate();
   }, [idToken]);

@@ -8,4 +8,4 @@ change mail
 change firebase credentials
 update bookmark
 add one test each day 
-remove todos when removeing bookmark
+

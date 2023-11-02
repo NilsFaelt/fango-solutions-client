@@ -3,7 +3,10 @@ import {
   Container,
   StyledImage,
 } from "./LoginWithEmailAndPasswordButton.style";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/ui";
@@ -11,11 +14,11 @@ import { Spinner } from "@/ui";
 export const LoginWithEmailAndPasswordButton: FC<{
   email: string | null;
   password: string | null;
-  create: boolean;
-}> = ({ email, password, create = false }) => {
+  toogleCreate: boolean;
+}> = ({ email, password, toogleCreate = false }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
-  const createUser = create ? "CREATE" : "LOGIN";
+  const createUser = toogleCreate ? "CREATE" : "LOGIN";
   console.log(email, password);
   const handleLoginWithCredentials = () => {
     if (email && password) {
@@ -34,7 +37,7 @@ export const LoginWithEmailAndPasswordButton: FC<{
           });
       } catch (err) {
         console.log(err);
-        console.log(err);
+
         setIsLoading(false);
       }
     }
@@ -43,7 +46,7 @@ export const LoginWithEmailAndPasswordButton: FC<{
     if (email && password) {
       setIsLoading(true);
       try {
-        signInWithEmailAndPassword(auth, email, password)
+        createUserWithEmailAndPassword(auth, email, password)
           .then(({ user }) => {})
           .then(() => {
             router.push(`/bookmarks`);
@@ -64,7 +67,10 @@ export const LoginWithEmailAndPasswordButton: FC<{
   return (
     <Container
       onClick={(e) => {
-        handleCreateUserWithCredentials(), e.preventDefault();
+        toogleCreate
+          ? handleCreateUserWithCredentials()
+          : handleLoginWithCredentials(),
+          e.preventDefault();
       }}
     >
       {isLoading ? "LOADING..." : createUser}
