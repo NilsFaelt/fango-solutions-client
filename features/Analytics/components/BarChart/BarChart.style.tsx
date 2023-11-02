@@ -16,5 +16,6 @@ export const Container = styled.div`
   padding: 1rem;
   box-sizing: border-box;
   @media (max-width: ${mediaQueries.mobile}) {
+    min-height: 15rem;
   }
 `;

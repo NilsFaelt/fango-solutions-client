@@ -22,9 +22,11 @@ export const Container = styled.div`
     justify-content: center;
   }
   @media (max-width: ${mediaQueries.mobile}) {
+    padding: 0rem;
     margin-top: 6rem;
     justify-content: center;
     margin-right: 0rem;
+    width: 17rem;
   }
 `;
 export const InputWrapper = styled.div`

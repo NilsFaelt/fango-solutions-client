@@ -15,3 +15,9 @@ export const BlackBackgroundContainer = styled.main<{ $zindex: number }>`
   background-color: rgba(0, 0, 0, 0.9);
   z-index: ${(props) => props.$zindex};
 `;
+export const DocsButtonWrapper = styled.div`
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  min-width: calc(7rem + 4vw);
+`;
