@@ -4,12 +4,12 @@ import {
   Container,
   DocsButtonWrapper,
 } from "./ConsoleLayout.style";
-import { ConsoleNavAside, ProfileCard } from "@/components";
+import { ConsoleNavAside } from "@/components";
 import { UnderConstrusction } from "@/components/UnderConstrusction";
 import { CookieBanner } from "@/components/CookieBanner/CookieBanner.component";
 import { MenuContext } from "@/context";
 import { DocsPopUpView } from "@/features";
-import { ButtonWithRings, PrimaryButton } from "@/ui";
+import { PrimaryButton } from "@/ui";
 
 interface Props {
   children: ReactNode;

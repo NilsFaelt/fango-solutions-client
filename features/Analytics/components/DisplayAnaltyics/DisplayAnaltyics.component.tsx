@@ -73,11 +73,11 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
 
   return (
     <Container>
-      <BannerMultiColorText
+      {/* <BannerMultiColorText
         colorOne='white'
         colorTwo='white'
         text={["ANALYTICS", "PANEL"]}
-      />
+      /> */}
       <DisplayCardCharts>
         <CardChart
           backGroundColor='rgba(0,216,234,255)'

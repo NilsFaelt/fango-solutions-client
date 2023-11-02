@@ -6,7 +6,7 @@ import { keyframes, styled } from "styled-components";
 const fadeIn = keyframes`
   0% {
     opacity: 0;
-    z-index: 0;
+    z-index: ;
     transform: translateY(-100%);
   }
   30% {
@@ -15,7 +15,7 @@ const fadeIn = keyframes`
   }
   100% {
     opacity: 1;
-    z-index: 3;
+    z-index: ;
     transform: translateY(0);
   }
 `;
@@ -40,43 +40,40 @@ export const ProfileContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1vw;
-  width: calc(7rem + 4vw);
-  cursor: pointer;
   background-color: black;
-  border: 0.1rem solid ${theme.colors.primary};
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0.1rem solid white;
   color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  padding: 0.6rem;
-  word-break: break-all;
-  z-index: 9;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 1s, color 1s, box-shadow 1s; /* Add transitions here */
+
   &:hover {
-    color: ${theme.colors.primary};
-    transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
-    /* background-color: ${theme.colors.extra}; */
+    background-color: white;
+    color: black;
+    box-shadow: 0.1rem 0.1rem 0.1rem grey;
+    transition: background-color 0.5s, color 1s, box-shadow 1s; /* Add transitions here */
   }
   &:active {
-    box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
-  }
-  @media (max-width: ${mediaQueries.mobile}) {
-    width: 5.3rem;
+    transition: 0.3s;
+    background-color: white;
+    color: white;
+    box-shadow: 0rem 0rem 0rem;
   }
 `;
 
 export const Container = styled.div`
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  diplay: flex;
+  position: relative;
+
+  display: flex;
   flex-direction: column;
+
   /*  */
   @media (max-width: ${mediaQueries.mobile}) {
-    position: absolute;
     width: calc(7.2rem + 6vw);
-    left: 1rem;
-    top: 5rem;
+
     z-index: 3;
   }
 `;
@@ -93,14 +90,13 @@ export const DropDownContainer = styled.div`
   z-index: 3;
   padding: 0.6rem;
   right: 0.1rem;
-  margin-top: -2.7rem;
-
+  margin-top: 0rem;
+  padding-top: 1.5rem;
   box-shadow: 0.1rem 0.1rem 0.2rem white;
 `;
 
 export const StyledImage = styled.img`
   border-radius: 50%;
-  margin-top: 0.5rem;
 `;
 export const Name = styled.p`
   text-align: center;

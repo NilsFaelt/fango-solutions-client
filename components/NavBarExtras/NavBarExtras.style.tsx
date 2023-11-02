@@ -2,21 +2,21 @@ import { mediaQueries, theme } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.nav`
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: calc(8rem + 6vw);
   right: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: auto;
   gap: 3vw;
-
+  z-index: 2;
   min-height: 5rem;
+  padding-right: 1rem;
+  box-sizeing: border-box;
   background-color: ${theme.colors.backgroundPrimary};
   @media (max-width: ${mediaQueries.mobile}) {
-    justify-content: flex-start;
-    flex-direction: row-reverse;
-    padding-right: 2.5rem;
+    justify-content: flex-end;
   }
 `;

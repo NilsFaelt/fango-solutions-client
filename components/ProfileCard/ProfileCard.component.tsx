@@ -31,7 +31,12 @@ export const ProfileCard: FC = () => {
   return (
     <Container ref={ref} onClick={() => setToogleDropDown(true)}>
       <ProfileContainer>
-        <Name>{nameOrEmail}</Name>
+        <StyledImage
+          alt='user-image'
+          src='/svg/user.svg'
+          width={25}
+          height={25}
+        />
       </ProfileContainer>
       {toogleDropDown && (
         <DropDownContainer>
