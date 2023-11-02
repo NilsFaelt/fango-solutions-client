@@ -41,8 +41,6 @@ export const useMutateAddBookmark = (
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

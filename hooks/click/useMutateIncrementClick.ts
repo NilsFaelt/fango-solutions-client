@@ -26,8 +26,6 @@ export const useMutateIncrementClick = (bookmarkId: string, token: string) => {
     onSuccess: () => {
       console.log("added anyltics");
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

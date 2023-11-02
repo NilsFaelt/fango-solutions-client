@@ -3,7 +3,6 @@ import { apiClient } from "@/api";
 import { useMutation } from "@tanstack/react-query";
 
 const fetchuser = async (token: string | null) => {
-  console.log(" in fetch");
   if (!token) throw new Error(" no token");
   try {
     const response = await fetch(
@@ -17,7 +16,7 @@ const fetchuser = async (token: string | null) => {
     ).then((res) => res.json);
     return response;
   } catch (err) {
-    console.log(`couldnt add bookmark`, err);
+    console.log(`couldnt add bookmark`);
     throw err;
   }
 };
@@ -28,8 +27,6 @@ export const useMutatecreateUser = (token: string | null) => {
     onSuccess: () => {
       console.log("added user");
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

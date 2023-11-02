@@ -20,7 +20,7 @@ export const Container = styled.div`
   border-radius: 0.5rem;
   box-sizing: border-box;
 `;
-export const Text = styled.h5<{ $color: string }>`
+export const Text = styled.h4<{ $color: string }>`
   color: ${(props) => props.$color};
   font-size: 1.5rem;
   margin: 0;

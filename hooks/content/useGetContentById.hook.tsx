@@ -19,7 +19,7 @@ const fetchContent = async (
     }
 
     const data = await response.json();
-    console.log(data, "in by id");
+
     return data as ContentInterface;
   } catch (error) {
     console.error("Error fetching data:", error);

@@ -34,8 +34,6 @@ export const useMutateDeleteBookmark = (token: string, id: string | null) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

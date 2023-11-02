@@ -27,7 +27,7 @@ export const ProfileCard: FC = () => {
   const { displayName, email } = loggedInUser;
   const userImageUrl = user?.photoURL ? user?.photoURL : "/svg/web.svg";
   const nameOrEmail = displayName ? displayName : email;
-  console.log(email);
+
   return (
     <Container ref={ref} onClick={() => setToogleDropDown(true)}>
       <ProfileContainer>

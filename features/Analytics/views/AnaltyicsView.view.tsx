@@ -2,7 +2,6 @@
 import React, { FC, useContext } from "react";
 import { Container } from "./AnalyticsView.style";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
-import { useGetAnalytics } from "@/hooks";
 import { DisplayAnaltyics } from "..";
 
 export const AnaltyicsView: FC = () => {

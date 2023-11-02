@@ -12,7 +12,6 @@ const getToken = async () => {
       throw new Error("User is not authenticated.");
     }
   } catch (err) {
-    console.log("Could not retrieve ID token:", err);
     return null;
   }
 };

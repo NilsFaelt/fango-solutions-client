@@ -43,8 +43,6 @@ export const useMutatePatchContent = (
       queryClient.invalidateQueries(["content"]);
       queryClient.invalidateQueries(["bookmarks"]);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

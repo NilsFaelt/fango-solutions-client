@@ -20,7 +20,7 @@ export const BookmarkContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [bookmarkId, setBookmarkId] = useState<null | string>(null);
-  console.log(bookmarkId, " in contect ");
+
   return (
     <BookmarkContext.Provider value={{ bookmarkId, setBookmarkId }}>
       {children}

@@ -11,7 +11,7 @@ import data from "../../../data/json/InfoData.json";
 
 export const DisplayInfoView: FC<{ id: string }> = ({ id }) => {
   const item = data.find((item) => item.id === id);
-  console.log(item, id);
+
   return (
     <Container>
       <MainTitle

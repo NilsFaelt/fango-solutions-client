@@ -21,11 +21,8 @@ const mutatePokemon = async (data: { name: string }) => {
 export const useCreatePokemon = () => {
   return useMutation(mutatePokemon, {
     onSuccess: (data) => {
-      console.log(data);
       queryClient.invalidateQueries(["pokemons"]);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };
