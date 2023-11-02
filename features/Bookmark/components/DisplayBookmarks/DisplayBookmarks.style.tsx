@@ -14,6 +14,11 @@ export const Container = styled.div`
   width: auto;
   padding: 3rem;
   color: black;
+
+  @media (max-width: ${mediaQueries.tablet}) {
+    justify-content: flex-start;
+    padding-left: 0;
+  }
   @media (max-width: ${mediaQueries.mobile}) {
     margin-top: 6rem;
     justify-content: center;

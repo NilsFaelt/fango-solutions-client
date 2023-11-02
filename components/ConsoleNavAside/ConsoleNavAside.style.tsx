@@ -14,6 +14,7 @@ export const Container = styled.nav`
   top: 0;
   height: 100%;
   width: calc(8rem + 6vw);
+  z-index: 6;
   background-color: ${theme.colors.backgroundPrimary};
 `;
 export const InnerLinkContainer = styled.nav`
