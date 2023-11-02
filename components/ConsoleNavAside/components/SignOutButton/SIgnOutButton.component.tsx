@@ -15,9 +15,7 @@ export const SignoutButton = () => {
         setIdToken(null);
         router.push("/");
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (

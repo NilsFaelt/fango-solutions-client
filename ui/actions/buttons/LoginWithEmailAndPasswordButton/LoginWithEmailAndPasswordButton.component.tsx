@@ -30,14 +30,12 @@ export const LoginWithEmailAndPasswordButton: FC<{
             router.push(`/bookmarks`);
           })
           .catch((error) => {
-            console.log("Error:", error);
+            console.log("Error:");
           })
           .finally(() => {
             setIsLoading(false);
           });
       } catch (err) {
-        console.log(err);
-
         setIsLoading(false);
       }
     }
@@ -52,13 +50,12 @@ export const LoginWithEmailAndPasswordButton: FC<{
             router.push(`/bookmarks`);
           })
           .catch((error) => {
-            console.log("Error:", error);
+            console.log("Error:");
           })
           .finally(() => {
             setIsLoading(false);
           });
       } catch (err) {
-        console.log(err);
         setIsLoading(false);
       }
     }

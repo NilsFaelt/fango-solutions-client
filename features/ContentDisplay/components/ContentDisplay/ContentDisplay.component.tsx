@@ -146,22 +146,15 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
             setSaved(true);
             setContent("");
             setTitle("");
-
-            console.log("sucess");
           })
-          .catch((err) => {
-            console.log("buhuu");
-          });
+          .catch((err) => {});
       }
       if (id) {
         patchAsync()
           .then(() => {
             setSaved(true);
-            console.log("sucess");
           })
-          .catch((err) => {
-            console.log("buhuu");
-          });
+          .catch((err) => {});
       }
     }
   };
@@ -171,15 +164,11 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
         setSaved(true);
         setHighlightedContent("");
         setHighligtedTodoTitle("");
-
-        console.log("sucess");
       })
       .then(() => {
         setHighlightedContent("");
       })
-      .catch((err) => {
-        console.log("buhuu");
-      });
+      .catch((err) => {});
   };
 
   useEffect(() => {

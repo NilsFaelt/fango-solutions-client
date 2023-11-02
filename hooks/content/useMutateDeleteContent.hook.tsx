@@ -17,7 +17,7 @@ const fetchContent = async (token: string, id: string | null) => {
       return response;
     }
   } catch (err) {
-    console.log(`couldnt delete content`, err);
+    console.log(`couldnt delete content`);
 
     throw err;
   }
@@ -29,8 +29,6 @@ export const useMutateDeleteContent = (token: string, id: string | null) => {
     onSuccess: () => {
       queryClient.invalidateQueries(["content"]);
     },
-    onError: (error) => {
-      console.log(error);
-    },
+    onError: (error) => {},
   });
 };

@@ -19,13 +19,12 @@ export const BookmarkView: FC = () => {
   const [toogleAddBookmarkContainer, setToogleAddBookmarkContainer] =
     useState(false);
   useEffect(() => {
-    console.log(" in use");
     mutate();
   }, []);
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
-  console.log(toogleUpdateBookmark);
+
   if (!idToken) return null;
   return (
     <Container>

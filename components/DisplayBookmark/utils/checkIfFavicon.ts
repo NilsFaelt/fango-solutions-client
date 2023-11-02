@@ -1,11 +1,9 @@
 export async function checkForFavicon(url: string | null) {
-  console.log(url);
   if (!url) return "/svg/trash.svg";
   // Modify this URL to match your server's route for fetching the favicon.
   const serverProxyUrl = "/api/fetch-favicon?url=" + encodeURIComponent(url);
   return await fetch(serverProxyUrl)
     .then((response) => {
-      console.log(response);
       if (response.status === 200) {
         // Favicon found, you can use it.
         return url;

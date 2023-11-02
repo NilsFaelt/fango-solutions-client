@@ -26,7 +26,7 @@ export const DisplayBookmarks: FC<Props> = ({
     limit,
     skip: 0,
   });
-  console.log(data);
+
   const filteredData = data?.filter((b) => {
     if (b.url.includes(searchWord)) {
       return b;

@@ -27,13 +27,12 @@ export const LogginButton: FC = () => {
           router.push(`/bookmarks`);
         })
         .catch((error) => {
-          console.log("Error:", error);
+          console.log("Error:");
         })
         .finally(() => {
           setIsLoading(false);
         });
     } catch (err) {
-      console.log(err);
       setIsLoading(false);
     }
   };
@@ -46,13 +45,12 @@ export const LogginButton: FC = () => {
           router.push(`/bookmarks`);
         })
         .catch((error) => {
-          console.log("Error:", error);
+          console.log("Error:");
         })
         .finally(() => {
           setIsLoading(false);
         });
     } catch (err) {
-      console.log(err);
       setIsLoading(false);
     }
   };
@@ -62,9 +60,7 @@ export const LogginButton: FC = () => {
       signOut(auth).then(() => {
         router.push("/");
       });
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {

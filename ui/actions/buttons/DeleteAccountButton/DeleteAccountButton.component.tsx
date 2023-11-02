@@ -25,7 +25,7 @@ export const DeleteAccountButton: FC = () => {
         router.push("/");
       })
       .catch((err) => {
-        console.log("user could not be deleted", err);
+        console.log("user could not be deleted");
       })
       .finally(() => {
         setLoading(false);
