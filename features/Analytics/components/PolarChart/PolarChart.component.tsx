@@ -24,19 +24,22 @@ export const PolarChart: FC<Props> = ({
   const data = {
     label: ["test"],
     labels: chartLabels,
+
     datasets: [
       {
         label: "Visited",
         data: chartData,
-        backgroundColor: [
-          "rgb(255, 99, 132)",
-          "rgb(75, 192, 192)",
-          "rgb(255, 205, 86)",
-          "rgb(201, 203, 207)",
-          "rgba(159, 13, 127, 1)",
-          "rgba(234, 17, 121, 1)",
+        backgroundColor: "rgba(0, 0, 0, 1)",
+        borderColor: [
+          "rgba(0, 216, 234, 1)", // Light blue
+          "rgba(127, 66, 126, 1)", // Purple
+          "rgba(125, 222, 114, 1)", // Green
+          "rgba(239, 150, 36, 1)", // Orange
+          "rgba(255, 196, 60, 1)", // Yellow
         ],
-        borderWidth: 1,
+
+        borderWidth: 1, // Adjust the border width as needed
+        fill: true,
       },
     ],
   };

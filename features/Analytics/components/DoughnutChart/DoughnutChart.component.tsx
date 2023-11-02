@@ -28,12 +28,14 @@ export const DoughnutChart: FC<Props> = ({
       {
         label: "Content/Todo",
         data: chartData,
-        backgroundColor: [
-          "rgba(159, 13, 127, 1)",
-          "rgba(234, 17, 121, 1)",
+        backgroundColor: "black",
+        borderColor: [
+          "rgba(0,216,234,255)",
+          "rgba(127,66,126,255)",
           "rgba(125, 222, 114, 1)",
         ],
-        borderWidth: 1,
+        borderWidth: 1, // Adjust the border width as needed
+        fill: true,
       },
     ],
   };

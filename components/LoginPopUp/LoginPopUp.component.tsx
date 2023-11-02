@@ -5,7 +5,7 @@ import {
   LabelAndButtonContainer,
 } from "./LoginPopUp.style";
 import { LogginButton, LoginWithEmailAndPasswordButton, MainTitle } from "@/ui";
-import { PrimaryInput, PrimaryLabel } from "@/styles";
+import { PrimaryInput } from "@/styles";
 import { useClickOustsideToClose } from "@/hooks";
 
 interface Props {
@@ -43,7 +43,7 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
               Create account?
             </ExtraText>
             <LoginWithEmailAndPasswordButton
-              create={toogleCreateAccount}
+              toogleCreate={toogleCreateAccount}
               email={email}
               password={password}
             />
@@ -71,7 +71,7 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
               Login?
             </ExtraText>
             <LoginWithEmailAndPasswordButton
-              create={toogleCreateAccount}
+              toogleCreate={toogleCreateAccount}
               email={email}
               password={password}
             />
