@@ -15,6 +15,7 @@ export const Container = styled.div`
   margin-right: 2rem;
   color: black;
   background-color: transparent;
+  box-sizing: border-box;
 
   ´ @media (max-width: ${mediaQueries.tablet}) {
     padding: 0rem;
@@ -23,6 +24,7 @@ export const Container = styled.div`
   }
   @media (max-width: ${mediaQueries.mobile}) {
     padding: 0rem;
+    padding-right: 1rem;
     margin-top: 6rem;
     justify-content: center;
     margin-right: 0rem;
