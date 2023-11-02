@@ -9,7 +9,9 @@ export const Container = styled.button`
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  padding: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   &:hover {
     transition: 0.3s;

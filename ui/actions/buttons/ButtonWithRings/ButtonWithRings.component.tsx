@@ -19,7 +19,7 @@ export const ButtonWithRings: FC<Props> = ({ svgSrc, href }) => {
           <StyledImage
             alt='Logo of house'
             src={svgSrc}
-            height={25}
+            height={20}
             width={25}
           />
         </Container>

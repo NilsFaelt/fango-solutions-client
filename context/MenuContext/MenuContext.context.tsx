@@ -5,6 +5,8 @@ interface MenuContextInterface {
   setToogleContentDisplay: Dispatch<SetStateAction<boolean>>;
   toogleBlacBackgroundDisplay: boolean;
   setToogleBlacBackgroundDisplay: Dispatch<SetStateAction<boolean>>;
+  toogleDocs: boolean;
+  setToogleDocs: Dispatch<SetStateAction<boolean>>;
 }
 
 import {
@@ -23,6 +25,8 @@ export const MenuContext = createContext<MenuContextInterface>({
   setToogleContentDisplay: () => {},
   toogleBlacBackgroundDisplay: false,
   setToogleBlacBackgroundDisplay: () => {},
+  toogleDocs: false,
+  setToogleDocs: () => {},
 });
 
 export const MenuContextProvider: FC<{ children: ReactNode }> = ({
@@ -30,6 +34,7 @@ export const MenuContextProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const [toogleUpdateBookmark, setToogleUpdateBookmark] = useState(false);
   const [toogleContentDisplay, setToogleContentDisplay] = useState(false);
+  const [toogleDocs, setToogleDocs] = useState(false);
   const [toogleBlacBackgroundDisplay, setToogleBlacBackgroundDisplay] =
     useState(false);
   return (
@@ -41,6 +46,8 @@ export const MenuContextProvider: FC<{ children: ReactNode }> = ({
         setToogleUpdateBookmark,
         toogleContentDisplay,
         setToogleContentDisplay,
+        toogleDocs,
+        setToogleDocs,
       }}
     >
       {children}

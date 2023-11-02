@@ -52,13 +52,23 @@ export const CenterContainer = styled.div`
   height: 100%;
   gap: 1rem;
 `;
-export const ContentPreviewContainer = styled.p`
+export const ContentPreviewContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   margin: 0;
   box-shadow: 0.3em 0.3rem 0.3rem black;
+  /* text-decoration: underline; */
+`;
+export const InnerLowerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  box-shadow: 0.3em 0.3rem 0.3rem black;
+  /* background-color: white; */
   /* text-decoration: underline; */
 `;
 export const ContentPreviewTitle = styled.p`

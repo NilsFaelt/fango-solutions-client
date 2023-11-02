@@ -16,6 +16,7 @@ import {
   MarkButton,
   ContentPreviewContainer,
   AddHighLIghtedContentButton,
+  InnerLowerContainer,
 } from "./ContentDisplay.style";
 import { BookmarkContext, MenuContext } from "@/context";
 import {
@@ -226,46 +227,52 @@ export const ContentDisplay: FC<Props> = ({ idToken }) => {
             onChange={(e) => setContent(e.target.value)}
           />
         </CenterContainer>
-        <ExtrasContainer>
-          {!todo && (
-            <MarkButton onClick={() => setTodo(true)}>MARK AS TODO </MarkButton>
-          )}
-          {todo && (
-            <MarkButton
-              onClick={() => {
-                setDone(false);
-                setTodo(false);
-              }}
-            >
-              REMOVE TODO{" "}
-            </MarkButton>
-          )}
-          {todo && !done && (
-            <MarkButton onClick={() => setDone(true)}>MARK AS DONE </MarkButton>
-          )}
+        <InnerLowerContainer>
+          <ExtrasContainer>
+            {!todo && (
+              <MarkButton onClick={() => setTodo(true)}>
+                MARK AS TODO{" "}
+              </MarkButton>
+            )}
+            {todo && (
+              <MarkButton
+                onClick={() => {
+                  setDone(false);
+                  setTodo(false);
+                }}
+              >
+                REMOVE TODO{" "}
+              </MarkButton>
+            )}
+            {todo && !done && (
+              <MarkButton onClick={() => setDone(true)}>
+                MARK AS DONE{" "}
+              </MarkButton>
+            )}
 
-          {done && <StyledImage src='/svg/check.svg' width={18} />}
-          {todo && !done && (
-            <StyledImage src='/svg/writingpad.svg' width={20} />
+            {done && <StyledImage src='/svg/check.svg' width={18} />}
+            {todo && !done && (
+              <StyledImage src='/svg/writingpad.svg' width={20} />
+            )}
+          </ExtrasContainer>
+          <PrimaryButton text='SAVE CHANGES' />
+          {id && (
+            <ExtraButtonContainer>
+              <ExtraConfirmButton
+                text='CREATE NEW'
+                onClick={(e) => {
+                  e.preventDefault(), createNewOnCLick();
+                }}
+              />
+              <ExtraConfirmButton
+                text='DELETE'
+                onClick={(e) => {
+                  e.preventDefault(), deleteOnCLick();
+                }}
+              />
+            </ExtraButtonContainer>
           )}
-        </ExtrasContainer>
-        <PrimaryButton text='SAVE CHANGES' />
-        {id && (
-          <ExtraButtonContainer>
-            <ExtraConfirmButton
-              text='CREATE NEW'
-              onClick={(e) => {
-                e.preventDefault(), createNewOnCLick();
-              }}
-            />
-            <ExtraConfirmButton
-              text='DELETE'
-              onClick={(e) => {
-                e.preventDefault(), deleteOnCLick();
-              }}
-            />
-          </ExtraButtonContainer>
-        )}
+        </InnerLowerContainer>
       </Container>
       <DisplayPreviewContentContainer>
         {contentData?.map((content, i) => {
