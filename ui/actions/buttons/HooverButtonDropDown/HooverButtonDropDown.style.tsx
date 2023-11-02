@@ -39,7 +39,7 @@ export const Container = styled.div`
   }
 `;
 export const DropDownContainer = styled.div`
-  background-color: ${theme.colors.backgroundPrimary};
+  /* background-color: ${theme.colors.backgroundPrimary}; */
   position: absolute;
   top: 2.5rem;
   z-index: 2;

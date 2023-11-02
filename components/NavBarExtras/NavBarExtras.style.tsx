@@ -17,6 +17,6 @@ export const Container = styled.nav`
   @media (max-width: ${mediaQueries.mobile}) {
     justify-content: flex-start;
     flex-direction: row-reverse;
-    padding-right: 1rem;
+    padding-right: 2.5rem;
   }
 `;
