@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import {
   Container,
   DeleteContainer,
@@ -10,15 +10,20 @@ import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { Spinner } from "@/ui";
+import { useMutateDeleteUser } from "@/hooks";
+import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 
 export const DeleteAccountButton: FC = () => {
+  const { idToken } = useContext(LoggedinUserContext);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const user = auth.currentUser;
-  const handelDeleteOnClick = () => {
+  const { mutateAsync } = useMutateDeleteUser(idToken);
+  const handelDeleteOnClick = async () => {
+    await mutateAsync();
     setLoading(true);
-    user
+    await user
       ?.delete()
       .then((res) => {
         console.log("user deleted");

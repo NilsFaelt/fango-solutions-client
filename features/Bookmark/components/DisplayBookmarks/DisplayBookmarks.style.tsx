@@ -33,6 +33,12 @@ export const InputWrapper = styled.div`
   gap: 2rem;
   position: absolute;
   top: -1rem;
+  @media (max-width: ${mediaQueries.mobile}) {
+    position: fixed;
+    z-index: 3;
+    left: 0.7rem;
+    top: 5rem;
+  }
 `;
 
 export const IndicateColorText = styled.p`

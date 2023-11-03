@@ -3,10 +3,7 @@ import { Container } from "./DisplayAnalytics.style";
 import { CardChart, DisplayCardCharts, DoughnutChart, PolarChart } from "..";
 import { useGetAnalytics, useGetUserCount } from "@/hooks";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
-import { BannerMultiColorText } from "@/ui/display/BannerMultiColorText";
-import { theme } from "@/styles";
 import { BarChart } from "../BarChart";
-import { BookmarkInterface } from "@/types/bookmark";
 import { AnalyticsInterface } from "@/types/analytics";
 
 interface Props {
@@ -108,9 +105,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       <DisplayCardCharts>
         <CardChart
           backGroundColor='rgba(127,66,126,255)'
-          mainTitle={
-            mostVisitedBookmark ? mostVisitedBookmark : "No bookmark yet"
-          }
+          mainTitle={mostVisitedBookmark ? mostVisitedBookmark : "Non added "}
           underTitle='Top visited Bookmark'
           imageSrc='/svg/browser.svg'
         />
