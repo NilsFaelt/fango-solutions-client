@@ -1,4 +1,4 @@
-import { theme } from "@/styles";
+import { mediaQueries, theme } from "@/styles";
 import Image from "next/image";
 import styled, { keyframes } from "styled-components";
 
@@ -62,6 +62,9 @@ export const BookmarkContainer = styled.button`
   &:active {
     box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
   }
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 13rem;
+  }
 `;
 
 export const Container = styled.div<{ $zindex: number }>`
@@ -78,6 +81,9 @@ export const DropDownContainer = styled.div`
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
   animation: ${fadeIn} 0.5s ease-in-out forwards;
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 13rem;
+  }
 `;
 export const DropUpContainer = styled.div`
   position: absolute;
@@ -93,6 +99,9 @@ export const DropUpContainer = styled.div`
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 13rem;
+  }
 `;
 export const DeleteContainer = styled.div`
   display: flex;
@@ -162,6 +171,9 @@ export const StyledA = styled.a`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   box-sizing: border-box;
   text-decoration: none;
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 13rem;
+  }
 
   &:hover {
     transition: 0.3s;

@@ -72,7 +72,7 @@ export const Container = styled.div`
 
   /*  */
   @media (max-width: ${mediaQueries.mobile}) {
-    width: calc(7.2rem + 6vw);
+   auto
 
     z-index: 3;
   }

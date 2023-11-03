@@ -7,6 +7,7 @@ export const Container = styled.div`
   min-height: 100vh;
   color: black;
   background-color: black;
+
   @media (max-width: ${mediaQueries.tablet}) {
   }
 `;
