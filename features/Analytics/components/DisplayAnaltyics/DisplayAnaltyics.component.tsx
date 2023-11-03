@@ -21,7 +21,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
     if (!data?.bookmark) return [];
 
     data.bookmark.sort((a, b) => (b.todos?.todo || 0) - (a?.todos?.todo || 0));
-    return data?.bookmark;
+    return data?.bookmark.splice(0, 5);
   }
 
   const mostTodosBoomarks = sortBookmarksByTodos(data);
@@ -73,11 +73,6 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
 
   return (
     <Container>
-      {/* <BannerMultiColorText
-        colorOne='white'
-        colorTwo='white'
-        text={["ANALYTICS", "PANEL"]}
-      /> */}
       <DisplayCardCharts>
         <CardChart
           backGroundColor='rgba(0,216,234,255)'

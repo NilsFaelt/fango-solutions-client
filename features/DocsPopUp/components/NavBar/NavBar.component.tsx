@@ -1,6 +1,11 @@
 import React from "react";
-import { Container } from "./NavBar.style";
+import { Container, NavBarButton } from "./NavBar.style";
 
 export const NavBar = () => {
-  return <Container>NavBar</Container>;
+  return (
+    <Container>
+      <NavBarButton>BOOKMARK</NavBarButton>
+      <NavBarButton>ANALYTICS</NavBarButton>
+    </Container>
+  );
 };

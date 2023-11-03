@@ -18,8 +18,6 @@ const fetchContent = async (token: string, id: string | null) => {
     }
   } catch (err) {
     console.log(`couldnt delete content`);
-
-    throw err;
   }
 };
 

@@ -27,8 +27,6 @@ const fetchContent = async (
     }
   } catch (err) {
     console.log(`couldnt patch content`, err);
-
-    throw err;
   }
 };
 
