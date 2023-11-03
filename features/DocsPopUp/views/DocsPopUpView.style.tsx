@@ -41,7 +41,6 @@ export const Container = styled.form`
   box-shadow: 0.3em 0.3rem 0.3rem black;
   margin-top: 0rem;
   @media (max-width: ${mediaQueries.tablet}) {
-    height: 90vh;
   }
   @media (max-width: ${mediaQueries.mobile}) {
   }

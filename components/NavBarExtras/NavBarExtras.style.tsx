@@ -16,7 +16,7 @@ export const Container = styled.nav`
   padding-right: 1rem;
   box-sizeing: border-box;
   background-color: ${theme.colors.backgroundPrimary};
+
   @media (max-width: ${mediaQueries.mobile}) {
-    justify-content: flex-end;
   }
 `;

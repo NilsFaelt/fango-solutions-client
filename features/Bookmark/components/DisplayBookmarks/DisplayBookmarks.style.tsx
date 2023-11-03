@@ -20,8 +20,12 @@ export const Container = styled.div`
     padding-left: 0;
   }
   @media (max-width: ${mediaQueries.mobile}) {
-    margin-top: 6rem;
+    margin-top: 8rem;
+    padding: 0;
+    padding-top: 3rem;
+    padding-right: 1rem;
     justify-content: center;
+    justify-content: flex-end;
   }
 `;
 export const InputWrapper = styled.div`

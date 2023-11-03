@@ -14,7 +14,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  z-index: 5;
   position: fixed;
   right: 0;
   top: 0;
@@ -28,6 +27,7 @@ export const Container = styled.div`
   border-left: 0.05rem solid white;
   animation: ${slideIn} 1s;
   overflow: scroll;
+  z-index: 10;
 `;
 
 export const Title = styled.h3`
