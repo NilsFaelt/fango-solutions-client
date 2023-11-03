@@ -182,6 +182,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         target='_blank'
         onClick={(e) => {
           e.preventDefault();
+
           handleClick(bookmark?.url);
         }}
         href={bookmark?.url}

@@ -3,18 +3,15 @@ import React, { FC, useContext, useRef, useState } from "react";
 import {
   ProfileContainer,
   Container,
-  Name,
   StyledImage,
   DropDownContainer,
 } from "./ProfileCard.style";
 import { auth } from "@/firebase";
-
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
-// import { DropDownContainer } from "@/styles";
-
 import { useClickOustsideToClose } from "@/hooks";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { NavLink } from "../ConsoleNavAside/components";
+import { DeleteAccountButton } from "@/ui";
 
 export const ProfileCard: FC = () => {
   const ref = useRef(null);
@@ -40,6 +37,7 @@ export const ProfileCard: FC = () => {
       </ProfileContainer>
       {toogleDropDown && (
         <DropDownContainer>
+          <DeleteAccountButton />
           <StyledImage
             src={userImageUrl}
             width={50}

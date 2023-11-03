@@ -47,6 +47,7 @@ export const BarChart: FC<Props> = ({
         display: true,
         text: title,
         color: "white",
+
         font: {
           size: 16,
         },

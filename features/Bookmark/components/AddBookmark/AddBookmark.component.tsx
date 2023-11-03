@@ -68,6 +68,7 @@ export const AddBookmark: FC<Props> = ({
           </MainText>
           <ButtonInputWrapperCollumn>
             <PrimaryInput
+              $width={"100%"}
               readOnly={blockUrlInput}
               onChange={(e) => setChildUrl(e.target.value)}
               placeholder='www.mypage.com/profile'

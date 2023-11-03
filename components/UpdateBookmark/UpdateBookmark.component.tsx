@@ -57,7 +57,7 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
 
   return (
     <Container>
-      <MainTitle text={` ${mainUrl?.toUpperCase()}.COM`} underText='Bookamrk' />
+      <MainTitle text={` ${mainUrl?.toUpperCase()}.COM`} underText='Bookmark' />
       <FlexCollumnContainer>
         <FlexRowContainer>
           <StyledImage

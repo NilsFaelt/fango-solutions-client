@@ -16,6 +16,9 @@ export const Container = styled.nav`
   width: calc(8rem + 6vw);
 
   background-color: ${theme.colors.backgroundPrimary};
+  @media (max-width: ${mediaQueries.mobile}) {
+    /* margin-left: -20rem; */
+  }
 `;
 export const InnerLinkContainer = styled.nav`
   display: flex;

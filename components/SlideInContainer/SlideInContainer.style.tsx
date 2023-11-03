@@ -1,3 +1,4 @@
+import { mediaQueries } from "@/styles";
 import styled, { keyframes } from "styled-components";
 
 const slideIn = keyframes`
@@ -28,6 +29,10 @@ export const Container = styled.div`
   animation: ${slideIn} 1s;
   overflow: scroll;
   z-index: 10;
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 11rem;
+    padding-left: 1rem;
+  }
 `;
 
 export const Title = styled.h3`
