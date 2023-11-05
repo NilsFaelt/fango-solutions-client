@@ -11,6 +11,7 @@ export const Container = styled.div`
   background-color: black;
   box-sizing: border-box;
   padding-top: 3rem;
+  border-right: 0.05rem solid white;
 `;
 
 export const NavBarButton = styled.button`

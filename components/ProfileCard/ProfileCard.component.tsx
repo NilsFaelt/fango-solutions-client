@@ -5,13 +5,16 @@ import {
   Container,
   StyledImage,
   DropDownContainer,
+  InnerUpperContainer,
+  StyledImageSvg,
+  InnerLowerContainer,
 } from "./ProfileCard.style";
 import { auth } from "@/firebase";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 import { useClickOustsideToClose } from "@/hooks";
 import { MainText } from "@/ui/display/MainText/MainText.component";
-import { NavLink } from "../ConsoleNavAside/components";
-import { DeleteAccountButton } from "@/ui";
+
+import { DeleteAccountButton, MainTitle } from "@/ui";
 
 export const ProfileCard: FC = () => {
   const ref = useRef(null);
@@ -28,7 +31,7 @@ export const ProfileCard: FC = () => {
   return (
     <Container ref={ref} onClick={() => setToogleDropDown(true)}>
       <ProfileContainer>
-        <StyledImage
+        <StyledImageSvg
           alt='user-image'
           src='/svg/user.svg'
           width={25}
@@ -37,23 +40,27 @@ export const ProfileCard: FC = () => {
       </ProfileContainer>
       {toogleDropDown && (
         <DropDownContainer>
-          <DeleteAccountButton />
-          <StyledImage
-            src={userImageUrl}
-            width={50}
-            height={50}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              const target = e.target as HTMLImageElement;
-              target.src = "/svg/web.svg";
-            }}
-          />
-          <MainText margin='1' color='white'>
-            {nameOrEmail}
-          </MainText>
-          {/* <ButtonWrapper>
+          {/* <DeleteAccountButton /> */}
+          <InnerUpperContainer>
+            <StyledImage
+              src={userImageUrl}
+              width={70}
+              height={70}
+              onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "/svg/web.svg";
+              }}
+            />
+          </InnerUpperContainer>
+          <InnerLowerContainer>
+            <MainTitle text={nameOrEmail.toUpperCase()} underText='WELCOME' />
+            {/* <MainText fontSize='16' margin='1' color='white'>
+              {nameOrEmail}
+            </MainText> */}
             <DeleteAccountButton />
-          </ButtonWrapper> */}
-          <NavLink text='My Settings' linkPath='/' svgPath='/svg/web.svg' />
+          </InnerLowerContainer>
+
+          {/* <NavLink text='My Settings' linkPath='/' svgPath='/svg/web.svg' /> */}
         </DropDownContainer>
       )}
     </Container>

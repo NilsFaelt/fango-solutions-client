@@ -38,7 +38,7 @@ export const PolarChart: FC<Props> = ({
           "rgba(255, 196, 60, 1)", // Yellow
         ],
 
-        borderWidth: 1, // Adjust the border width as needed
+        borderWidth: 2, // Adjust the border width as needed
         fill: true,
       },
     ],

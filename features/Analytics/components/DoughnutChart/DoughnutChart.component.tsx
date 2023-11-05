@@ -34,7 +34,7 @@ export const DoughnutChart: FC<Props> = ({
           "rgba(127,66,126,255)",
           "rgba(125, 222, 114, 1)",
         ],
-        borderWidth: 1, // Adjust the border width as needed
+        borderWidth: 2, // Adjust the border width as needed
         fill: true,
       },
     ],

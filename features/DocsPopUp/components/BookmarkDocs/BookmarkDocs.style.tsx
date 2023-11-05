@@ -14,9 +14,15 @@ export const Container = styled.div`
   padding-bottom: 3rem;
 `;
 export const Title = styled.h5`
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  color: ${theme.colors.primary};
+  color: white;
+  margin: 0;
+`;
+export const Text = styled.h5`
+  font-size: 0.85rem;
+
+  color: white;
   margin: 0;
 `;
 export const TitleTextWrapper = styled.div`
@@ -26,4 +32,6 @@ export const TitleTextWrapper = styled.div`
   align-items: flex-start;
   gap: 0.5rem;
   margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: solid white 0.05rem;
 `;

@@ -5,7 +5,7 @@ import {
   StyledImage,
   Title,
 } from "./CardChart.style";
-import { UnderTitle } from "@/components/TeaserInfo/TeaserInfo.style";
+
 import { MainText } from "@/ui/display/MainText/MainText.component";
 
 interface CardChartProps<T> {

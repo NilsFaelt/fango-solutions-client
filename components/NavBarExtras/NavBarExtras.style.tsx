@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.nav`
   position: fixed;
   top: 0;
-  left: calc(8rem + 6vw);
+  left: calc(8.2rem + 6vw);
   right: 0;
   display: flex;
   align-items: center;

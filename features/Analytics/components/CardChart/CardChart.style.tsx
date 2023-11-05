@@ -9,7 +9,7 @@ export const Container = styled.div<{ $backgroundcolor: string }>`
   align-items: center;
   height: 10rem;
   min-width: 13rem;
-  border-radius: 0.5rem;
+  // border-radius: 0.5rem;
   border: solid 0.05rem white;
   // background-color: ${(props) => props.$backgroundcolor};
   background-color:transparent;
@@ -27,7 +27,7 @@ export const InnerContainer = styled.div`
   align-items: center;
   height: 100%;
   width: 80%;
-  border-radius: 0.5rem;
+  /* border-radius: 0.5rem; */
   background-color: black;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
