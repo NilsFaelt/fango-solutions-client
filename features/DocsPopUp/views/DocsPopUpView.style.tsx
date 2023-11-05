@@ -14,7 +14,7 @@ export const OuterContainer = styled.div`
   right: 0;
   width: 100vw;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 1);
   padding: 1rem;
   padding-top: 2rem;
   z-index: 6;
@@ -35,13 +35,17 @@ export const Container = styled.form`
   z-index: 7;
   width: clamp(300px, 90vw, 60rem);
   height: 80vh;
-  background-color: black;
   border-radius: 0.5rem;
-  border: 0.05rem solid white;
-  box-shadow: 0.3em 0.3rem 0.3rem black;
+  /* border: solid 0.05rem white; */
   margin-top: 0rem;
   @media (max-width: ${mediaQueries.tablet}) {
   }
   @media (max-width: ${mediaQueries.mobile}) {
   }
+`;
+export const ButtonWrapper = styled.div`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
 `;

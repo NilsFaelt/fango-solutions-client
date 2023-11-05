@@ -47,7 +47,7 @@ export const DeleteAccountButton: FC = () => {
           <Spinner />
         </SpinnerWrapper>
       )}
-      {!loading && <MainText margin='0'>DELETE ACCOUNT</MainText>}
+      {!loading && <MainText margin='0'>REMOVE ACCOUNT</MainText>}
       {toogleDeleteContainer && !loading && (
         <DeleteContainer>
           <DeleteConfirmButton onClick={handelDeleteOnClick}>

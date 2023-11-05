@@ -77,26 +77,65 @@ export const Container = styled.div`
     z-index: 3;
   }
 `;
+
+export const InnerUpperContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  height: 40%;
+  background-color: #270014;
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
+  box-shadow: 0.5rem, 0.5rem, 0.5rem black;
+  background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=2944&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(0px);
+`;
+export const InnerLowerContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 0rem 0rem 0.5rem 0.5rem;
+  box-sizing: border-box;
+  padding: 1rem;
+  box-shadow: 0.5rem, 0.5rem, 0.5rem black;
+`;
 export const DropDownContainer = styled.div`
   position: absolute;
   display: flex;
-  width: calc(7.4rem + 4vw);
+  width: 17rem;
+  height: 20rem;
   flex-direction: column;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgba(0, 0, 0, 0.9);
   border-radius: 0.5rem;
   border: solid 0.1rem white;
   animation: ${fadeIn} 0.5s ease-in-out forwards;
-  z-index: 3;
-  padding: 0.6rem;
+  z-index: 10;
   right: 0.1rem;
   margin-top: 0rem;
-  padding-top: 1.5rem;
   box-shadow: 0.1rem 0.1rem 0.2rem white;
+  @media (max-width: ${mediaQueries.mobile}) {
+    top: 8rem;
+  }
 `;
 
+export const StyledImageSvg = styled.img`
+  border-radius: 50%;
+`;
 export const StyledImage = styled.img`
   border-radius: 50%;
+  border: 0.1rem solid black;
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
 `;
 export const Name = styled.p`
   text-align: center;
