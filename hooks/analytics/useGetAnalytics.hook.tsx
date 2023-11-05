@@ -1,7 +1,4 @@
-import { auth } from "@/firebase";
 import { AnalyticsInterface } from "@/types/analytics";
-import { BookmarkInterface } from "@/types/bookmark";
-import { ContentInterface } from "@/types/content";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchAnalytics = async (
@@ -19,13 +16,16 @@ const fetchAnalytics = async (
     }
 
     const data = await response.json();
+
     return data as AnalyticsInterface;
   } catch (error) {
-    console.error("Error fetching analytucs:", error);
+    console.error("Error fetching analytics:", error);
     return null;
   }
 };
 
 export const useGetAnalytics = (token: string | null) => {
-  return useQuery(["analytics"], () => fetchAnalytics(token));
+  return useQuery(["analytics"], () => fetchAnalytics(token), {
+    keepPreviousData: true,
+  });
 };
