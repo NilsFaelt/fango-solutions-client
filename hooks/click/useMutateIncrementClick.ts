@@ -1,9 +1,7 @@
 import { apiClient } from "@/api";
-
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const fetchClick = async (bookmarkId: string, token: string) => {
-  console.log(bookmarkId, token, " in mutate insertclick");
   try {
     const response = await fetch(
       `${apiClient("/click/increment", {
@@ -23,8 +21,11 @@ const fetchClick = async (bookmarkId: string, token: string) => {
 };
 
 export const useMutateIncrementClick = (bookmarkId: string, token: string) => {
+  const queryClient = useQueryClient();
   return useMutation(() => fetchClick(bookmarkId, token), {
     onSuccess: () => {
+      queryClient.invalidateQueries(["analytics"]);
+
       console.log("added anyltics");
     },
     onError: (error) => {},

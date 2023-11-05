@@ -1,9 +1,6 @@
 overview 
 fix loggin to email and password
 create user
-docs
-usersettings
-delete account
 change mail
 change firebase credentials
 update bookmark

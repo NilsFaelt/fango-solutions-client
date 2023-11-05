@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import { Container } from "./DisplayAnalytics.style";
 import { CardChart, DisplayCardCharts, DoughnutChart, PolarChart } from "..";
@@ -5,25 +6,28 @@ import { useGetAnalytics, useGetUserCount } from "@/hooks";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
 import { BarChart } from "../BarChart";
 import { AnalyticsInterface } from "@/types/analytics";
-
+import { Spinner } from "@/ui";
 interface Props {
   idToken: string;
 }
 
 export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
-  const { data } = useGetAnalytics(idToken);
+  const { data: analyticsData, isLoading } = useGetAnalytics(idToken);
   const { data: userCountData } = useGetUserCount(idToken);
-
+  console.log(analyticsData, " in comp");
   function sortBookmarksByTodos(data: AnalyticsInterface | undefined | null) {
     if (!data?.bookmark) return [];
 
-    data.bookmark.sort((a, b) => (b.todos?.todo || 0) - (a?.todos?.todo || 0));
-    return data?.bookmark.splice(0, 5);
+    const sortedBookmarks = data.bookmark.sort(
+      (a, b) => (b.todos?.todo || 0) - (a?.todos?.todo || 0)
+    );
+    return sortedBookmarks;
   }
 
-  const mostTodosBoomarks = sortBookmarksByTodos(data);
+  const mostTodosBoomarks = sortBookmarksByTodos(analyticsData);
+
   const mostTodosBoomarksTitleArray = mostTodosBoomarks.map(
-    (a) => extractMainPathUrl(a.title) || "Nam not found"
+    (a) => extractMainPathUrl(a.title) || "Name not found"
   );
   const mostTodosBoomarksDataTodo = mostTodosBoomarks.map((a) => a.todos.todo);
   const mostTodosBoomarksDataDone = mostTodosBoomarks.map((a) => a.todos.done);
@@ -31,7 +35,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
     (a) => a.todos.done + a.todos.todo
   );
 
-  const mostClickedSorted = data?.bookmark.sort(
+  const mostClickedSorted = analyticsData?.bookmark.sort(
     (a, b) => b.totalClick - a.totalClick
   );
   const mostClickedSliced = mostClickedSorted?.slice(0, 5);
@@ -43,6 +47,7 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
     if (mainName !== null) return mainName;
     return "No Name found";
   });
+
   const mostVisitedBookmark = extractMainPathUrl(mostClickedSorted?.[0]?.title);
 
   function calculatePercentage(
@@ -56,18 +61,22 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
       return 100;
     }
   }
-  const totalTodosDone = data?.todos.done ? data?.todos.done : 0;
-  const totalTodosNotDone = data?.todos.todo ? data?.todos.todo : 0;
+  const totalTodosDone = analyticsData?.todos.done
+    ? analyticsData?.todos.done
+    : 0;
+  const totalTodosNotDone = analyticsData?.todos.todo
+    ? analyticsData?.todos.todo
+    : 0;
   const totalUsers = userCountData?.users.total
     ? userCountData?.users.total.toString()
     : "0";
   const todosDonePercentage = calculatePercentage(
-    data?.todos.done,
-    data?.todos?.todo
+    analyticsData?.todos.done,
+    analyticsData?.todos?.todo
   )
     .toFixed(2)
     .toString();
-
+  if (isLoading) return <Spinner />;
   return (
     <Container>
       <DisplayCardCharts>

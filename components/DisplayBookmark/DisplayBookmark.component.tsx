@@ -48,6 +48,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
 
   useClickOustsideToClose(ref, setToogleDropDown);
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
+
   const { mutateAsync } = useMutateDeleteBookmark(token, bookmark?.id);
   const { mutateAsync: mutateIncrementClick } = useMutateIncrementClick(
     bookmark.id,
@@ -68,9 +69,10 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       });
   };
   const handleClick = (url: string) => {
-    mutateIncrementClick().then(() => {
-      if (toogleDropDown) window.open(url, "_blank");
-    });
+    if (toogleDropDown)
+      mutateIncrementClick().then(() => {
+        if (toogleDropDown) window.open(url, "_blank");
+      });
   };
   const handleUpdateBookmarkClick = (id: string) => {
     setBookmarkId(id);
@@ -179,7 +181,6 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         </DropUpContainer>
       )}
       <StyledLink
-        target='_blank'
         onClick={(e) => {
           e.preventDefault();
 

@@ -24,6 +24,7 @@ import {
   SecondaryButton,
 } from "@/ui";
 import { countTotalTodos } from "./utils";
+import { UpdateUrlsPopUp } from "./UpdateUrlsPopUp";
 
 interface Props {
   idToken: string;
@@ -33,6 +34,8 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
     useContext(MenuContext);
   const { bookmarkId } = useContext(BookmarkContext);
   const [childUrls, setChildUrls] = useState<ChildUrls[] | null>(null);
+  const [toogleUpdateBookmarkPopUp, setToogleUpdateBookmarkPopUp] =
+    useState(false);
 
   const { mutateAsync } = useMutateDeleteBookmark(idToken, bookmarkId);
   const handleDeleteOnClick = () => {
@@ -54,9 +57,16 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
       setChildUrls(children ? children : null);
     }
   }, [data, idToken]);
-
+  if (!bookmarkId) return null;
   return (
     <Container>
+      {toogleUpdateBookmarkPopUp && (
+        <UpdateUrlsPopUp
+          setTooglePopUp={setToogleUpdateBookmarkPopUp}
+          token={idToken}
+          id={bookmarkId}
+        />
+      )}
       <MainTitle text={` ${mainUrl?.toUpperCase()}.COM`} underText='Bookmark' />
       <FlexCollumnContainer>
         <FlexRowContainer>
@@ -86,6 +96,14 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
           return <ChildUrl key={i} url={child.url} />;
         })}
       </DisplayUrlWrapper>
+      <ButtonWrapper>
+        <PrimaryButton
+          onClick={() => {
+            setToogleUpdateBookmarkPopUp(true);
+          }}
+          text='UPDATE URLS'
+        />
+      </ButtonWrapper>
       <ButtonWrapper>
         <ExtraConfirmButton
           onClick={handleDeleteOnClick}

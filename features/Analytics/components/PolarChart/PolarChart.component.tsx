@@ -22,7 +22,6 @@ export const PolarChart: FC<Props> = ({
   chartTitle,
 }) => {
   const data = {
-    label: ["test"],
     labels: chartLabels,
 
     datasets: [

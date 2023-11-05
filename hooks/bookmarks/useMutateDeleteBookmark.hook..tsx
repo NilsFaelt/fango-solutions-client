@@ -1,10 +1,6 @@
 import { apiClient } from "@/api";
 import { auth } from "@/firebase";
-import {
-  QueryClient,
-  useMutation,
-  useQueryClient,
-} from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const fetchBookmark = async (token: string, id: string | null) => {
   try {
