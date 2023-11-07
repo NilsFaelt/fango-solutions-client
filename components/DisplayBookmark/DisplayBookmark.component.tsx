@@ -40,7 +40,8 @@ interface Props {
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const { setToogleUpdateBookmark } = useContext(MenuContext);
   const { setBookmarkId } = useContext(BookmarkContext);
-  const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
+  const { setToogleBlacBackgroundDisplay, toogleBlacBackgroundDisplay } =
+    useContext(MenuContext);
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
   const faviconUrl = getFaviconUrl(bookmark.url);
@@ -54,7 +55,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     bookmark.id,
     token
   );
-
+  console.log(toogleBlacBackgroundDisplay);
   const openDeleteContainerOnClick = () => {
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
@@ -214,8 +215,8 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
               );
               return (
                 <StyledA
-                  // href={child.url}
-                  // target='_blank'
+                  href={child.url}
+                  target='_blank'
                   onClick={(e) => {
                     e.preventDefault();
                     handleClick(child.url);

@@ -24,7 +24,7 @@ export const Container = styled.button`
   width: 100%;
   cursor: pointer;
   background-color: black;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -32,7 +32,7 @@ export const Container = styled.button`
 
   &:hover {
     transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
     /* background-color: ${theme.colors.extra}; */
   }
   &:active {
@@ -81,7 +81,7 @@ export const DeleteConfirmButton = styled.button`
   text-align: center;
   background-color: black;
   font-size: 0.7rem;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   color: white;
@@ -93,7 +93,7 @@ export const DeleteConfirmButton = styled.button`
 
   &:hover {
     transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
 
     color: ${theme.colors.primary};
   }

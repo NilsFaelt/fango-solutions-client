@@ -10,7 +10,7 @@ import {
   StyledImage,
 } from "./AddBookmark.style";
 import { AddButton, MainTitle, PrimaryButton } from "@/ui";
-import { PrimaryInput, PrimaryLabel } from "@/styles";
+import { PrimaryInput, PrimaryInputWhite, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
 import { createAValidUrl, validateUrl } from "../../utils";
@@ -67,7 +67,7 @@ export const AddBookmark: FC<Props> = ({
             get a main adress and underneath all your specific paths.
           </MainText>
           <ButtonInputWrapperCollumn>
-            <PrimaryInput
+            <PrimaryInputWhite
               $width={"100%"}
               readOnly={blockUrlInput}
               onChange={(e) => setChildUrl(e.target.value)}
@@ -127,14 +127,15 @@ export const AddBookmark: FC<Props> = ({
           )}
         </LabelAndInputContainer>
       </FormContainer>
-
-      <PrimaryButton
-        onClick={(e) => {
-          e.preventDefault();
-          handleClick();
-        }}
-        text={mainValidHttpUrl ? "SAVE BOOKMARK" : "ADD VALID URL"}
-      />
+      {mainValidHttpUrl && (
+        <PrimaryButton
+          onClick={(e) => {
+            e.preventDefault();
+            handleClick();
+          }}
+          text={"SAVE BOOKMARK"}
+        />
+      )}
     </Container>
   );
 };

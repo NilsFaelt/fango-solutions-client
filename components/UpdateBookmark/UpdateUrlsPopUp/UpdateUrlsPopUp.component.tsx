@@ -1,5 +1,10 @@
 import React, { FC, useEffect, useRef, useState } from "react";
-import { Container, ButtonWrapper } from "./UpdateUrlsPopUp.style";
+import {
+  Container,
+  ButtonWrapper,
+  InputLabelWrapper,
+  AllInputLabelWrapper,
+} from "./UpdateUrlsPopUp.style";
 import { PrimaryInput, PrimaryLabel } from "@/styles";
 import { MainTitle, PrimaryButton } from "@/ui";
 import {
@@ -59,32 +64,36 @@ export const UpdateUrlsPopUp: FC<Props> = ({ token, id, setTooglePopUp }) => {
   return (
     <Container ref={ref}>
       <MainTitle text='Upadte' underText='Bookmark Urls' />
-      <PrimaryLabel>Upadte Main Url</PrimaryLabel>
-      <PrimaryInput
-        value={bookmark}
-        onChange={(e) => setBookmark(e.target.value)}
-      />
-
-      {childUrls.map((childUrl, index) => (
-        <>
-          <PrimaryLabel>Upadte Specific Url</PrimaryLabel>
+      <AllInputLabelWrapper>
+        <InputLabelWrapper>
+          <PrimaryLabel>Upadte Main Url</PrimaryLabel>
           <PrimaryInput
-            key={index}
-            placeholder='Add Specific url'
-            value={childUrl.url}
-            onChange={(e) => handleChildUrlChange(index, e.target.value)}
+            value={bookmark}
+            onChange={(e) => setBookmark(e.target.value)}
           />
-        </>
-      ))}
-      {[...Array(remainingInputCount)].map((_, i) => (
-        <>
-          <PrimaryLabel>Add new specific Url</PrimaryLabel>
-          <PrimaryInput key={i} placeholder='Add Specific url' value='' />
-        </>
-      ))}
-      <ButtonWrapper>
-        <PrimaryButton onClick={handleClick} text='Update' />
-      </ButtonWrapper>
+        </InputLabelWrapper>
+
+        {childUrls.map((childUrl, index) => (
+          <InputLabelWrapper key={index}>
+            <PrimaryLabel>Upadte Specific Url</PrimaryLabel>
+            <PrimaryInput
+              key={index}
+              placeholder='Add Specific url'
+              value={childUrl.url}
+              onChange={(e) => handleChildUrlChange(index, e.target.value)}
+            />
+          </InputLabelWrapper>
+        ))}
+        {[...Array(remainingInputCount)].map((_, i) => (
+          <InputLabelWrapper key={i}>
+            <PrimaryLabel>Add new specific Url</PrimaryLabel>
+            <PrimaryInput key={i} placeholder='Add Specific url' value='' />
+          </InputLabelWrapper>
+        ))}
+        <ButtonWrapper>
+          <PrimaryButton onClick={handleClick} text='Update' />
+        </ButtonWrapper>
+      </AllInputLabelWrapper>
     </Container>
   );
 };

@@ -15,12 +15,15 @@ import { useClickOustsideToClose } from "@/hooks";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 
 import { DeleteAccountButton, MainTitle } from "@/ui";
+import { MenuContext } from "@/context";
 
 export const ProfileCard: FC = () => {
   const ref = useRef(null);
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const { loggedInUser } = useContext(LoggedinUserContext);
+  const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
   useClickOustsideToClose(ref, setToogleDropDown);
+  useClickOustsideToClose(ref, setToogleBlacBackgroundDisplay);
   const user = auth.currentUser;
 
   if (!loggedInUser || !user) return null;
@@ -29,7 +32,12 @@ export const ProfileCard: FC = () => {
   const nameOrEmail = displayName ? displayName : email;
 
   return (
-    <Container ref={ref} onClick={() => setToogleDropDown(true)}>
+    <Container
+      ref={ref}
+      onClick={() => {
+        setToogleBlacBackgroundDisplay(true), setToogleDropDown(true);
+      }}
+    >
       <ProfileContainer>
         <StyledImageSvg
           alt='user-image'
@@ -53,7 +61,7 @@ export const ProfileCard: FC = () => {
             />
           </InnerUpperContainer>
           <InnerLowerContainer>
-            <MainTitle text={nameOrEmail.toUpperCase()} underText='WELCOME' />
+            <MainTitle text={nameOrEmail.toUpperCase()} />
             {/* <MainText fontSize='16' margin='1' color='white'>
               {nameOrEmail}
             </MainText> */}

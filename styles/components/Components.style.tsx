@@ -45,13 +45,19 @@ export const StyledLinkBlack = styled(Link)`
   text-decoration: underline;
 `;
 
-export const PrimaryInput = styled.input<{ $width?: string }>`
+export const PrimaryInputWhite = styled.input<{ $width?: string }>`
   width: ${(props) => (props.$width ? props.$width : "15rem")};
+
   height: 2rem;
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 0.5rem;
-  border: 0.05rem solid black;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  border: 0.07rem solid white;
+  &::placeholder {
+    color: grey;
+  }
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -64,9 +70,35 @@ export const PrimaryInput = styled.input<{ $width?: string }>`
     -moz-appearance: textfield;
   }
 `;
+export const PrimaryInput = styled.input<{ $width?: string }>`
+  width: ${(props) => (props.$width ? props.$width : "15rem")};
+  min-width: 10rem;
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+
+  border: 0.05rem solid black;
+  border-bottom: 0.05rem solid ${theme.colors.primary};
+  color: white;
+  background-color: black;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &::placeholder {
+    color: white;
+  }
+  &:focus {
+    outline: none;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
+`;
 export const PrimaryLabel = styled.label`
   color: white;
-  font-size: calc(0.5rem + 0.8vw);
+  font-size: 0.8rem;
 `;
 
 export const SpinnerWrapperCenter = styled.div`

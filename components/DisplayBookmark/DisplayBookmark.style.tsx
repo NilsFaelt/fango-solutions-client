@@ -45,7 +45,7 @@ export const BookmarkContainer = styled.button`
   height: 5rem;
   cursor: pointer;
   background-color: black;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
@@ -55,7 +55,7 @@ export const BookmarkContainer = styled.button`
   &:hover {
     color: ${theme.colors.primary};
     transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
 
     /* background-color: ${theme.colors.extra}; */
   }
@@ -73,7 +73,7 @@ export const Container = styled.div<{ $zindex: number }>`
   flex-direction: column;
   z-index: ${(props) => props.$zindex};
   &:hover ${BookmarkContainer} {
-    box-shadow: 0 0 1rem ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
   }
 `;
 
@@ -106,7 +106,7 @@ export const DropUpContainer = styled.div`
 export const DeleteContainer = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 1vw;
+  gap: 0.65vw;
   align-items: center;
   justify-content: center;
 `;
@@ -129,14 +129,14 @@ export const DropDownChildren = styled.div`
   cursor: pointer;
   font-size: 0.7rem;
   background-color: black;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 
   &:hover {
     transition: 0.3s;
-    box-shadow: 0 0 1rem ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
 
     color: ${theme.colors.primary};
   }
@@ -163,7 +163,7 @@ export const StyledA = styled.a`
   text-align: center;
   background-color: black;
   font-size: 0.7rem;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   padding-left: 0.2rem;
   padding-right: 0.2rem;
   color: white;
@@ -177,7 +177,7 @@ export const StyledA = styled.a`
 
   &:hover {
     transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
 
     color: ${theme.colors.primary};
   }
@@ -217,7 +217,7 @@ export const DeleteConfirmButton = styled.button`
 
   &:hover {
     transition: 0.3s;
-    box-shadow: 0 0 15px ${theme.colors.secondary};
+    box-shadow: 0 0 0.3rem ${theme.colors.secondary};
 
     color: ${theme.colors.primary};
   }

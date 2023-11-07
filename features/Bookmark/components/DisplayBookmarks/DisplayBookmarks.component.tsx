@@ -9,7 +9,11 @@ import { DisplayBookmark } from "@/components";
 import { useBookmarks } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
 import { Spinner } from "@/ui";
-import { PrimaryInput, SpinnerWrapperCenter } from "@/styles";
+import {
+  PrimaryInput,
+  PrimaryInputWhite,
+  SpinnerWrapperCenter,
+} from "@/styles";
 
 interface Props {
   token: string;
@@ -26,6 +30,7 @@ export const DisplayBookmarks: FC<Props> = ({
     limit,
     skip: 0,
   });
+  console.log("im rendieng");
 
   const filteredData = data?.filter((b) => {
     if (b.url.includes(searchWord)) {
@@ -45,8 +50,8 @@ export const DisplayBookmarks: FC<Props> = ({
     <Container>
       {displaySearch && (
         <InputWrapper>
-          <PrimaryInput
-            $width={"calc(7rem + 5vw)"}
+          <PrimaryInputWhite
+            $width={"calc(6rem + 6vw)"}
             placeholder='Search'
             onChange={(e) => setSearchWord(e.target.value)}
           />
