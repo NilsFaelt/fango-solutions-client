@@ -30,7 +30,6 @@ export const DisplayBookmarks: FC<Props> = ({
     limit,
     skip: 0,
   });
-  console.log("im rendieng");
 
   const filteredData = data?.filter((b) => {
     if (b.url.includes(searchWord)) {

@@ -55,8 +55,8 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     bookmark.id,
     token
   );
-  console.log(bookmark.id);
   const openDeleteContainerOnClick = () => {
+    console.log("hej");
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
   const handelDeleteOnClick = () => {
@@ -121,7 +121,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     },
   };
   // React-chart-data------------------------------------------------------------//
-
+  console.log(toogleBlacBackgroundDisplay);
   if (!bookmark?.url) return null;
   return (
     <Container

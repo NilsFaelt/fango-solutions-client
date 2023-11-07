@@ -23,7 +23,7 @@ export const ProfileCard: FC = () => {
   const { loggedInUser } = useContext(LoggedinUserContext);
   const { setToogleBlacBackgroundDisplay } = useContext(MenuContext);
   useClickOustsideToClose(ref, setToogleDropDown);
-  useClickOustsideToClose(ref, setToogleBlacBackgroundDisplay);
+
   const user = auth.currentUser;
 
   if (!loggedInUser || !user) return null;
