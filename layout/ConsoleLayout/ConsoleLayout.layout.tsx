@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useContext, useEffect } from "react";
+import React, { FC, ReactNode, useContext } from "react";
 import {
   BlackBackgroundContainer,
   Container,

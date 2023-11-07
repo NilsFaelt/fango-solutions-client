@@ -55,7 +55,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     bookmark.id,
     token
   );
-  console.log(toogleBlacBackgroundDisplay);
+  console.log(bookmark.id);
   const openDeleteContainerOnClick = () => {
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
@@ -136,7 +136,11 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         <DropUpContainer>
           {toogleDeleteContainer && (
             <DeleteContainer>
-              <DeleteConfirmButton onClick={handelDeleteOnClick}>
+              <DeleteConfirmButton
+                onClick={(e) => {
+                  handelDeleteOnClick;
+                }}
+              >
                 <SvgImage
                   width={15}
                   height={15}
@@ -148,8 +152,8 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                 onClick={() => setToogleDeleteContainer(false)}
               >
                 <SvgImage
-                  onClick={() => {
-                    setToogleDeleteContainer(false);
+                  onClick={(e) => {
+                    e.preventDefault(), setToogleDeleteContainer(false);
                   }}
                   width={15}
                   height={15}
