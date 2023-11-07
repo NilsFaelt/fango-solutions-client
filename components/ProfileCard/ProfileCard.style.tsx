@@ -44,7 +44,7 @@ export const ProfileContainer = styled.div`
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
-  border: 0.1rem solid white;
+  border: 0.07rem solid white;
   color: white;
   font-size: 1.2rem;
   cursor: pointer;
@@ -115,12 +115,12 @@ export const DropDownContainer = styled.div`
   flex-direction: column;
   background-color: rgba(0, 0, 0, 0.9);
   border-radius: 0.5rem;
-  border: solid 0.1rem white;
+  /* border: solid 0.1rem ${theme.colors.primary}; */
   animation: ${fadeIn} 0.5s ease-in-out forwards;
   z-index: 10;
   right: 0.1rem;
   margin-top: 0rem;
-  box-shadow: 0.1rem 0.1rem 0.2rem white;
+  box-shadow: 0.1rem 0.1rem 0.1rem grey;
   @media (max-width: ${mediaQueries.mobile}) {
     top: 8rem;
   }

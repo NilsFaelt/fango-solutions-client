@@ -36,3 +36,4 @@ export const InputWrapper = styled.div`
   position: absolute;
   top: -1rem;
 `;
+export const ChartRowWrapper = styled.div``;

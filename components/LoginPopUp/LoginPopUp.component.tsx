@@ -5,7 +5,7 @@ import {
   LabelAndButtonContainer,
 } from "./LoginPopUp.style";
 import { LogginButton, LoginWithEmailAndPasswordButton, MainTitle } from "@/ui";
-import { PrimaryInput } from "@/styles";
+import { PrimaryInput, PrimaryInputWhite } from "@/styles";
 import { useClickOustsideToClose } from "@/hooks";
 
 interface Props {
@@ -26,12 +26,12 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
           <MainTitle text='Login' underText='Fango console' />
           <LogginButton />
           <LabelAndButtonContainer>
-            <PrimaryInput
+            <PrimaryInputWhite
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder='Email'
             />
-            <PrimaryInput
+            <PrimaryInputWhite
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder='Password'
@@ -54,12 +54,12 @@ export const LoginPopUp: FC<Props> = ({ setTooglePopUp }) => {
           <MainTitle text='Create User' underText='Fango console' />
           <LogginButton />
           <LabelAndButtonContainer>
-            <PrimaryInput
+            <PrimaryInputWhite
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder='Email'
             />
-            <PrimaryInput
+            <PrimaryInputWhite
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder='Password'

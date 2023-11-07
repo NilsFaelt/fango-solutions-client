@@ -12,7 +12,7 @@ export const Container = styled.button`
   height: 2rem;
   cursor: pointer;
   background-color: white;
-  border: 0.1rem solid ${theme.colors.primary};
+  border: 0.07rem solid ${theme.colors.primary};
   color: ${theme.colors.primary};
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);

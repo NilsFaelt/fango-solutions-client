@@ -79,6 +79,13 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   if (isLoading) return <Spinner />;
   return (
     <Container>
+      <BarChart
+        title='Content/todo per bookmark'
+        datasetOne={{ label: "Todo", data: mostTodosBoomarksDataTodo }}
+        datasetTwo={{ label: "Done", data: mostTodosBoomarksDataDone }}
+        datasetThree={{ label: "Total", data: mostTodosBoomarksDataTotal }}
+        labels={mostTodosBoomarksTitleArray}
+      />
       <DisplayCardCharts>
         <CardChart
           backGroundColor='rgba(0,216,234,255)'
@@ -94,13 +101,6 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
           imageSrc='/svg/user.svg'
         />
       </DisplayCardCharts>
-      <BarChart
-        title='Content/todo per bookmark'
-        datasetOne={{ label: "Todo", data: mostTodosBoomarksDataTodo }}
-        datasetTwo={{ label: "Done", data: mostTodosBoomarksDataDone }}
-        datasetThree={{ label: "Total", data: mostTodosBoomarksDataTotal }}
-        labels={mostTodosBoomarksTitleArray}
-      />
       <PolarChart
         chartLabels={mostClickedNames ? mostClickedNames : ["no bookmarks"]}
         chartData={mostClickedNumbers ? mostClickedNumbers : [0, 0, 0]}
