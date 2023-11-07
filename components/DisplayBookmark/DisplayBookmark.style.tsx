@@ -59,9 +59,9 @@ export const BookmarkContainer = styled.button`
 
     /* background-color: ${theme.colors.extra}; */
   }
-  &:active {
+  /* &:active {
     box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
-  }
+  } */
   @media (max-width: ${mediaQueries.mobile}) {
     width: 13rem;
   }
@@ -140,9 +140,9 @@ export const DropDownChildren = styled.div`
 
     color: ${theme.colors.primary};
   }
-  &:active {
+  /* &:active {
     box-shadow: 0 0 0px rgba(128, 0, 128, 0.5);
-  }
+  } */
 
   width: 100%;
   &:hover {
