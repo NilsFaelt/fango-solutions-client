@@ -19,9 +19,10 @@ const fetchBookmark = async (
   token: string,
   id: string,
   bookmark: string | null,
-  childUrls?: ChildUrls[]
+  childUrls?: ChildUrls[],
+  childUrlsNew?: string[]
 ) => {
-  console.log(token, id, bookmark, childUrls, " in hook");
+  console.log(childUrls, childUrlsNew, " in hoook");
   try {
     if (token && bookmark) {
       const response = await fetch(
@@ -31,7 +32,7 @@ const fetchBookmark = async (
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ url: bookmark, childUrls, id }),
+          body: JSON.stringify({ url: bookmark, childUrls, childUrlsNew, id }),
         })}`
       ).then((res) => res.json);
       return response;
@@ -46,14 +47,18 @@ export const useMutatePatchBookmark = (
   token: string,
   id: string,
   bookmark: string | null,
-  childUrls?: ChildUrls[]
+  childUrls?: ChildUrls[],
+  childUrlsNew?: string[]
 ) => {
   console.log(token, id, bookmark, childUrls, " in fetch");
   const queryClient = useQueryClient();
-  return useMutation(() => fetchBookmark(token, id, bookmark, childUrls), {
-    onSuccess: () => {
-      queryClient.invalidateQueries(["bookmarks"]);
-    },
-    onError: (error) => {},
-  });
+  return useMutation(
+    () => fetchBookmark(token, id, bookmark, childUrls, childUrlsNew),
+    {
+      onSuccess: () => {
+        queryClient.invalidateQueries(["bookmarks"]);
+      },
+      onError: (error) => {},
+    }
+  );
 };

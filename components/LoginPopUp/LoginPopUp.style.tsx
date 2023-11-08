@@ -12,14 +12,21 @@ export const Container = styled.form`
   justify-content: center;
   text-align: center;
   gap: 2rem;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
   border: 0.1rem solid white;
   border-radius: 0.5rem;
   padding: 2.5rem 5rem 5rem 5rem;
   z-index: 1000;
   box-shadow: 0.3em 0.3rem 0.3rem black;
+  transition: 1s;
   @media (max-width: ${mediaQueries.mobile}) {
     padding: 2.5rem 3rem 5rem 3rem;
+    top: 340%;
+    left: 50%;
+  }
+  &:hover {
+    transition: 1s;
+    background-color: rgba(0, 0, 0, 1);
   }
 `;
 export const LabelAndButtonContainer = styled.form`

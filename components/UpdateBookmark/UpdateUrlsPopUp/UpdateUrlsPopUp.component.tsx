@@ -12,6 +12,7 @@ import {
   useClickOustsideToClose,
   useMutatePatchBookmark,
 } from "@/hooks";
+import { createAValidUrl } from "@/features/Bookmark/utils";
 
 interface Props {
   token: string;
@@ -30,16 +31,25 @@ export interface ChildUrls {
 export const UpdateUrlsPopUp: FC<Props> = ({ token, id, setTooglePopUp }) => {
   const ref = useRef(null);
   useClickOustsideToClose(ref, setTooglePopUp);
-  const { data } = useBookMarkById(token, id);
+  const { data, refetch } = useBookMarkById(token, id);
   const [childUrls, setChilsUrls] = useState<ChildUrls[]>([]);
-  const [childUrlsNew, setChilsUrlsNew] = useState<ChildUrls[]>([]);
+  const [childUrlsNew, setChilsUrlsNew] = useState<string[]>([]);
+
   const [bookmark, setBookmark] = useState<string>("");
+  const mainValidHttpUrl = createAValidUrl(bookmark);
+  const childUrlValidated = childUrls.map((c, i) => {
+    return { ...c, url: createAValidUrl(c.url) || "" };
+  });
+  const childUrlsNewValidated = childUrlsNew.map((c, i) => {
+    return createAValidUrl(c) || "";
+  });
 
   const { mutateAsync } = useMutatePatchBookmark(
     token,
     id,
-    bookmark,
-    childUrls
+    mainValidHttpUrl,
+    childUrlValidated,
+    childUrlsNewValidated
   );
   useEffect(() => {
     if (data?.url) setBookmark(data.url);
@@ -49,7 +59,7 @@ export const UpdateUrlsPopUp: FC<Props> = ({ token, id, setTooglePopUp }) => {
   const handleClick = () => {
     mutateAsync().then(() => {
       setTooglePopUp(false);
-      console.log("suecess");
+      refetch();
     });
   };
 
@@ -58,15 +68,22 @@ export const UpdateUrlsPopUp: FC<Props> = ({ token, id, setTooglePopUp }) => {
     updatedChildUrls[index] = { ...updatedChildUrls[index], url: value };
     setChilsUrls(updatedChildUrls);
   };
+  const handleChildUrlNewChange = (index: number, value: string) => {
+    setChilsUrlsNew((prev) => {
+      const updatedChildUrlsNew = [...prev];
+      updatedChildUrlsNew[index] = value;
+      return updatedChildUrlsNew;
+    });
+  };
+
   const remainingInputCount = Math.max(3 - childUrls.length, 0);
   if (!data) return null;
-  const { url } = data;
+
   return (
     <Container ref={ref}>
       <MainTitle text='Upadte' underText='Bookmark Urls' />
       <AllInputLabelWrapper>
         <InputLabelWrapper>
-          <PrimaryLabel>Upadte Main Url</PrimaryLabel>
           <PrimaryInput
             value={bookmark}
             onChange={(e) => setBookmark(e.target.value)}
@@ -84,10 +101,13 @@ export const UpdateUrlsPopUp: FC<Props> = ({ token, id, setTooglePopUp }) => {
             />
           </InputLabelWrapper>
         ))}
-        {[...Array(remainingInputCount)].map((_, i) => (
+        {[...Array(remainingInputCount)].map((childUrlNew, i) => (
           <InputLabelWrapper key={i}>
-            <PrimaryLabel>Add new specific Url</PrimaryLabel>
-            <PrimaryInput key={i} placeholder='Add Specific url' value='' />
+            <PrimaryInput
+              placeholder='Add Specific url'
+              value={childUrlsNew[i] || ""}
+              onChange={(e) => handleChildUrlNewChange(i, e.target.value)}
+            />
           </InputLabelWrapper>
         ))}
         <ButtonWrapper>
