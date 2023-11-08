@@ -26,6 +26,8 @@ export const AllInputLabelWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
   justify-content: center;
   margin-top: 1rem;
   width: 100%;
