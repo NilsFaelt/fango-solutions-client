@@ -15,6 +15,7 @@ import { MainText } from "@/ui/display/MainText/MainText.component";
 import {
   createAValidUrl,
   extractMainPathUrl,
+  shortenString,
   validateUrl,
 } from "@/features/Bookmark/utils";
 import {
@@ -96,7 +97,8 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
         <MainText margin=''>Specfic Paths</MainText>
 
         {childUrls?.map((child, i) => {
-          return <ChildUrl key={i} url={child.url} />;
+          const shortenedUtl = shortenString(child.url, 40);
+          return <ChildUrl key={i} url={shortenedUtl} />;
         })}
       </DisplayUrlWrapper>
       <ButtonWrapper>

@@ -31,7 +31,6 @@ import { ExtraConfirmButton, MainTitle, PrimaryButton, Spinner } from "@/ui";
 import { extractMainPathUrl } from "@/features/Bookmark/utils";
 
 import { StyledImage } from "@/components/DisplayBookmark/DisplayBookmark.style";
-import { MainText } from "@/ui/display/MainText/MainText.component";
 import { extractFirstWordsString } from "../../utils";
 
 interface Props {
