@@ -9,9 +9,13 @@ const fetchBookmarks = async (
     skip: number;
   }
 ): Promise<BookmarkInterface[] | undefined> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   try {
     const response = await fetch(
-      `http://localhost:3000/bookmark?limit=${pagination?.limit}&skip=${pagination?.skip}`,
+      `${url}/bookmark?limit=${pagination?.limit}&skip=${pagination?.skip}`,
       {
         method: "GET",
         headers: { Authorization: `Bearer ${token}` },
@@ -25,7 +29,7 @@ const fetchBookmarks = async (
     const data = await response.json();
     return data as BookmarkInterface[];
   } catch (error) {
-    console.error("Error fetching data:");
+    console.error("Error fetching data:", error);
   }
 };
 

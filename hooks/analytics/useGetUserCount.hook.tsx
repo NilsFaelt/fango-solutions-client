@@ -5,8 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 const fetchUserCount = async (
   token: string
 ): Promise<{ users: { total: number } } | undefined> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   try {
-    const response = await fetch(`http://localhost:3000/user/count`, {
+    const response = await fetch(`${url}/user/count`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

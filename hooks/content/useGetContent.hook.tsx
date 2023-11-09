@@ -7,15 +7,16 @@ const fetchContent = async (
   token: string,
   bookmarkId: string | null
 ): Promise<ContentInterface[] | null> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   if (!bookmarkId) return null;
   try {
-    const response = await fetch(
-      `http://localhost:3000/content?bookmarkId=${bookmarkId}`,
-      {
-        method: "GET",
-        headers: { Authorization: `Bearer ${token}` },
-      }
-    );
+    const response = await fetch(`${url}/content?bookmarkId=${bookmarkId}`, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    });
 
     if (!response.ok) {
       throw new Error(`HTTP Error: ${response.status}`);
