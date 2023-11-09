@@ -15,7 +15,7 @@ export const Container = styled.nav`
   min-height: 5rem;
   padding-right: 1rem;
   box-sizeing: border-box;
-  background-color: ${theme.colors.backgroundPrimary};
+  /* background-color: ${theme.colors.backgroundPrimary}; */
 
   @media (max-width: ${mediaQueries.mobile}) {
   }

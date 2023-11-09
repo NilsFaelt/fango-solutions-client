@@ -25,7 +25,7 @@ const fetchBookmarks = async (
     const data = await response.json();
     return data as BookmarkInterface[];
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data:");
   }
 };
 
