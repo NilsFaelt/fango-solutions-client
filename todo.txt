@@ -1,8 +1,6 @@
 overview 
 fix loggin to email and password
 create user
-change mail
-change firebase credentials
-update bookmark
+
 add one test each day 
 

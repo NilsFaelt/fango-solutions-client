@@ -66,14 +66,9 @@ export const ProfileContainer = styled.div`
 
 export const Container = styled.div`
   position: relative;
-
   display: flex;
   flex-direction: column;
-
-  /*  */
   @media (max-width: ${mediaQueries.mobile}) {
-   auto
-
     z-index: 3;
   }
 `;
@@ -122,7 +117,9 @@ export const DropDownContainer = styled.div`
   margin-top: 0rem;
   box-shadow: 0.1rem 0.1rem 0.1rem grey;
   @media (max-width: ${mediaQueries.mobile}) {
-    top: 8rem;
+    top: 0rem;
+    right: 0;
+    width: 15rem;
   }
 `;
 

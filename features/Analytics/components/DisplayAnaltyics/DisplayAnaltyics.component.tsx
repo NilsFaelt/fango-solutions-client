@@ -7,6 +7,7 @@ import { extractMainPathUrl } from "@/features/Bookmark/utils";
 import { BarChart } from "../BarChart";
 import { AnalyticsInterface } from "@/types/analytics";
 import { Spinner } from "@/ui";
+import { SpinnerWrapperCenter } from "@/styles";
 interface Props {
   idToken: string;
 }
@@ -76,7 +77,13 @@ export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   )
     .toFixed(2)
     .toString();
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <SpinnerWrapperCenter>
+        {" "}
+        <Spinner />;
+      </SpinnerWrapperCenter>
+    );
   return (
     <Container>
       <BarChart

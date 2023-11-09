@@ -138,7 +138,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
             <DeleteContainer>
               <DeleteConfirmButton
                 onClick={(e) => {
-                  handelDeleteOnClick;
+                  handelDeleteOnClick();
                 }}
               >
                 <SvgImage
