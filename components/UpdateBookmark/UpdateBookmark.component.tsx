@@ -80,7 +80,10 @@ export const UpdateBookmark: FC<Props> = ({ idToken }) => {
         </FlexRowContainer>
         <PrimaryButton
           text='CONTENT/TODO'
-          onClick={() => setToogleContentDisplay(true)}
+          onClick={() => {
+            setToogleContentDisplay(true);
+            setToogleUpdateBookmark(false);
+          }}
         />
       </FlexCollumnContainer>
       <DisplayUrlWrapper>

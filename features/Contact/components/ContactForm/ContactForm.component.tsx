@@ -17,8 +17,8 @@ export const ContactForm = () => {
        
        '
       />
-      <MailPopUpText href='mailto:email@example.com?subject=Subject%20Here&body=Message%20Body%20Here'>
-        NilsFaelt@Gmail.com
+      <MailPopUpText href='mailto:solutions.fango@gmail.com?subject=Subject%20Here&body=Message%20To%20Fango-Solutions%20Here'>
+        solutions.fango@gmail.com
       </MailPopUpText>
       <UnderTextContainer>
         <MainTitle text='Best Regards' underText='Team Fango' />
