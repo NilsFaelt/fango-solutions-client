@@ -4,9 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 const fetchAnalytics = async (
   token: string | null
 ): Promise<AnalyticsInterface | null> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   if (!token) return null;
   try {
-    const response = await fetch(`http://localhost:3000/analytics`, {
+    const response = await fetch(`${url}/analytics`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

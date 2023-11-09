@@ -6,9 +6,13 @@ const fetchBookmark = async (
   token: string,
   id: string | null
 ): Promise<BookmarkInterface | null> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   if (!id) return null;
   try {
-    const response = await fetch(`http://localhost:3000/bookmark/${id}`, {
+    const response = await fetch(`${url}/bookmark/${id}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });

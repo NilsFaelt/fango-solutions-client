@@ -7,9 +7,13 @@ const fetchContent = async (
   token: string,
   id: string | null
 ): Promise<ContentInterface | null> => {
+  const url =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://fango-api.onrender.com";
   if (!id) return null;
   try {
-    const response = await fetch(`http://localhost:3000/content/${id}`, {
+    const response = await fetch(`${url}/content/${id}`, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
     });
