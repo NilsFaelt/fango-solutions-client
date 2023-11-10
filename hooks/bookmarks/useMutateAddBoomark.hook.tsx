@@ -9,7 +9,8 @@ import {
 const fetchBookmark = async (
   token: string,
   bookmark: string | null,
-  childUrls?: string[]
+  childUrls?: string[],
+  alias?: string
 ) => {
   try {
     if (token && bookmark) {
@@ -20,7 +21,7 @@ const fetchBookmark = async (
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
           },
-          body: JSON.stringify({ url: bookmark, childUrls }),
+          body: JSON.stringify({ url: bookmark, childUrls, alias }),
         })}`
       ).then((res) => res.json);
       return response;
@@ -34,10 +35,11 @@ const fetchBookmark = async (
 export const useMutateAddBookmark = (
   token: string,
   bookmark: string | null,
-  childUrls?: string[]
+  childUrls?: string[],
+  alias?: string
 ) => {
   const queryClient = useQueryClient();
-  return useMutation(() => fetchBookmark(token, bookmark, childUrls), {
+  return useMutation(() => fetchBookmark(token, bookmark, childUrls, alias), {
     onSuccess: () => {
       queryClient.invalidateQueries(["bookmarks"]);
     },

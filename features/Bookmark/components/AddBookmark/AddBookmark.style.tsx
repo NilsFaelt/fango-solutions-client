@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  width: 100%;
+
   gap: 1.2rem;
   color: white;
   padding-right: 1rem;
@@ -20,6 +20,8 @@ export const LabelAndInputContainer = styled.div`
   align-items: flex-start;
   max-width: 16rem;
   gap: 0.5rem;
+  margin-top: 1.5rem;
+  margin-right: 0.5rem;
 `;
 export const StyledA = styled.a`
   color: ${theme.colors.secondary};
@@ -42,6 +44,6 @@ export const ButtonInputWrapperCollumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-top: 1rem;
+  margin-top: 0rem;
   width: 100%;
 `;
