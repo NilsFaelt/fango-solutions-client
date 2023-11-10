@@ -42,6 +42,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
   const { setBookmarkId } = useContext(BookmarkContext);
   const { setToogleBlacBackgroundDisplay, toogleBlacBackgroundDisplay } =
     useContext(MenuContext);
+  const { bookmarkActive } = useContext(BookmarkContext);
   const [toogleDropDown, setToogleDropDown] = useState(false);
   const [toogleDeleteContainer, setToogleDeleteContainer] = useState(false);
   const faviconUrl = getFaviconUrl(bookmark.url);
@@ -56,7 +57,6 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     token
   );
   const openDeleteContainerOnClick = () => {
-    console.log("hej");
     setToogleDeleteContainer(!toogleDeleteContainer);
   };
   const handelDeleteOnClick = () => {
@@ -121,7 +121,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
     },
   };
   // React-chart-data------------------------------------------------------------//
-  console.log(toogleBlacBackgroundDisplay);
+
   if (!bookmark?.url) return null;
   return (
     <Container
@@ -193,7 +193,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
         }}
         href={bookmark?.url}
       >
-        <BookmarkContainer>
+        <BookmarkContainer $hoovershadow={bookmarkActive}>
           <TodoImageContainer>
             {isTodo && <StyledImage src='/svg/writingpad.svg' width={12} />}
           </TodoImageContainer>
@@ -217,19 +217,20 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                 extractChildPathFromURL(child.url),
                 20
               );
-              return (
-                <StyledA
-                  href={child.url}
-                  target='_blank'
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(child.url);
-                  }}
-                  key={i}
-                >
-                  {path.toUpperCase()}
-                </StyledA>
-              );
+              if (path)
+                return (
+                  <StyledA
+                    href={child.url}
+                    target='_blank'
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleClick(child.url);
+                    }}
+                    key={i}
+                  >
+                    {path.toUpperCase()}
+                  </StyledA>
+                );
             })}
           <DougnutContainer>
             <Doughnut data={data} options={options} />

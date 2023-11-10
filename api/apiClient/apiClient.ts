@@ -1,13 +1,13 @@
 const BASE_URL =
   process.env.NODE_ENV === "development"
-    ? "https://localhost:3000"
+    ? "http://localhost:3000"
     : "https://fango-api.onrender.com";
 
 export const apiClient = async <T = any>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> => {
-  console.log(endpoint, options);
+  console.log(endpoint, options, BASE_URL);
   const url = `${BASE_URL}${endpoint}`;
   const response = await fetch(url, options);
 

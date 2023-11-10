@@ -40,7 +40,7 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   // Function to refresh the token
   const refreshIdToken = async () => {
     if (auth.currentUser) {
-      const newToken = await auth.currentUser.getIdToken(true);
+      const newToken = await auth.currentUser.getIdToken();
       setIdToken(newToken);
     }
   };

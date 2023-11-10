@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   align-items: center;
   gap: calc(0.5rem + 1vw);
-  margin-top: 8rem;
+  margin-top: 5rem;
   margin-left: calc(8rem + 6vw);
   margin-bottom: 10rem;
   width: auto;
@@ -28,11 +28,15 @@ export const Container = styled.div`
     justify-content: flex-end;
   }
 `;
-export const InputWrapper = styled.div`
+export const ButtonAndInputWrapper = styled.div`
   display: flex;
-  gap: 2rem;
-  position: absolute;
+  gap: calc(0.5rem + 1vw);
+  width: 100%;
   top: -1rem;
+  flex-wrap: wrap;
+  @media (max-width: ${mediaQueries.tablet}) {
+    flex-direction: column;
+  }
   @media (max-width: ${mediaQueries.mobile}) {
     position: fixed;
     z-index: 3;

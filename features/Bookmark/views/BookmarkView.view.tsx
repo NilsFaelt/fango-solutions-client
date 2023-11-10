@@ -2,7 +2,7 @@
 import React, { FC, useContext, useEffect, useState } from "react";
 import { Container } from "./BookmarkView.style";
 import { AddBookmark, DisplayBookmarks } from "..";
-import { NavBarExtras } from "@/components";
+import { NavBarExtras, SpinUpBookmarks } from "@/components";
 import { AddButton, DropDownInnerButton, HooverButtonDropDown } from "@/ui";
 import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
@@ -35,7 +35,7 @@ export const BookmarkView: FC = () => {
       >
         <UpdateBookmark idToken={idToken} />
       </SlideInContainer>
-      <DisplayBookmarks token={idToken} displaySearch={true} />
+      <DisplayBookmarks idToken={idToken} displaySearch={true} />
 
       <NavBarExtras>
         <AddButton onClick={() => setToogleAddBookmarkContainer(true)} />

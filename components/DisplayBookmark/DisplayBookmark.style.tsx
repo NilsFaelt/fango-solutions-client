@@ -35,7 +35,9 @@ const fadeInUp = keyframes`
   }
 `;
 
-export const BookmarkContainer = styled.button`
+export const BookmarkContainer = styled.button<{
+  $hoovershadow: boolean;
+}>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,12 +47,19 @@ export const BookmarkContainer = styled.button`
   height: 5rem;
   cursor: pointer;
   background-color: black;
-  border: 0.07rem solid ${theme.colors.primary};
+  border: 0.07rem solid
+    ${(props) => (props.$hoovershadow ? "white" : theme.colors.primary)};
   color: white;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   word-break: break-all;
+  box-shadow: ${(props) =>
+    props.$hoovershadow
+      ? `0.1rem 0.1rem 0.1rem  white`
+      : `0 0 0rem ${theme.colors.secondary}`};
+  transition: box-shadow 0.3s ease;
+
   z-index: 4;
   &:hover {
     color: ${theme.colors.primary};
@@ -94,7 +103,6 @@ export const DropUpContainer = styled.div`
   animation: ${fadeInUp} 0.5s ease-in-out forwards;
   width: calc(7rem + 6vw);
   min-width: 10rem;
-
   margin-bottom: 1rem;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
