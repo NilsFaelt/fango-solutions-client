@@ -50,7 +50,8 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
 
   useClickOustsideToClose(ref, setToogleDropDown);
   const primaryUrlName = extractMainPathUrl(bookmark?.url);
-
+  const { alias } = bookmark;
+  const displayAlias = shortenString(alias ? alias : "", 20);
   const { mutateAsync } = useMutateDeleteBookmark(token, bookmark?.id);
   const { mutateAsync: mutateIncrementClick } = useMutateIncrementClick(
     bookmark.id,
@@ -206,7 +207,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
               target.src = "/svg/web.svg";
             }}
           />
-          {primaryUrlName?.toUpperCase()}
+          {displayAlias
+            ? displayAlias.toLocaleUpperCase()
+            : primaryUrlName?.toUpperCase()}
         </BookmarkContainer>
       </StyledLink>
       {toogleDropDown && (

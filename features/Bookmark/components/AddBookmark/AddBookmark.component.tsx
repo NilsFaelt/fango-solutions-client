@@ -10,7 +10,7 @@ import {
   StyledImage,
 } from "./AddBookmark.style";
 import { AddButton, MainTitle, PrimaryButton } from "@/ui";
-import { PrimaryInput, PrimaryInputWhite, PrimaryLabel } from "@/styles";
+import { PrimaryInputWhite, PrimaryLabel } from "@/styles";
 import { MainText } from "@/ui/display/MainText/MainText.component";
 import { useMutateAddBookmark } from "@/hooks";
 import { createAValidUrl, validateUrl } from "../../utils";
@@ -26,6 +26,7 @@ export const AddBookmark: FC<Props> = ({
 }) => {
   const [childUrl, setChildUrl] = useState("");
   const [childUrls, setChildUrls] = useState<string[]>([]);
+  const [alias, setAlias] = useState("");
   const hidePlusButton = childUrls.length < 3;
   const mainValidHttpUrl = createAValidUrl(childUrls[0]);
   const validHttpUrl = createAValidUrl(childUrl);
@@ -34,7 +35,8 @@ export const AddBookmark: FC<Props> = ({
   const { mutateAsync } = useMutateAddBookmark(
     idToken,
     mainValidHttpUrl,
-    childUrls
+    childUrls,
+    alias
   );
 
   const handleClick = () => {
@@ -61,11 +63,16 @@ export const AddBookmark: FC<Props> = ({
       <MainTitle text='BOOKMARK' underText='ADD' />
       <FormContainer>
         <LabelAndInputContainer>
+          <PrimaryLabel> NICKNAME/AlALIAS</PrimaryLabel>
+          <PrimaryInputWhite
+            onChange={(e) => setAlias(e.target.value)}
+            placeholder='Alias'
+            $width={"100%"}
+          />
+        </LabelAndInputContainer>
+        <LabelAndInputContainer>
           <PrimaryLabel>ADD BOOKMARK/URLS</PrimaryLabel>
-          <MainText fontSize='12' margin='0'>
-            Create bookmark, add on or multiple webadresses. By default you will
-            get a main adress and underneath all your specific paths.
-          </MainText>
+
           <ButtonInputWrapperCollumn>
             <PrimaryInputWhite
               $width={"100%"}

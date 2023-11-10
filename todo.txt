@@ -1,4 +1,3 @@
-
 fix loggin to email and password
 create user
 add alias for bookmark 
