@@ -1,18 +1,13 @@
 "use client";
 import React, { FC, useContext } from "react";
-import { Container } from "./OverView.style";
+import { ButtonAndInputWrapper, Container } from "./OverView.style";
 import { ContentDisplay, DisplayBookmarks } from "@/features";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
-import { NavBarExtras } from "@/components";
+import { NavBarExtras, SpinUpBookmarks } from "@/components";
 import { MenuContext } from "@/context";
 import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 import { UpdateBookmark } from "@/components/UpdateBookmark/UpdateBookmark.component";
-import {
-  AddButton,
-  DropDownInnerButton,
-  HooverButtonDropDown,
-  PrimaryButton,
-} from "@/ui";
+import { DropDownInnerButton, HooverButtonDropDown } from "@/ui";
 
 export const OverViewView: FC = () => {
   const { idToken } = useContext(LoggedinUserContext);
@@ -38,6 +33,7 @@ export const OverViewView: FC = () => {
           />
         </HooverButtonDropDown>
       </NavBarExtras>
+
       <ContentDisplay idToken={idToken} />
       <SlideInContainer
         toogleContainer={toogleUpdateBookmark}
@@ -46,7 +42,11 @@ export const OverViewView: FC = () => {
         <UpdateBookmark idToken={idToken} />
       </SlideInContainer>
 
-      <DisplayBookmarks token={idToken} limit={4} />
+      <DisplayBookmarks
+        idToken={idToken}
+        limit={4}
+        displayStartAllButton={true}
+      />
     </Container>
   );
 };

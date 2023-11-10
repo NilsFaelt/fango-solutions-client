@@ -1,6 +1,8 @@
 interface MenuContextInterface {
   setBookmarkId: Dispatch<SetStateAction<null | string>>;
   bookmarkId: string | null;
+  setBookmarkActive: Dispatch<SetStateAction<boolean>>;
+  bookmarkActive: boolean;
 }
 
 import {
@@ -15,14 +17,19 @@ import {
 export const BookmarkContext = createContext<MenuContextInterface>({
   setBookmarkId: () => {},
   bookmarkId: null,
+  setBookmarkActive: () => {},
+  bookmarkActive: false,
 });
 export const BookmarkContextProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
   const [bookmarkId, setBookmarkId] = useState<null | string>(null);
-
+  const [bookmarkActive, setBookmarkActive] = useState<boolean>(false);
+  console.log(bookmarkActive, " in bookmarl");
   return (
-    <BookmarkContext.Provider value={{ bookmarkId, setBookmarkId }}>
+    <BookmarkContext.Provider
+      value={{ bookmarkId, setBookmarkId, setBookmarkActive, bookmarkActive }}
+    >
       {children}
     </BookmarkContext.Provider>
   );

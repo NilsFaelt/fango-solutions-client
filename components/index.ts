@@ -7,3 +7,4 @@ export * from "./DisplayBookmark";
 export * from "./NavBarExtras";
 export * from "./CookieBanner";
 export * from "./LoginPopUp";
+export * from "./SpinUpBookmarks";

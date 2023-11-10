@@ -47,7 +47,7 @@ export const StyledLinkBlack = styled(Link)`
 
 export const PrimaryInputWhite = styled.input<{ $width?: string }>`
   width: ${(props) => (props.$width ? props.$width : "15rem")};
-
+  min-width: 9rem;
   height: 2rem;
   padding: 0.5rem;
   font-size: 1rem;
@@ -76,7 +76,6 @@ export const PrimaryInput = styled.input<{ $width?: string }>`
   height: 2rem;
   padding: 0.5rem;
   font-size: 1rem;
-
   border: 0.05rem solid black;
   border-bottom: 0.05rem solid ${theme.colors.primary};
   color: white;
