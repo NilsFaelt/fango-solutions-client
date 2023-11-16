@@ -25,7 +25,7 @@ export const BookmarkContextProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const [bookmarkId, setBookmarkId] = useState<null | string>(null);
   const [bookmarkActive, setBookmarkActive] = useState<boolean>(false);
-  console.log(bookmarkActive, " in bookmarl");
+
   return (
     <BookmarkContext.Provider
       value={{ bookmarkId, setBookmarkId, setBookmarkActive, bookmarkActive }}

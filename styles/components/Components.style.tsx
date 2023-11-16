@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { keyframes, styled } from "styled-components";
-import { theme } from "..";
+import { mediaQueries } from "../mediaQueries/mediaQueries";
+import { theme } from "../theme/theme.style";
 
 const fadeIn = keyframes`
   0% {
@@ -55,6 +56,10 @@ export const PrimaryInputWhite = styled.input<{ $width?: string }>`
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
   border: 0.07rem solid white;
+  @media (max-width: ${mediaQueries.mobile}) {
+    min-width: 7rem;
+    padding: 0.4rem;
+  }
   &::placeholder {
     color: grey;
   }

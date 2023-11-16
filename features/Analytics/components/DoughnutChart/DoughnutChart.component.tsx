@@ -8,9 +8,10 @@ import {
   Tooltip,
   Legend,
   Title,
+  Filler,
 } from "chart.js";
 
-Chart.register(ArcElement, RadialLinearScale, Tooltip, Legend, Title);
+Chart.register(ArcElement, RadialLinearScale, Filler, Tooltip, Legend, Title);
 interface Props {
   chartTitle: string;
   chartLabels: string[];

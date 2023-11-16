@@ -5,7 +5,7 @@ import {
   LabelAndButtonContainer,
 } from "./LoginPopUp.style";
 import { LogginButton, LoginWithEmailAndPasswordButton, MainTitle } from "@/ui";
-import { PrimaryInput, PrimaryInputWhite } from "@/styles";
+import { PrimaryInputWhite } from "@/styles";
 import { useClickOustsideToClose } from "@/hooks";
 
 interface Props {

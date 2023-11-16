@@ -39,9 +39,13 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
 
   // Function to refresh the token
   const refreshIdToken = async () => {
-    if (auth.currentUser) {
-      const newToken = await auth.currentUser.getIdToken();
-      setIdToken(newToken);
+    try {
+      if (auth.currentUser) {
+        const newToken = await auth.currentUser.getIdToken();
+        setIdToken(newToken);
+      }
+    } catch (err) {
+      console.log("Not Set");
     }
   };
 

@@ -49,10 +49,10 @@ export const PolarChart: FC<Props> = ({
     scales: {
       r: {
         grid: {
-          color: "white", // Set the color of the background circle lines to white
+          color: "white",
         },
         ticks: {
-          display: true,
+          display: false,
           color: "black",
         },
         backgroundColor: "black",
