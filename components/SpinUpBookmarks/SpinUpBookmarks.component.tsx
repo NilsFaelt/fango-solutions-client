@@ -2,7 +2,6 @@ import React, { FC, useContext } from "react";
 import { Container } from "./SpinUpBookmarks.style";
 import { PrimaryButton, Spinner } from "@/ui";
 import { useBookmarks } from "@/hooks";
-import { limit } from "firebase/firestore";
 import { BookmarkContext } from "@/context";
 interface Props {
   idToken: string;
