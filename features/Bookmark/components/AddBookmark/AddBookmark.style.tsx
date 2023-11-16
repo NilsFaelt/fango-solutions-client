@@ -1,4 +1,4 @@
-import { theme } from "@/styles";
+import { mediaQueries, theme } from "@/styles";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -22,6 +22,12 @@ export const LabelAndInputContainer = styled.div`
   gap: 0.5rem;
   margin-top: 1.5rem;
   margin-right: 0.5rem;
+  box-sizeing: boreder-box;
+  @media (max-width: ${mediaQueries.mobile}) {
+    width: 10rem;
+    margin-left: 0;
+    margin-right: 0;
+  }
 `;
 export const StyledA = styled.a`
   color: ${theme.colors.secondary};
@@ -29,6 +35,9 @@ export const StyledA = styled.a`
   max-width: 16rem;
   word-wrap: break-word;
   font-size: 0.8rem;
+  @media (max-width: ${mediaQueries.mobile}) {
+    max-width: 10rem;
+  }
 `;
 export const DisplayUrlWrapper = styled.div`
   display: flex;
