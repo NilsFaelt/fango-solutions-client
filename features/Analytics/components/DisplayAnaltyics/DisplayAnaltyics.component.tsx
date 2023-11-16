@@ -15,7 +15,7 @@ interface Props {
 export const DisplayAnaltyics: FC<Props> = ({ idToken }) => {
   const { data: analyticsData, isLoading } = useGetAnalytics(idToken);
   const { data: userCountData } = useGetUserCount(idToken);
-  console.log(analyticsData, " in comp");
+
   function sortBookmarksByTodos(data: AnalyticsInterface | undefined | null) {
     if (!data?.bookmark) return [];
 

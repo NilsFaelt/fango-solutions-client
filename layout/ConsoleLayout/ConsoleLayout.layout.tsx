@@ -22,7 +22,7 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
     setToogleDocs,
     toogleDocs,
   } = useContext(MenuContext);
-  console.log("in layout");
+
   return (
     <Container>
       {/* <UnderConstrusction /> */}
