@@ -1,4 +1,4 @@
-import { theme } from "@/styles";
+import { mediaQueries, theme } from "@/styles";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -14,6 +14,9 @@ export const Container = styled.div`
   padding-right: 1.5rem;
   padding-bottom: 2rem;
   box-sizing: border-box;
+  @media (max-width: ${mediaQueries.mobile}) {
+    justify-content: flex-start;
+  }
 `;
 
 export const StyledInput = styled.input`
