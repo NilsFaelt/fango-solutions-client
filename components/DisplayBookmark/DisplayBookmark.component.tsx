@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef, useState } from "react";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import {
   BookmarkContainer,
   Container,
@@ -13,6 +13,7 @@ import {
   StyledImage,
   TodoImageContainer,
   DougnutContainer,
+  BlankContainer,
 } from "./DisplayBookmark.style";
 import { StyledLink } from "@/styles";
 import {
@@ -38,6 +39,12 @@ interface Props {
   token: string;
 }
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
+  let windowWidth = window.innerWidth;
+
+  console.log(windowWidth);
+  // Update this condition based on your desired width
+  const shouldPreventDefault = windowWidth >= 450;
+  console.log(shouldPreventDefault);
   const { setToogleUpdateBookmark } = useContext(MenuContext);
   const { setBookmarkId } = useContext(BookmarkContext);
   const { setToogleBlacBackgroundDisplay, toogleBlacBackgroundDisplay } =
@@ -186,13 +193,15 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
           </InnerDropUpContainer>
         </DropUpContainer>
       )}
-      <StyledLink
+      <BlankContainer
         onClick={(e) => {
-          e.preventDefault();
+          {
+            shouldPreventDefault && e.preventDefault();
+          }
 
           handleClick(bookmark?.url);
         }}
-        href={bookmark?.url}
+        // href={bookmark?.url}
       >
         <BookmarkContainer $hoovershadow={bookmarkActive}>
           <TodoImageContainer>
@@ -211,7 +220,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
             ? displayAlias.toLocaleUpperCase()
             : primaryUrlName?.toUpperCase()}
         </BookmarkContainer>
-      </StyledLink>
+      </BlankContainer>
       {toogleDropDown && (
         <DropDownContainer>
           {children?.[0] &&
@@ -226,7 +235,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
                     href={child.url}
                     target='_blank'
                     onClick={(e) => {
-                      e.preventDefault();
+                      {
+                        shouldPreventDefault && e.preventDefault();
+                      }
                       handleClick(child.url);
                     }}
                     key={i}
