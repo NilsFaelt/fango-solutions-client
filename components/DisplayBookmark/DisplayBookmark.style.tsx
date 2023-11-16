@@ -85,6 +85,7 @@ export const Container = styled.div<{ $zindex: number }>`
     box-shadow: 0 0 0.3rem ${theme.colors.secondary};
   }
 `;
+export const BlankContainer = styled.div``;
 
 export const DropDownContainer = styled.div`
   position: absolute;

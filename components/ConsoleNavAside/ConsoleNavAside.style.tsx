@@ -14,10 +14,14 @@ export const Container = styled.nav`
   top: 0;
   height: 100%;
   width: calc(8rem + 6vw);
-
   background-color: ${theme.colors.backgroundPrimary};
   @media (max-width: ${mediaQueries.mobile}) {
     justify-content: space-between;
+  }
+`;
+export const TitleContainer = styled.div`
+  @media (max-width: ${mediaQueries.mobile}) {
+    padding-bottom: 4rem;
   }
 `;
 export const InnerLinkContainer = styled.nav`
