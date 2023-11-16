@@ -25,8 +25,6 @@ export const useMutateIncrementClick = (bookmarkId: string, token: string) => {
   return useMutation(() => fetchClick(bookmarkId, token), {
     onSuccess: () => {
       queryClient.invalidateQueries(["analytics"]);
-
-      console.log("added anyltics");
     },
     onError: (error) => {},
   });

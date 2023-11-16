@@ -39,12 +39,8 @@ interface Props {
   token: string;
 }
 export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
-  let windowWidth = window.innerWidth;
+  const shouldPreventDefault = window.innerWidth >= 450;
 
-  console.log(windowWidth);
-  // Update this condition based on your desired width
-  const shouldPreventDefault = windowWidth >= 450;
-  console.log(shouldPreventDefault);
   const { setToogleUpdateBookmark } = useContext(MenuContext);
   const { setBookmarkId } = useContext(BookmarkContext);
   const { setToogleBlacBackgroundDisplay, toogleBlacBackgroundDisplay } =
@@ -78,6 +74,7 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       });
   };
   const handleClick = (url: string) => {
+    console.log(toogleDropDown);
     if (toogleDropDown)
       mutateIncrementClick().then(() => {
         if (toogleDropDown) window.open(url, "_blank");
@@ -193,34 +190,33 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
           </InnerDropUpContainer>
         </DropUpContainer>
       )}
-      <BlankContainer
+
+      <BookmarkContainer
         onClick={(e) => {
           {
             shouldPreventDefault && e.preventDefault();
           }
-
           handleClick(bookmark?.url);
         }}
-        // href={bookmark?.url}
+        $hoovershadow={bookmarkActive}
       >
-        <BookmarkContainer $hoovershadow={bookmarkActive}>
-          <TodoImageContainer>
-            {isTodo && <StyledImage src='/svg/writingpad.svg' width={12} />}
-          </TodoImageContainer>
-          <StyledImage
-            width={30}
-            height={30}
-            src={faviconUrl ? faviconUrl : "/svg/web.png"}
-            onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-              const target = e.target as HTMLImageElement;
-              target.src = "/svg/web.svg";
-            }}
-          />
-          {displayAlias
-            ? displayAlias.toLocaleUpperCase()
-            : primaryUrlName?.toUpperCase()}
-        </BookmarkContainer>
-      </BlankContainer>
+        <TodoImageContainer>
+          {isTodo && <StyledImage src='/svg/writingpad.svg' width={12} />}
+        </TodoImageContainer>
+        <StyledImage
+          width={30}
+          height={30}
+          src={faviconUrl ? faviconUrl : "/svg/web.png"}
+          onError={(e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+            const target = e.target as HTMLImageElement;
+            target.src = "/svg/web.svg";
+          }}
+        />
+        {displayAlias
+          ? displayAlias.toLocaleUpperCase()
+          : primaryUrlName?.toUpperCase()}
+      </BookmarkContainer>
+
       {toogleDropDown && (
         <DropDownContainer>
           {children?.[0] &&
@@ -232,8 +228,6 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
               if (path)
                 return (
                   <StyledA
-                    href={child.url}
-                    target='_blank'
                     onClick={(e) => {
                       {
                         shouldPreventDefault && e.preventDefault();

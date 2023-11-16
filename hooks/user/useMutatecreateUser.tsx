@@ -25,7 +25,7 @@ export const useMutatecreateUser = (token: string | null) => {
       if (data) {
         console.log("added user");
       } else {
-        console.error("Not set");
+        console.error("not set");
       }
     },
   });

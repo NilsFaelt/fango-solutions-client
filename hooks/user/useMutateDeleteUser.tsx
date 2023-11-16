@@ -22,7 +22,6 @@ const fetchUser = async (token: string | null) => {
 };
 
 export const useMutateDeleteUser = (token: string | null) => {
-  console.log(" in muteate");
   return useMutation(() => fetchUser(token), {
     onSuccess: () => {
       console.log("added user");

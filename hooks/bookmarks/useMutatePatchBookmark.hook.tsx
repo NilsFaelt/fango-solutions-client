@@ -22,7 +22,6 @@ const fetchBookmark = async (
   childUrls?: ChildUrls[],
   childUrlsNew?: string[]
 ) => {
-  console.log(childUrls, childUrlsNew, " in hoook");
   try {
     if (token && bookmark) {
       const response = await fetch(
@@ -50,7 +49,6 @@ export const useMutatePatchBookmark = (
   childUrls?: ChildUrls[],
   childUrlsNew?: string[]
 ) => {
-  console.log(token, id, bookmark, childUrls, " in fetch");
   const queryClient = useQueryClient();
   return useMutation(
     () => fetchBookmark(token, id, bookmark, childUrls, childUrlsNew),
