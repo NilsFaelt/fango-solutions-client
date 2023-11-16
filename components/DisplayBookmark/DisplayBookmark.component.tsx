@@ -74,10 +74,9 @@ export const DisplayBookmark: FC<Props> = ({ bookmark, token }) => {
       });
   };
   const handleClick = (url: string) => {
-    console.log(toogleDropDown);
     if (toogleDropDown)
       mutateIncrementClick().then(() => {
-        if (toogleDropDown) window.open(url, "_blank");
+        window.open(url, "about:blank", "noopener");
       });
   };
   const handleUpdateBookmarkClick = (id: string) => {

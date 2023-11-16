@@ -4,5 +4,8 @@ explain on add book mark, change order nickname?
 display next feature
 add safety api and client github 
 clear console logs api and client
+documentation
+upcoming feature
+chorem extension
 
 
