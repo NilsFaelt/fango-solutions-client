@@ -3,9 +3,10 @@ import {
   Container,
   ButtonWrapper,
   InputLabelWrapper,
+  PrimaryInput,
   AllInputLabelWrapper,
 } from "./UpdateUrlsPopUp.style";
-import { PrimaryInput, PrimaryLabel } from "@/styles";
+import { PrimaryLabel } from "@/styles";
 import { MainTitle, PrimaryButton } from "@/ui";
 import {
   useBookMarkById,

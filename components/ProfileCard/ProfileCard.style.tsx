@@ -119,7 +119,7 @@ export const DropDownContainer = styled.div`
   @media (max-width: ${mediaQueries.mobile}) {
     top: 0rem;
     right: 0;
-    width: 15rem;
+    width: 14rem;
   }
 `;
 
