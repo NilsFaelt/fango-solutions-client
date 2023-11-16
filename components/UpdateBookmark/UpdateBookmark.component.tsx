@@ -18,12 +18,7 @@ import {
   shortenString,
   validateUrl,
 } from "@/features/Bookmark/utils";
-import {
-  ExtraConfirmButton,
-  MainTitle,
-  PrimaryButton,
-  SecondaryButton,
-} from "@/ui";
+import { ExtraConfirmButton, MainTitle, PrimaryButton } from "@/ui";
 import { countTotalTodos } from "./utils";
 import { UpdateUrlsPopUp } from "./UpdateUrlsPopUp";
 
