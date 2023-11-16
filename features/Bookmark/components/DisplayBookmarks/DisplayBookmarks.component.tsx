@@ -45,7 +45,7 @@ export const DisplayBookmarks: FC<Props> = ({
     <Container>
       {displayStartAllButton && (
         <ButtonAndInputWrapper>
-          <SpinUpBookmarks idToken={idToken} limit={4} />
+          <SpinUpBookmarks idToken={idToken} limit={10} />
         </ButtonAndInputWrapper>
       )}
       {displaySearch && (

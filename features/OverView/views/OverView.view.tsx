@@ -1,9 +1,9 @@
 "use client";
 import React, { FC, useContext } from "react";
-import { ButtonAndInputWrapper, Container } from "./OverView.style";
+import { Container } from "./OverView.style";
 import { ContentDisplay, DisplayBookmarks } from "@/features";
 import { LoggedinUserContext } from "@/context/LoggedInUserContext";
-import { NavBarExtras, SpinUpBookmarks } from "@/components";
+import { NavBarExtras } from "@/components";
 import { MenuContext } from "@/context";
 import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 import { UpdateBookmark } from "@/components/UpdateBookmark/UpdateBookmark.component";
@@ -44,7 +44,7 @@ export const OverViewView: FC = () => {
 
       <DisplayBookmarks
         idToken={idToken}
-        limit={4}
+        limit={10}
         displayStartAllButton={true}
       />
     </Container>
