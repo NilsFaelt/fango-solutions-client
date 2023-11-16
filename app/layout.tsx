@@ -17,6 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
+      <meta name='viewport' content='width=device-width, user-scalable=no' />
       <body className={kanit.className}>
         <StyledComponentsRegistry>
           <ProviderWrapper>{children}</ProviderWrapper>
