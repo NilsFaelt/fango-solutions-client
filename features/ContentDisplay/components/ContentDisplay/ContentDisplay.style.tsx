@@ -38,7 +38,7 @@ export const Container = styled.form`
   box-shadow: 0.3em 0.3rem 0.3rem black;
   padding: 1rem;
   @media (max-width: ${mediaQueries.mobile}) {
-    height: 60vh;
+    height: 50vh;
   }
 `;
 
