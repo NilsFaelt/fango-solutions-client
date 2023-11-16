@@ -17,12 +17,13 @@ export const Container = styled.nav`
 
   background-color: ${theme.colors.backgroundPrimary};
   @media (max-width: ${mediaQueries.mobile}) {
-    /* margin-left: -20rem; */
+    justify-content: space-between;
   }
 `;
 export const InnerLinkContainer = styled.nav`
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  flex: 1;
 `;

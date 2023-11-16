@@ -41,9 +41,9 @@ export const TeaserInfo: FC<Props> = ({
   return (
     <StyledLink href={link ? link : ""}>
       <Container>
-        <InnerUpperContainer imageurl={imageSrc}></InnerUpperContainer>
+        <InnerUpperContainer $imageurl={imageSrc}></InnerUpperContainer>
         <InnerLowerContainer>
-          <CategoryContainer bgcolor={CategoryColorMap.get(categoryColor)}>
+          <CategoryContainer $bgcolor={CategoryColorMap.get(categoryColor)}>
             <Text>{categoryText}</Text>
           </CategoryContainer>
           <Title>{title}</Title>

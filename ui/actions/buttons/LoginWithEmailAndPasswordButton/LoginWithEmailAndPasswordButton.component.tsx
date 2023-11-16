@@ -1,7 +1,7 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import {
   Container,
-  StyledImage,
+  OuterContainer,
 } from "./LoginWithEmailAndPasswordButton.style";
 import {
   signInWithEmailAndPassword,
@@ -10,6 +10,7 @@ import {
 import { auth } from "@/firebase";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/ui";
+import { MainText } from "@/ui/display/MainText/MainText.component";
 
 export const LoginWithEmailAndPasswordButton: FC<{
   email: string | null;
@@ -18,8 +19,10 @@ export const LoginWithEmailAndPasswordButton: FC<{
 }> = ({ email, password, toogleCreate = false }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
+  const [isError, setIsError] = useState(false);
   const createUser = toogleCreate ? "CREATE" : "LOGIN";
-  console.log(email, password);
+
   const handleLoginWithCredentials = () => {
     if (email && password) {
       setIsLoading(true);
@@ -40,37 +43,45 @@ export const LoginWithEmailAndPasswordButton: FC<{
       }
     }
   };
-  const handleCreateUserWithCredentials = () => {
+  const handleCreateUserWithCredentials = async () => {
+    const actionCodeSettings = {
+      url: "https://fangosolutions.com/bookmarks",
+      handleCodeInApp: true,
+    };
     if (email && password) {
+      setIsError(false);
       setIsLoading(true);
-      try {
-        createUserWithEmailAndPassword(auth, email, password)
-          .then(({ user }) => {})
-          .then(() => {
-            router.push(`/bookmarks`);
-          })
-          .catch((error) => {
-            console.log("Error:");
-          })
-          .finally(() => {
-            setIsLoading(false);
-          });
-      } catch (err) {
-        setIsLoading(false);
-      }
+
+      await createUserWithEmailAndPassword(auth, email, password)
+        .then(({ user }) => {})
+        .then(() => {
+          setEmailSent(true);
+          // router.push(`/bookmarks`);
+        })
+        .catch((error) => {
+          setIsError(true);
+          console.log("Error:");
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
   };
   if (isLoading) return <Spinner />;
   return (
-    <Container
-      onClick={(e) => {
-        toogleCreate
-          ? handleCreateUserWithCredentials()
-          : handleLoginWithCredentials(),
-          e.preventDefault();
-      }}
-    >
-      {isLoading ? "LOADING..." : createUser}
-    </Container>
+    <OuterContainer>
+      {isError && <MainText>Could not create user</MainText>}
+
+      <Container
+        onClick={(e) => {
+          toogleCreate
+            ? handleCreateUserWithCredentials()
+            : handleLoginWithCredentials(),
+            e.preventDefault();
+        }}
+      >
+        {isLoading ? "LOADING..." : createUser}
+      </Container>
+    </OuterContainer>
   );
 };

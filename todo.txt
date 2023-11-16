@@ -1,6 +1,5 @@
-fix loggin to email and password
-create user
-add alias for bookmark 
 extension for adding bookmakrs
-add one test each day 
+make api work 
+remove users
+
 

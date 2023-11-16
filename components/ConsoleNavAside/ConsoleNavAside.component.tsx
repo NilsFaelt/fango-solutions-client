@@ -8,20 +8,21 @@ export const ConsoleNavAside = () => {
   return (
     <Container>
       <MainTitle linkUrl='/' text='FANGO SOLUTIONS' underText='Console' />
+
       <NavLink text='OVERVIEW' linkPath='/overview' svgPath='/svg/eye.svg' />
-      <InnerLinkContainer>
-        <NavLink
-          text='BOOKMARKS'
-          linkPath='/bookmarks'
-          svgPath='/svg/browser.svg'
-        />
-        {/* <NavLink text='TODO' linkPath='/' svgPath='/svg/todo.svg' /> */}
-      </InnerLinkContainer>
+
+      <NavLink
+        text='BOOKMARKS'
+        linkPath='/bookmarks'
+        svgPath='/svg/browser.svg'
+      />
+
       <NavLink
         text='ANALYTICS'
         linkPath='/analytics'
         svgPath='/svg/analytics.svg'
       />
+
       <SignoutButton />
     </Container>
   );

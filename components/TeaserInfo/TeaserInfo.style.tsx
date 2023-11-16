@@ -14,7 +14,7 @@ export const Container = styled.div`
   height: 25rem;
   box-shadow: 0.1rem 0.1rem 0.1rem ${theme.colors.extra};
 `;
-export const InnerUpperContainer = styled.div<{ imageurl: string }>`
+export const InnerUpperContainer = styled.div<{ $imageurl: string }>`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -22,7 +22,7 @@ export const InnerUpperContainer = styled.div<{ imageurl: string }>`
   height: 40%;
   border-radius: 0.5rem 0.5rem 0rem 0rem;
   box-shadow: 0.5rem, 0.5rem, 0.5rem black;
-  background-image: url(${(props) => props.imageurl});
+  background-image: url(${(props) => props.$imageurl});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -42,12 +42,12 @@ export const InnerLowerContainer = styled.div`
   box-shadow: 0.5rem, 0.5rem, 0.5rem black;
   color: white;
 `;
-export const CategoryContainer = styled.div<{ bgcolor: any }>`
+export const CategoryContainer = styled.div<{ $bgcolor: any }>`
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 0.7rem;
-  background-color: ${(props) => props.bgcolor};
+  background-color: ${(props) => props.$bgcolor};
   height: 1.5rem;
   width: auto;
   padding-left: 2rem;

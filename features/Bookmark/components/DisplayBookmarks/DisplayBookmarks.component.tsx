@@ -28,7 +28,7 @@ export const DisplayBookmarks: FC<Props> = ({
   });
 
   const filteredData = data?.filter((b) => {
-    if (b.url.includes(searchWord)) {
+    if (b.url.toLowerCase().includes(searchWord.toLowerCase())) {
       return b;
     }
   });

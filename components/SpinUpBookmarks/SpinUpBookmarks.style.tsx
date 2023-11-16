@@ -1,3 +1,4 @@
+import { mediaQueries } from "@/styles";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -6,4 +7,7 @@ export const Container = styled.div`
 
   width: calc(7rem + 6vw);
   min-width: 10rem;
+  @media (max-width: ${mediaQueries.mobile}) {
+    min-width: 8rem;
+  }
 `;

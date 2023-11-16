@@ -7,7 +7,6 @@ export const apiClient = async <T = any>(
   endpoint: string,
   options: RequestInit = {}
 ): Promise<T> => {
-  console.log(endpoint, options, BASE_URL);
   const url = `${BASE_URL}${endpoint}`;
   const response = await fetch(url, options);
 

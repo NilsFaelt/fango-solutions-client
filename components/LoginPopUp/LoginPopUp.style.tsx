@@ -29,7 +29,7 @@ export const Container = styled.form`
     background-color: rgba(0, 0, 0, 1);
   }
 `;
-export const LabelAndButtonContainer = styled.form`
+export const LabelAndButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

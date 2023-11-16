@@ -2,7 +2,7 @@ import { apiClient } from "@/api";
 import { useMutation } from "@tanstack/react-query";
 
 const fetchuser = async (token: string | null) => {
-  if (!token) throw new Error(" no token");
+  if (!token) return null;
   try {
     const response = await fetch(
       `${apiClient("/user", {
@@ -15,17 +15,18 @@ const fetchuser = async (token: string | null) => {
     ).then((res) => res.json);
     return response;
   } catch (err) {
-    console.log(`couldnt add bookmark`);
-    throw err;
+    return null;
   }
 };
 
 export const useMutatecreateUser = (token: string | null) => {
-  console.log(" in muteate");
   return useMutation(() => fetchuser(token), {
-    onSuccess: () => {
-      console.log("added user");
+    onSuccess: (data) => {
+      if (data) {
+        console.log("added user");
+      } else {
+        console.error("Not set");
+      }
     },
-    onError: (error) => {},
   });
 };

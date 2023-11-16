@@ -2,6 +2,12 @@ import { theme } from "@/styles";
 import styled, { keyframes } from "styled-components";
 import Image from "next/image";
 
+export const OuterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 export const Container = styled.button`
   display: flex;
   align-items: center;

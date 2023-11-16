@@ -63,7 +63,7 @@ export const AddBookmark: FC<Props> = ({
       <MainTitle text='BOOKMARK' underText='ADD' />
       <FormContainer>
         <LabelAndInputContainer>
-          <PrimaryLabel> NICKNAME/AlALIAS</PrimaryLabel>
+          <PrimaryLabel> NICKNAME/ALIAS</PrimaryLabel>
           <PrimaryInputWhite
             onChange={(e) => setAlias(e.target.value)}
             placeholder='Alias'
