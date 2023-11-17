@@ -38,7 +38,6 @@ export const BookmarkView: FC = () => {
       <DisplayBookmarks idToken={idToken} displaySearch={true} />
 
       <NavBarExtras>
-        <AddButton onClick={() => setToogleAddBookmarkContainer(true)} />
         <SlideInContainer
           setToogleContainer={setToogleAddBookmarkContainer}
           toogleContainer={toogleAddBookmarkContainer}

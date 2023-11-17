@@ -35,12 +35,6 @@ export const ConsoleLayout: FC<Props> = ({ children }) => {
       />
       {children}
       {toogleDocs && <DocsPopUpView />}
-      <DocsButtonWrapper>
-        <PrimaryButton
-          text='DOCUMENTATION'
-          onClick={() => setToogleDocs(true)}
-        />
-      </DocsButtonWrapper>
     </Container>
   );
 };

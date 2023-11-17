@@ -16,7 +16,7 @@ export const SpinUpBookmarks: FC<Props> = ({ idToken, limit = 100 }) => {
   });
   const handleClick = () => {
     data?.map((b) => {
-      window.open(b.url, "_blank");
+      window.open(b.url, "about:blank", "noopener");
     });
   };
   if (isLoading) return <Spinner />;

@@ -1,12 +1,17 @@
 "use client";
 import React, { FC, useContext, useState } from "react";
-import { Container, ButtonAndInputWrapper } from "./DisplayBookmarks.style";
+import {
+  Container,
+  ButtonAndInputWrapper,
+  ButtonWrapper,
+} from "./DisplayBookmarks.style";
 import { DisplayBookmark, SpinUpBookmarks } from "@/components";
 import { useBookmarks } from "@/hooks";
 import { BookmarkInterface } from "@/types/bookmark";
-import { Spinner } from "@/ui";
+import { AddButton, PrimaryButton, Spinner } from "@/ui";
 import { PrimaryInputWhite, SpinnerWrapperCenter } from "@/styles";
-import { BookmarkContext } from "@/context";
+import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
+import { AddBookmark } from "..";
 
 interface Props {
   idToken: string;
@@ -20,7 +25,8 @@ export const DisplayBookmarks: FC<Props> = ({
   displaySearch = false,
   displayStartAllButton = false,
 }) => {
-  // const { bookmarkActive } = useContext(BookmarkContext);
+  const [toogleAddBookmarkContainer, setToogleAddBookmarkContainer] =
+    useState(false);
   const [searchWord, setSearchWord] = useState("");
   const { data, isLoading } = useBookmarks(idToken, {
     limit,
@@ -43,6 +49,15 @@ export const DisplayBookmarks: FC<Props> = ({
 
   return (
     <Container>
+      <SlideInContainer
+        setToogleContainer={setToogleAddBookmarkContainer}
+        toogleContainer={toogleAddBookmarkContainer}
+      >
+        <AddBookmark
+          setToogleAddBookmarkContainer={setToogleAddBookmarkContainer}
+          idToken={idToken}
+        />
+      </SlideInContainer>
       {displayStartAllButton && (
         <ButtonAndInputWrapper>
           <SpinUpBookmarks idToken={idToken} limit={10} />
@@ -64,6 +79,12 @@ export const DisplayBookmarks: FC<Props> = ({
       {filteredData?.map((bookmark: BookmarkInterface, i: number) => {
         return <DisplayBookmark key={i} bookmark={bookmark} token={idToken} />;
       })}
+      <ButtonWrapper>
+        <PrimaryButton
+          text='ADD BOOKMARK'
+          onClick={() => setToogleAddBookmarkContainer(true)}
+        />
+      </ButtonWrapper>
     </Container>
   );
 };
