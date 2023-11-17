@@ -39,6 +39,9 @@ export const StyledA = styled.a`
   max-width: 16rem;
   word-wrap: break-word;
   font-size: 0.8rem;
+  @media (max-width: ${mediaQueries.mobile}) {
+    max-width: 11rem;
+  }
 `;
 export const ButtonWrapper = styled.div`
   width: calc(10rem + 10vw);
