@@ -28,16 +28,23 @@ export const Container = styled.div`
     justify-content: flex-end;
   }
 `;
+export const ButtonWrapper = styled.div`
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  min-width: calc(7rem + 4vw);
+`;
 export const ButtonAndInputWrapper = styled.div`
   display: flex;
   gap: calc(0.5rem + 1vw);
+
   width: 100%;
   top: -1rem;
   flex-wrap: wrap;
   @media (max-width: ${mediaQueries.tablet}) {
-    flex-direction: column;
   }
   @media (max-width: ${mediaQueries.mobile}) {
+    flex-direction: column;
     position: fixed;
     z-index: 3;
     left: 0.7rem;
