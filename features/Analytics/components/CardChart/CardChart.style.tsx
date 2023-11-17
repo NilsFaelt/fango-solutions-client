@@ -1,3 +1,4 @@
+import { theme } from "@/styles";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -39,6 +40,6 @@ export const Title = styled.h5`
   word-wrap: break-word;
   font-size: 1.8rem;
   margin: 0;
-  color: rgba(53, 162, 235, 1);
+  color: ${theme.colors.primary};
 `;
 // export const StyledImage = styled(Image)``;
