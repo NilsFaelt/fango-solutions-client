@@ -19,6 +19,9 @@ export const Container = styled.form`
   z-index: 1000;
   box-shadow: 0.3em 0.3rem 0.3rem black;
   transition: 1s;
+  @media (max-width: ${mediaQueries.tablet}) {
+    background-color: rgba(0, 0, 0, 1);
+  }
   @media (max-width: ${mediaQueries.mobile}) {
     padding: 2.5rem 3rem 5rem 3rem;
     top: 340%;
@@ -40,6 +43,6 @@ export const LabelAndButtonContainer = styled.div`
 `;
 export const ExtraText = styled.p`
   cursor: pointer;
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   color: white;
 `;

@@ -36,4 +36,5 @@ export const StyledImage = styled.img`
 export const Text = styled.p`
   color: white;
   text-align: center;
+  margin: 0;
 `;
