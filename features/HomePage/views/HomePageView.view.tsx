@@ -15,7 +15,7 @@ export const HomePageView: FC = () => {
         <MainTextContainer
           title='What are we'
           underTitle='And why?'
-          text='We are a SaaS (Software as a Service) platform dedicated to simplifying everyday operations for personal use of the browser. Our mission is to streamline your workflow by consolidating a wide range of tools into a single, user-friendly product. Our goal is to enhance your efficiency and productivity without the need for extensive hours of learning and training. With our platform, you can seamlessly manage various aspects of your business without the hassle of navigating multiple complex systems. Your time is valuable, and we are here to make sure you spend it wisely.'
+          text='Our platform prioritizes streamlined bookmark utilization, evolving through user feedback. Crafted for an intuitive browsing experience, it adapts and expands functionalities. Focused on user input, were committed to enhancing and simplifying your interaction with bookmarks. Our aim is to consolidate tools seamlessly, offering an efficient browsing interface. User feedback propels our development, ensuring continuous evolution tailored to your needs. As we expand, our commitment remains steadfast in integrating improvements that refine bookmark usage. Your browsing efficiency is our focus, and were dedicated to refining our platform to optimize your experience with bookmarks.'
         />
         {teaserInfo?.map((item, i: number) => {
           return (

@@ -28,14 +28,14 @@ export const PolarChart: FC<Props> = ({
       {
         label: "Visited",
         data: chartData,
-        backgroundColor: "rgba(0, 0, 0, 1)",
-        borderColor: [
+        backgroundColor: [
           "rgba(0, 216, 234, 1)", // Light blue
           "rgba(127, 66, 126, 1)", // Purple
           "rgba(125, 222, 114, 1)", // Green
           "rgba(239, 150, 36, 1)", // Orange
           "rgba(255, 196, 60, 1)", // Yellow
         ],
+        borderColor: ["black"],
 
         borderWidth: 2, // Adjust the border width as needed
         fill: true,

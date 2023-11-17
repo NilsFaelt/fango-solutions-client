@@ -14,7 +14,7 @@ export const MainTextContainer: FC<Props> = ({ title, text, underTitle }) => {
   return (
     <Container>
       <MainTitle text={title ? title : ""} underText={underTitle} />
-      <MainText>{text}</MainText>
+      <MainText fontSize='16'>{text}</MainText>
     </Container>
   );
 };
