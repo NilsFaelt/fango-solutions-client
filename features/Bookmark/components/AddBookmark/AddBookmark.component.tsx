@@ -64,6 +64,9 @@ export const AddBookmark: FC<Props> = ({
       <FormContainer>
         <LabelAndInputContainer>
           <PrimaryLabel> NICKNAME/ALIAS</PrimaryLabel>
+          <MainText margin='0'>
+            Optinal, this name will show up instead of bookmark name
+          </MainText>
           <PrimaryInputWhite
             onChange={(e) => setAlias(e.target.value)}
             placeholder='Alias'
@@ -72,6 +75,9 @@ export const AddBookmark: FC<Props> = ({
         </LabelAndInputContainer>
         <LabelAndInputContainer>
           <PrimaryLabel>ADD BOOKMARK/URLS</PrimaryLabel>
+          <MainText margin='0'>
+            Copy paste your url or manualy type. Add 1-3 URLs per bookmark
+          </MainText>
 
           <ButtonInputWrapperCollumn>
             <PrimaryInputWhite

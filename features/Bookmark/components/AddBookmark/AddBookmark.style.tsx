@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-around;
 
-  gap: 1.2rem;
+  gap: 0rem;
   color: white;
   padding-right: 1rem;
   min-height: 30rem;
@@ -43,7 +43,8 @@ export const DisplayUrlWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 `;
 export const StyledImage = styled(Image)`
   margin-left: 1rem;
