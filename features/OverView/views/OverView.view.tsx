@@ -2,21 +2,21 @@
 import React, { FC, useContext } from "react";
 import { Container } from "./OverView.style";
 import { ContentDisplay, DisplayBookmarks } from "@/features";
-import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 import { NavBarExtras } from "@/components";
 import { MenuContext } from "@/context";
 import { SlideInContainer } from "@/components/SlideInContainer/SlideInContainer.component";
 import { UpdateBookmark } from "@/components/UpdateBookmark/UpdateBookmark.component";
 import { DropDownInnerButton, HooverButtonDropDown } from "@/ui";
+import { useIdToken } from "@/hooks";
 
 export const OverViewView: FC = () => {
-  const { idToken } = useContext(LoggedinUserContext);
+  const { token } = useIdToken();
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
   const { toogleUpdateBookmark, setToogleUpdateBookmark } =
     useContext(MenuContext);
-  if (!idToken) return null;
+  if (!token) return null;
   return (
     <Container>
       <NavBarExtras>
@@ -34,16 +34,16 @@ export const OverViewView: FC = () => {
         </HooverButtonDropDown>
       </NavBarExtras>
 
-      <ContentDisplay idToken={idToken} />
+      <ContentDisplay idToken={token} />
       <SlideInContainer
         toogleContainer={toogleUpdateBookmark}
         setToogleContainer={setToogleUpdateBookmark}
       >
-        <UpdateBookmark idToken={idToken} />
+        <UpdateBookmark idToken={token} />
       </SlideInContainer>
 
       <DisplayBookmarks
-        idToken={idToken}
+        idToken={token}
         limit={10}
         displayStartAllButton={true}
       />

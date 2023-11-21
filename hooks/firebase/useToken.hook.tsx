@@ -1,10 +1,8 @@
 import { auth } from "@/firebase";
 import { useEffect, useState } from "react";
 
-const getToken = async () => {
+const getToken = async (user: any) => {
   try {
-    const user = auth.currentUser;
-
     if (user) {
       const idToken = await user.getIdToken();
       return idToken;
@@ -21,13 +19,19 @@ export const useIdToken = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    getToken().then((idToken) => {
-      if (idToken) {
-        setToken(idToken);
-      } else {
-        setError("Could not retrieve ID token.");
-      }
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      getToken(user).then((idToken) => {
+        if (idToken) {
+          setToken(idToken);
+        } else {
+          setError("Could not retrieve ID token.");
+        }
+      });
     });
+
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return { token, error };

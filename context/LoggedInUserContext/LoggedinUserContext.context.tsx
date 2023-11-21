@@ -36,7 +36,7 @@ export const LoggedinUserContextProvider: FC<{ children: ReactNode }> = ({
   const [loggedInUser, setLoggedInUser] = useState<null | LoggedInUser>(null);
   const [idToken, setIdToken] = useState<null | string>(null);
   const { mutate } = useMutatecreateUser(idToken);
-
+  console.log(loggedInUser);
   // Function to refresh the token
   const refreshIdToken = async () => {
     try {

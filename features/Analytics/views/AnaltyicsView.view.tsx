@@ -1,17 +1,17 @@
-"use client";
-import React, { FC, useContext } from "react";
+import React, { FC } from "react";
 import { Container } from "./AnalyticsView.style";
-import { LoggedinUserContext } from "@/context/LoggedInUserContext";
 import { DisplayAnaltyics } from "..";
 import { NavBarExtras } from "@/components";
 import { DropDownInnerButton, HooverButtonDropDown } from "@/ui";
+import { useIdToken } from "@/hooks";
 
 export const AnaltyicsView: FC = () => {
   const openNewWindow = (url: string) => {
     window.open(url, "_blank");
   };
-  const { idToken } = useContext(LoggedinUserContext);
-  if (!idToken) return null;
+  const { token } = useIdToken();
+
+  if (!token) return null;
   return (
     <Container>
       <NavBarExtras>
@@ -28,7 +28,7 @@ export const AnaltyicsView: FC = () => {
           />
         </HooverButtonDropDown>
       </NavBarExtras>
-      <DisplayAnaltyics idToken={idToken} />
+      <DisplayAnaltyics idToken={token} />
     </Container>
   );
 };
