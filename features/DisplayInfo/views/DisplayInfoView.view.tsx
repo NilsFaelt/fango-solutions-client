@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import {
   Container,
@@ -59,14 +60,14 @@ export const DisplayInfoView: FC<{ id: string }> = ({ id }) => {
     },
   ];
 
-  const item = data.find((item) => item?.id === id);
+  const item = data?.find((item) => item?.id === id);
 
   return (
     <Container>
       <MainTitle
         linkUrl='/'
         text='FANGO SOLUTIONS'
-        underText='Simplfied to suit evryone'
+        underText='Simplfied to suit all'
       />
       <ImageAndTextContainer>
         <StyledImage src={item?.imageSrc} />
