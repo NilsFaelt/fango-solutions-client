@@ -1,11 +1,18 @@
 "use client";
 import { DisplayInfoView } from "@/features/DisplayInfo";
 import { MainLayout } from "@/layout";
-
-import React from "react";
+import { MainTitle } from "@/ui";
 
 const page = ({ params }: { params: { id: string } }) => {
-  if (params?.id) return <p>Data No Found</p>;
+  if (params?.id)
+    return (
+      <div style={{ textAlign: "center", marginTop: "10rem" }}>
+        <MainTitle
+          text='DATA NOT FOUND'
+          underText='Sorry, please refresh the page'
+        />
+      </div>
+    );
   return (
     <MainLayout>
       <DisplayInfoView id={params?.id} />
