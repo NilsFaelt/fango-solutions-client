@@ -12,7 +12,7 @@ export const Container = styled.form`
   justify-content: center;
   text-align: center;
   gap: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 1);
   border: 0.1rem solid white;
   border-radius: 0.5rem;
   padding: 2.5rem 5rem 5rem 5rem;
