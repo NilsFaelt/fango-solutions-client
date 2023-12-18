@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 import {
   Container,
@@ -10,7 +11,7 @@ import { MainTextContainer } from "@/components";
 import data from "../../../data/json/InfoData.json";
 
 export const DisplayInfoView: FC<{ id: string }> = ({ id }) => {
-  const item = data.find((item) => item.id === id);
+  const item = data.find((item) => item?.id === id);
 
   return (
     <Container>
@@ -24,7 +25,7 @@ export const DisplayInfoView: FC<{ id: string }> = ({ id }) => {
         <MainTextContainer
           title={item?.title}
           underTitle={item?.underTitle}
-          text={item?.shortDescription ? item.shortDescription : ""}
+          text={item?.shortDescription ? item?.shortDescription : ""}
         />
       </ImageAndTextContainer>
       <Text>{item?.description}</Text>
