@@ -4,7 +4,7 @@ import { MainLayout } from "@/layout";
 import { MainTitle } from "@/ui";
 
 const page = ({ params }: { params: { id: string } }) => {
-  if (params?.id)
+  if (!params?.id)
     return (
       <div style={{ textAlign: "center", marginTop: "10rem" }}>
         <MainTitle
