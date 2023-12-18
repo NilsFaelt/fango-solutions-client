@@ -19,6 +19,7 @@ export const useIdToken = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    console.log(" in contentßß");
     const unsubscribe = auth.onAuthStateChanged((user) => {
       getToken(user).then((idToken) => {
         if (idToken) {
