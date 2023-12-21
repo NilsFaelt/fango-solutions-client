@@ -15,7 +15,8 @@ const page = ({ params }: { params: { id: string } }) => {
     );
   return (
     <MainLayout>
-      <DisplayInfoView id={params?.id} />
+      hej
+      {/* <DisplayInfoView id={params?.id} /> */}
     </MainLayout>
   );
 };
